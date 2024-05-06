@@ -1,5 +1,5 @@
 {
-    "name": "Core.Common.UnityContainer",
+    "name": "Project.Common.UnityContainer",
     "rootNamespace": "",
     "references": [
         "GUID:2e851f55ee557f94d98d116190b9f46a"

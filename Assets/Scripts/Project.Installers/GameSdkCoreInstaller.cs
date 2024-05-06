@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Project.Installers
 {
-    public class SdkCoreInstaller : IUnityInstaller
+    public class GameSdkCoreInstaller : IUnityInstaller
     {
         public override void InstallBindings(IUnityContainer container)
         {

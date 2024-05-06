@@ -3,7 +3,7 @@ using GameSdk.Services.InApp;
 
 namespace Project.Installers
 {
-    public class SdkServicesInstaller : IUnityInstaller
+    public class GameSdkServicesInstaller : IUnityInstaller
     {
         public override void InstallBindings(IUnityContainer container)
         {
