@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Core.Common.UnityContainer
 {
-    [CreateAssetMenu(fileName = nameof(UnityInstaller), menuName = "Unity Container/" + nameof(UnityInstaller))]
+    [CreateAssetMenu(fileName = nameof(UnityInstaller), menuName = "Unity Installer")]
     public partial class UnityInstaller : ScriptableObject
     {
         [SerializeField, HideInInspector, Space]

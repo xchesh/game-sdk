@@ -2,5 +2,6 @@
 {
     public interface IRemoteConfigService
     {
+        IRemoteConfig GetConfig();
     }
 }
