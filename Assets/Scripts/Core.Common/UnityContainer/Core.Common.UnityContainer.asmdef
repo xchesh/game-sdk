@@ -1,0 +1,16 @@
+{
+    "name": "Core.Common.UnityContainer",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2e851f55ee557f94d98d116190b9f46a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

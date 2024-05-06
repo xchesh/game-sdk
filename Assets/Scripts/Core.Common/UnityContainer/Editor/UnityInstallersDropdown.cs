@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using Core.Common.Toolbox;
+using UnityEditor;
+using UnityEditor.IMGUI.Controls;
+
+namespace Core.Common.UnityContainer
+{
+    internal class UnityInstallersDropdown : AdvancedDropdownBase
+    {
+        public UnityInstallersDropdown(string name, IEnumerable<AdvancedDropdownData> items,
+            AdvancedDropdownState state, SerializedProperty property) : base(name, items, state, property)
+        {
+        }
+
+        protected override void SetPropertyValue(AdvancedDropdownBaseItem item)
+        {
+            if (Property.serializedObject.targetObject is UnityInstaller unityInstaller)
+            {
+                unityInstaller.Add(item.Value as Type);
+
+                AssetDatabase.SaveAssetIfDirty(unityInstaller);
+            }
+        }
+    }
+}

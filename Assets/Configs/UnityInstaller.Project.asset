@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7154810900834773465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ea2c4bab2946c48e6892f009402293, type: 3}
+  m_Name: SdkCoreInstaller
+  m_EditorClassIdentifier: 
+--- !u!114 &-5416363392819332980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 351a582671c74cc79e83ba7dfdc14cba, type: 3}
+  m_Name: SdkServicesInstaller
+  m_EditorClassIdentifier: 
+--- !u!114 &-456680926993325890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbb90d14ff74080478aff877248fd0b0, type: 3}
+  m_Name: ProjectInstaller
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 006b7b883d6721349af47698823ca11c, type: 3}
+  m_Name: UnityInstaller.Project
+  m_EditorClassIdentifier: 
+  _installers:
+  - {fileID: -456680926993325890}
+  - {fileID: -7154810900834773465}
+  - {fileID: -5416363392819332980}
+  _path: Assets/Scripts/Project.Installers
