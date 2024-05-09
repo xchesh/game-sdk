@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff18309fec84479a0124c23008c3cb6, type: 3}
+  m_Name: GameSdk.InternetReachability
+  m_EditorClassIdentifier: 
+  _checkIntervalActiveMS: 60000
+  _checkIntervalInactiveMS: 5000
+  _checkURL: http://google.com/generate_204

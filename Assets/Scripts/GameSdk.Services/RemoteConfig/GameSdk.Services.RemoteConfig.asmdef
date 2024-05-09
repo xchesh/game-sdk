@@ -2,8 +2,7 @@
     "name": "GameSdk.Services.RemoteConfig",
     "rootNamespace": "",
     "references": [
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:481386834acb44dd96951e450a61f758"
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

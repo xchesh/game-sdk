@@ -1,7 +1,11 @@
-﻿namespace GameSdk.Services.RemoteConfig
+﻿using Cysharp.Threading.Tasks;
+
+namespace GameSdk.Services.RemoteConfig
 {
     public interface IRemoteConfigService
     {
-        IRemoteConfig GetConfig();
+        IRemoteConfig AppConfig { get; }
+
+        UniTask Initialize(params string[] configs);
     }
 }
