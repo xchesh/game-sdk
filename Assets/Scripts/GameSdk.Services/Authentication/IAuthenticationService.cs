@@ -1,9 +1,7 @@
-﻿using Cysharp.Threading.Tasks;
-
-namespace GameSdk.Services.Authentication
+﻿namespace GameSdk.Services.Authentication
 {
-    public interface IAuthenticationService
+    public interface IAuthenticationService : IAuthenticationProvider
     {
-        UniTask Initialize();
+        const string TAG = "Authentication";
     }
 }

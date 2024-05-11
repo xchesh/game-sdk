@@ -12,13 +12,17 @@ namespace Project.Installers
 
         public override void InstallBindings(IUnityContainer container)
         {
+            // Internet Reachability
             UnityEngine.Assertions.Assert.IsNotNull(_internetReachabilityConfig);
-
             container.RegisterInstance(_internetReachabilityConfig).As<InternetReachabilityConfig>();
-
-            container.Register<InAppService>().As<IInAppService>();
-            container.Register<RemoteConfigService>().As<IRemoteConfigService>();
             container.Register<InternetReachabilityService>().As<IInternetReachabilityService>();
+
+            // In-App
+            container.Register<InAppService>().As<IInAppService>();
+
+            // Remote Config
+            container.Register<RemoteConfigContext>().As<IRemoteConfigContext>();
+            container.Register<RemoteConfigService>().As<IRemoteConfigService>();
         }
     }
 }

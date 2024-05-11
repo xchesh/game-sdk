@@ -1,18 +1,19 @@
 {
-    "name": "GameSdk.Services",
-    "rootNamespace": "",
-    "references": [
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:481386834acb44dd96951e450a61f758",
-        "GUID:a58cec5145b6dd444afb045a98597c60"
-    ],
-    "includePlatforms": [],
-    "excludePlatforms": [],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": [],
-    "noEngineReferences": false
+  "name": "GameSdk.Services",
+  "rootNamespace": "",
+  "references": [
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:481386834acb44dd96951e450a61f758",
+    "GUID:a58cec5145b6dd444afb045a98597c60",
+    "GUID:0d2d0774100549cfbfb98ce4307fba39"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
 }

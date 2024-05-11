@@ -2,10 +2,11 @@
 
 namespace GameSdk.Services.RemoteConfig
 {
-    public interface IRemoteConfigService
+    public interface IRemoteConfigService : IRemoteConfigProvider
     {
-        IRemoteConfig AppConfig { get; }
-
         UniTask Initialize(params string[] configs);
+
+        internal void RegisterListener(IRemoteConfigListener listener);
+        internal void UnregisterListener(IRemoteConfigListener listener);
     }
 }

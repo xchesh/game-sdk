@@ -11,21 +11,21 @@ namespace Core.Common.UnityContainer
     {
         private readonly IEnumerable<IInitializable> _initializables;
         private readonly IEnumerable<INonLazy> _nonLazies;
-        private readonly ISystemLogger _logger;
+        private readonly ISystemLogger _systemLogger;
 
         public VContainerKernel(
             ContainerLocal<IReadOnlyList<IInitializable>> localInitializables,
             ContainerLocal<IReadOnlyList<INonLazy>> localNonLazies,
-            ISystemLogger logger)
+            ISystemLogger systemLogger)
         {
             _initializables = localInitializables.Value;
             _nonLazies = localNonLazies.Value;
-            _logger = logger;
+            _systemLogger = systemLogger;
         }
 
         public void Start()
         {
-            _logger.Log(LogType.Log, "UnityContainer.VContainer", $"NonLazy: {_nonLazies.Count()}");
+            _systemLogger.Log(LogType.Log, "UnityContainer.VContainer", $"NonLazy: {_nonLazies.Count()}");
 
             foreach (var unityInitializable in _initializables.OrderBy(i => i.Order))
             {

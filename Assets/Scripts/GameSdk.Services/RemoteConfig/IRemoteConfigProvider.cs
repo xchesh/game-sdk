@@ -1,9 +1,13 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 
 namespace GameSdk.Services.RemoteConfig
 {
     public interface IRemoteConfigProvider
     {
+        event Action<IRemoteConfig> ConfigFetched;
+        event Action<string, string> ConfigFetchFailed;
+
         string AppConfigType { get; }
         string AppConfigVersion { get; }
 

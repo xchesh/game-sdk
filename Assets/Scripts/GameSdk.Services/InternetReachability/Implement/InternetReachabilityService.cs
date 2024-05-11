@@ -1,28 +1,40 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using Cysharp.Threading.Tasks;
 using GameSdk.Core.Datetime;
+using GameSdk.Core.Loggers;
 using UnityEngine;
 
 namespace GameSdk.Services.InternetReachability
 {
+    [JetBrains.Annotations.UsedImplicitly]
     public class InternetReachabilityService : IInternetReachabilityService
     {
         private readonly ISystemTime _systemTime;
+        private readonly ISystemLogger _systemLogger;
         private readonly InternetReachabilityConfig _config;
 
-        public NetworkReachability NetworkReachability { get; private set; }
-        public bool IsConnected { get; private set; }
+        public event Action<bool> InternetReachable;
 
-        private bool _isActive;
+        public NetworkReachability NetworkReachability { get; private set; }
+        public bool IsInternetReachable { get; private set; }
+
+        private bool _isCheckActive;
         private long _lastCheckTimeMs;
 
-        public InternetReachabilityService(ISystemTime systemTime, InternetReachabilityConfig config)
+        public InternetReachabilityService(
+            ISystemTime systemTime,
+            ISystemLogger systemLogger,
+            InternetReachabilityConfig config)
         {
             _systemTime = systemTime;
+            _systemLogger = systemLogger;
             _config = config;
-            _isActive = true;
 
-            IsConnected = false;
+            _isCheckActive = true;
+            _lastCheckTimeMs = 0;
+
+            IsInternetReachable = false;
             NetworkReachability = Application.internetReachability;
         }
 
@@ -33,79 +45,91 @@ namespace GameSdk.Services.InternetReachability
 
             if (_config.CheckOnAppStart)
             {
-                CheckConnection();
+                _systemLogger.Log(LogType.Log, IInternetReachabilityService.TAG, "Initialize - check on app start");
+                CheckInternetReachability();
             }
 
             if (_config.CheckPeriodic)
             {
+                _systemLogger.Log(LogType.Log, IInternetReachabilityService.TAG, "Initialize - start periodic check");
                 RunFixedUpdate().Forget();
             }
         }
 
-        public bool CheckConnection()
+        public bool CheckInternetReachability()
         {
+            bool isInternetReachable;
+
             try
             {
                 using var client = new WebClient();
                 using (client.OpenRead(_config.CheckURL))
                 {
-                    IsConnected = true;
+                    isInternetReachable = true;
                 }
             }
             catch
             {
-                IsConnected = false;
+                _systemLogger.Log(LogType.Log, IInternetReachabilityService.TAG, "No internet connection.");
+                isInternetReachable = false;
             }
 
             _lastCheckTimeMs = _systemTime.OffsetNow().ToUnixTimeMilliseconds();
 
-            return IsConnected;
+            if (IsInternetReachable != isInternetReachable)
+            {
+                IsInternetReachable = isInternetReachable;
+                InternetReachable?.Invoke(IsInternetReachable);
+            }
+
+            return IsInternetReachable;
         }
 
         private void QuitHandler()
         {
-            _isActive = false;
+            _isCheckActive = false;
         }
 
         private void FocusChangedHandler(bool hasFocus)
         {
-            _isActive = hasFocus;
+            _isCheckActive = hasFocus;
 
-            if (_isActive && _config.CheckOnAppFocus)
+            if (_isCheckActive && _config.CheckOnAppFocus)
             {
-                CheckConnection();
+                CheckInternetReachability();
             }
         }
 
         private async UniTaskVoid RunFixedUpdate()
         {
-            while (_isActive)
+            while (_isCheckActive)
             {
-                UpdateUnityCheck();
-                UpdateAutoCheck();
+                UpdateCheckUnity();
+                UpdateCheckAuto();
 
-                await UniTask.Yield(PlayerLoopTiming.LastFixedUpdate);
+                await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
             }
         }
 
-        private void UpdateUnityCheck()
+        private void UpdateCheckUnity()
         {
             if (NetworkReachability != Application.internetReachability)
             {
+                _systemLogger.Log(LogType.Log, IInternetReachabilityService.TAG, "Network reachability changed.");
                 NetworkReachability = Application.internetReachability;
                 // Recheck connection if network reachability changed
-                CheckConnection();
+                CheckInternetReachability();
             }
         }
 
-        private void UpdateAutoCheck()
+        private void UpdateCheckAuto()
         {
             var passedMs = _systemTime.OffsetNow().ToUnixTimeMilliseconds() - _lastCheckTimeMs;
-            var checkTimeMs = IsConnected ? _config.CheckIntervalActiveMS : _config.CheckIntervalInactiveMS;
+            var checkTimeMs = IsInternetReachable ? _config.CheckIntervalActiveMS : _config.CheckIntervalInactiveMS;
 
             if (passedMs >= checkTimeMs)
             {
-                CheckConnection();
+                CheckInternetReachability();
             }
         }
     }

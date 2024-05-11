@@ -6,7 +6,7 @@ namespace GameSdk.Services.InternetReachability
         order = 0)]
     public class InternetReachabilityConfig : ScriptableObject
     {
-        [SerializeField] private string _checkURL = "http://google.com/generate_204";
+        [SerializeField] private string _checkURL = "https://google.com/generate_204";
 
         [SerializeField, Space(5)] private bool _checkOnAppFocus = true;
         [SerializeField] private bool _checkOnAppStart = true;

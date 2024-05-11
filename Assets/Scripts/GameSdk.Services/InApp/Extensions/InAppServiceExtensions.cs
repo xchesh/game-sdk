@@ -41,7 +41,8 @@ namespace GameSdk.Services.InApp
             }
         }
 
-        public static UniTask<IInAppPurchaseResult> PurchaseProductAsync(this IInAppService inAppService, string productId)
+        public static UniTask<IInAppPurchaseResult> PurchaseProductAsync(this IInAppService inAppService,
+            string productId)
         {
             var tcs = new UniTaskCompletionSource<IInAppPurchaseResult>();
 
@@ -56,7 +57,8 @@ namespace GameSdk.Services.InApp
             {
                 if (e.purchasedProduct.definition.id != productId)
                 {
-                    SystemLog.LogError(IInAppService.TAG, "Purchase succeeded for wrong product: " + e.purchasedProduct.definition.id);
+                    SystemLog.LogError(IInAppService.TAG,
+                        "Purchase succeeded for wrong product: " + e.purchasedProduct.definition.id);
 
                     return;
                 }
