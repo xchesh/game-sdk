@@ -1,17 +1,24 @@
-﻿using Core.Common.UnityContainer;
+﻿using GameSdk.Services.Authentication;
 using GameSdk.Services.InApp;
 using GameSdk.Services.InternetReachability;
 using GameSdk.Services.RemoteConfig;
+using Project.Common.UnityContainer;
 using UnityEngine;
 
 namespace Project.Installers
 {
     public class GameSdkServicesInstaller : IUnityInstaller
     {
+        [SerializeField] private AuthenticationConfig _authenticationConfig;
         [SerializeField] private InternetReachabilityConfig _internetReachabilityConfig;
 
         public override void InstallBindings(IUnityContainer container)
         {
+            // Authentication
+            UnityEngine.Assertions.Assert.IsNotNull(_authenticationConfig);
+            container.RegisterInstance(_authenticationConfig).As<AuthenticationConfig>();
+            container.Register<AuthenticationService>().As<IAuthenticationService>();
+
             // Internet Reachability
             UnityEngine.Assertions.Assert.IsNotNull(_internetReachabilityConfig);
             container.RegisterInstance(_internetReachabilityConfig).As<InternetReachabilityConfig>();

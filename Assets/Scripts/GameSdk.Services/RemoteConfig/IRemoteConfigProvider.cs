@@ -13,6 +13,8 @@ namespace GameSdk.Services.RemoteConfig
 
         IRemoteConfig AppConfig { get; }
 
+        UniTask Initialize();
+
         IRemoteConfig GetConfig(string configType);
 
         UniTask FetchConfig<T1, T2, T3>(string configType, T1 userAttributes, T2 appAttributes, T3 filterAttributes)

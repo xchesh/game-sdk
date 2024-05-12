@@ -1,6 +1,6 @@
 using System;
 
-namespace Core.Common.UnityContainer
+namespace Project.Common.UnityContainer
 {
     public interface IUnityContainerRegistrationBuilder
     {

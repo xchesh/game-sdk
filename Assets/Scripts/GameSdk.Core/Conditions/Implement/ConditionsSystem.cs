@@ -5,25 +5,12 @@ using GameSdk.Core.Parameters;
 
 namespace GameSdk.Core.Conditions
 {
+    [JetBrains.Annotations.UsedImplicitly]
     public class ConditionsSystem : IConditionsSystem
     {
         private readonly InstancesManager<ICondition> _conditionsManager = new();
 
         InstancesManager<ICondition> IConditionsSystem.Manager => _conditionsManager;
-
-
-        public ConditionsSystem(IEnumerable<ICondition> conditions)
-        {
-            foreach (var condition in conditions)
-            {
-                _conditionsManager.Register(condition.DataType, condition);
-
-                if (condition is ICondition.IWithSystem withSystem)
-                {
-                    withSystem.SetSystem(this);
-                }
-            }
-        }
 
         public bool Check(IConditionData conditionData, params IParameter[] parameters)
         {

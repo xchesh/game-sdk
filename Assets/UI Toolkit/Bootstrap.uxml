@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="background-image: url(&quot;project://database/Assets/Sources/Textures/rect.png?fileID=2800000&amp;guid=5c65e2e78cd7da2d0a682c1adf92dfe3&amp;type=3#rect&quot;); -unity-background-image-tint-color: rgb(192, 123, 123); flex-grow: 1; justify-content: center; align-items: center;">
+        <ui:VisualElement name="Loader" style="background-image: url(&quot;project://database/Assets/Sources/Textures/loader.png?fileID=2800000&amp;guid=a5608a45bab9f11859a3b0d97a995025&amp;type=3#loader&quot;); flex-grow: 0; width: 100%; height: 15%; -unity-background-scale-mode: scale-to-fit; transition-property: rotate; transition-duration: 3s; transition-timing-function: linear;" />
+    </ui:VisualElement>
+</ui:UXML>

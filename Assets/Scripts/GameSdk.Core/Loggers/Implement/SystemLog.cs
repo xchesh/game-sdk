@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace GameSdk.Core.Loggers
 {
+    [JetBrains.Annotations.UsedImplicitly]
     public class SystemLog
     {
         private static ISystemLogger _systemLogger;

@@ -4,7 +4,7 @@ using Core.Common.Toolbox;
 using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 
-namespace Core.Common.UnityContainer
+namespace Project.Common.UnityContainer
 {
     internal class UnityInstallersDropdown : AdvancedDropdownBase
     {

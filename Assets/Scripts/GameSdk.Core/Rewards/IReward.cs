@@ -9,12 +9,5 @@ namespace GameSdk.Core.Rewards
 
         bool CanClaim(IRewardData data, params IParameter[] parameters);
         IRewardData Claim(IRewardData data, params IParameter[] parameters);
-
-        public interface IWithSystem
-        {
-            IRewardsSystem System { get; }
-
-            void SetSystem(IRewardsSystem system);
-        }
     }
 }

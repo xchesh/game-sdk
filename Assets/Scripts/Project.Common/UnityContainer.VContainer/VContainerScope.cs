@@ -3,7 +3,7 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Core.Common.UnityContainer
+namespace Project.Common.UnityContainer.VContainer
 {
     public abstract class VContainerScope : LifetimeScope
     {

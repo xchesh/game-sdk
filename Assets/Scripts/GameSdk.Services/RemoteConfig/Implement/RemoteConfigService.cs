@@ -30,16 +30,25 @@ namespace GameSdk.Services.RemoteConfig
             _remoteConfigProvider.ConfigFetchFailed += OnConfigFetchFailed;
         }
 
-        public UniTask Initialize(params string[] configs)
+        public UniTask Initialize()
+        {
+            return _remoteConfigProvider.Initialize();
+        }
+
+        public async UniTask Initialize(params string[] configs)
         {
             Assert.IsNotNull(_remoteConfigProvider, "RemoteConfig Provider is null");
             Assert.IsNotNull(_attribution, "RemoteConfig Attribution is null");
+
+            await _remoteConfigProvider.Initialize();
 
             var (user, app, filter) = _attribution.GetAttributes();
 
             if (configs.Length == 0)
             {
-                return _remoteConfigProvider.FetchConfig(user, app, filter);
+                await _remoteConfigProvider.FetchConfig(user, app, filter);
+
+                return;
             }
 
             var tasks = new UniTask[configs.Length];
@@ -49,7 +58,7 @@ namespace GameSdk.Services.RemoteConfig
                 tasks[i] = _remoteConfigProvider.FetchConfig(configs[i], user, app, filter);
             }
 
-            return UniTask.WhenAll(tasks);
+            await UniTask.WhenAll(tasks);
         }
 
         public IRemoteConfig GetConfig(string configType)

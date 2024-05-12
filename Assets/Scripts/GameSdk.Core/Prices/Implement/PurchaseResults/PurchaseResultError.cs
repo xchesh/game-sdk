@@ -1,12 +1,12 @@
-﻿namespace GameSdk.Core.Prices.PurchaseResults
+﻿namespace GameSdk.Core.Prices
 {
     public struct PurchaseResultError : IPurchaseResult
     {
-        public readonly IPriceData PriceData { get; }
-        public readonly string Placement { get; }
+        public IPriceData PriceData { get; }
+        public string Placement { get; }
 
-        public readonly uint ErrorCode { get; }
-        public readonly string ErrorMessage { get; }
+        public uint ErrorCode { get; }
+        public string ErrorMessage { get; }
 
         public PurchaseResultError(IPriceData priceData, string placement, uint errorCode, string errorMessage)
         {

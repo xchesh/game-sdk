@@ -1,9 +1,9 @@
-﻿namespace GameSdk.Core.Prices.PurchaseResults
+﻿namespace GameSdk.Core.Prices
 {
     public struct PurchaseResultSuccess : IPurchaseResult
     {
-        public readonly IPriceData PriceData { get; }
-        public readonly string Placement { get; }
+        public IPriceData PriceData { get; }
+        public string Placement { get; }
 
         public PurchaseResultSuccess(IPriceData priceData, string placement)
         {

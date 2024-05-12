@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameSdk.Services.Authentication.Implement
+namespace GameSdk.Services.Authentication
 {
     [CreateAssetMenu(fileName = "GameSds_Authentication", menuName = "GameSds/Authentication Config", order = 0)]
     public class AuthenticationConfig : ScriptableObject

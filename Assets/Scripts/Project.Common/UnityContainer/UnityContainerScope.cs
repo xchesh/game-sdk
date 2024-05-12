@@ -1,4 +1,4 @@
-namespace Core.Common.UnityContainer
+namespace Project.Common.UnityContainer
 {
     public enum UnityContainerScope
     {

@@ -3,26 +3,14 @@ using System.Linq;
 using GameSdk.Core.Essentials;
 using GameSdk.Core.Parameters;
 
-namespace GameSdk.Core.Rewards.Implement
+namespace GameSdk.Core.Rewards
 {
+    [JetBrains.Annotations.UsedImplicitly]
     public class RewardsSystem : IRewardsSystem
     {
         private readonly InstancesManager<IReward> _rewardsManager = new();
 
         InstancesManager<IReward> IRewardsSystem.Manager => _rewardsManager;
-
-        public RewardsSystem(IEnumerable<IReward> rewards)
-        {
-            foreach (var reward in rewards)
-            {
-                _rewardsManager.Register(reward.DataType, reward);
-
-                if (reward is IReward.IWithSystem withSystem)
-                {
-                    withSystem.SetSystem(this);
-                }
-            }
-        }
 
         public bool CanClaim(IRewardData rewardData, params IParameter[] parameters)
         {

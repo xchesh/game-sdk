@@ -1,28 +1,15 @@
-﻿using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using GameSdk.Core.Essentials;
 using GameSdk.Core.Parameters;
 
 namespace GameSdk.Core.Prices
 {
+    [JetBrains.Annotations.UsedImplicitly]
     public class PricesSystem : IPricesSystem
     {
         private readonly InstancesManager<IPrice> _manager = new();
 
         InstancesManager<IPrice> IPricesSystem.Manager => _manager;
-
-        public PricesSystem(IEnumerable<IPrice> prices)
-        {
-            foreach (var price in prices)
-            {
-                _manager.Register(price.DataType, price);
-
-                if (price is IPrice.IWithSystem withSystem)
-                {
-                    withSystem.SetSystem(this);
-                }
-            }
-        }
 
         public bool CanPurchase(IPriceData priceData, params IParameter[] parameters)
         {

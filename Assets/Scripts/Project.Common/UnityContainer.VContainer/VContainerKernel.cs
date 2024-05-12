@@ -5,7 +5,7 @@ using UnityEngine;
 using VContainer.Internal;
 using VContainer.Unity;
 
-namespace Core.Common.UnityContainer
+namespace Project.Common.UnityContainer.VContainer
 {
     public class VContainerKernel : IStartable
     {

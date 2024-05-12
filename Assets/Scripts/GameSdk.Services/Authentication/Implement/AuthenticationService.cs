@@ -4,7 +4,7 @@ using GameSdk.Core.Loggers;
 using GameSdk.Services.InternetReachability;
 using UnityEngine;
 
-namespace GameSdk.Services.Authentication.Implement
+namespace GameSdk.Services.Authentication
 {
     [JetBrains.Annotations.UsedImplicitly]
     public class AuthenticationService : IAuthenticationService

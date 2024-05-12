@@ -1,7 +1,7 @@
 using System;
 using VContainer;
 
-namespace Core.Common.UnityContainer
+namespace Project.Common.UnityContainer.VContainer
 {
     public class VContainerRegistrationBuilder : IUnityContainerRegistrationBuilder
     {

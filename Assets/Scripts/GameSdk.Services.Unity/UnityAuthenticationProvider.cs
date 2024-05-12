@@ -5,6 +5,7 @@ using GameSdk.Services.Authentication;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using UnityEngine;
+using AuthenticationService = Unity.Services.Authentication.AuthenticationService;
 using IAuthenticationService = Unity.Services.Authentication.IAuthenticationService;
 
 namespace GameSdk.Services.Unity
@@ -56,6 +57,15 @@ namespace GameSdk.Services.Unity
         {
             try
             {
+                if (await UnityServicesUtility.Initialize() != ServicesInitializationState.Initialized)
+                {
+                    throw new RequestFailedException(
+                        CommonErrorCodes.ServiceUnavailable,
+                        "Unity Services not initialized"
+                    );
+                }
+
+                // TODO: Implement different sign-in methods later
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
                 _systemLogger.Log(LogType.Log, TAG, "Sign in anonymously succeeded!");
@@ -83,7 +93,7 @@ namespace GameSdk.Services.Unity
                 {
                     AuthenticationService.Instance.SignOut();
                 }
-                
+
                 _systemLogger.Log(LogType.Log, TAG, "Sign out succeeded!");
             }
             catch (AuthenticationException ex)

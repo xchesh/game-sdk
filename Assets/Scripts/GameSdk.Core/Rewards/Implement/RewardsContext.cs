@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
 
-namespace GameSdk.Core.Rewards.Implement
+namespace GameSdk.Core.Rewards
 {
+    [JetBrains.Annotations.UsedImplicitly]
     public class RewardsContext : IRewardsContext
     {
         private readonly IEnumerable<IReward> _rewards;
         private readonly IRewardsSystem _rewardsSystem;
 
+        [UnityEngine.Scripting.RequiredMember]
         public RewardsContext(IEnumerable<IReward> rewards, IRewardsSystem rewardsSystem)
         {
             _rewards = rewards;
@@ -15,11 +17,6 @@ namespace GameSdk.Core.Rewards.Implement
             foreach (var reward in _rewards)
             {
                 _rewardsSystem.Manager.Register(reward.DataType, reward);
-
-                if (reward is IReward.IWithSystem withSystem)
-                {
-                    withSystem.SetSystem(_rewardsSystem);
-                }
             }
         }
 

@@ -2,6 +2,7 @@
 
 namespace GameSdk.Core.Datetime
 {
+    [JetBrains.Annotations.UsedImplicitly]
     public class SystemTime : ISystemTime
     {
         private static ISystemTime _systemTime;
@@ -13,7 +14,6 @@ namespace GameSdk.Core.Datetime
 
         public Func<DateTime> Now { get; private set; } = () => DateTime.Now;
         public Func<DateTimeOffset> OffsetNow { get; private set; } = () => DateTimeOffset.Now;
-
 
         public void SetDateTime(DateTime dateTimeNow)
         {

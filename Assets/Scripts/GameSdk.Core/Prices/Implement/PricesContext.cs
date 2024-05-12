@@ -2,11 +2,13 @@
 
 namespace GameSdk.Core.Prices
 {
+    [JetBrains.Annotations.UsedImplicitly]
     public class PricesContext : IPricesContext
     {
         private readonly IEnumerable<IPrice> _prices;
         private readonly IPricesSystem _pricesSystem;
 
+        [UnityEngine.Scripting.RequiredMember]
         public PricesContext(IEnumerable<IPrice> prices, IPricesSystem pricesSystem)
         {
             _prices = prices;
@@ -15,11 +17,6 @@ namespace GameSdk.Core.Prices
             foreach (var price in _prices)
             {
                 _pricesSystem.Manager.Register(price.DataType, price);
-
-                if (price is IPrice.IWithSystem withSystem)
-                {
-                    withSystem.SetSystem(_pricesSystem);
-                }
             }
         }
 

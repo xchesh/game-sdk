@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using GameSdk.Services.RemoteConfig;
+using Unity.Services.Core;
 using Unity.Services.RemoteConfig;
 using RemoteConfigService = Unity.Services.RemoteConfig.RemoteConfigService;
 
@@ -19,6 +20,13 @@ namespace GameSdk.Services.Unity
         public string AppConfigType { get; private set; }
         public string AppConfigVersion { get; private set; }
         public IRemoteConfig AppConfig { get; private set; }
+
+        public UniTask Initialize()
+        {
+            UnityRemoteConfig.FetchCompleted += ApplyRemoteConfig;
+
+            return UnityServicesUtility.Initialize();
+        }
 
         public IRemoteConfig GetConfig(string configType)
         {
@@ -40,9 +48,14 @@ namespace GameSdk.Services.Unity
         {
             try
             {
-                await UnityServicesUtility.Initialize();
+                if (await UnityServicesUtility.Initialize() != ServicesInitializationState.Initialized)
+                {
+                    throw new RequestFailedException(
+                        CommonErrorCodes.ServiceUnavailable,
+                        "Unity Services not initialized"
+                    );
+                }
 
-                UnityRemoteConfig.FetchCompleted += ApplyRemoteConfig;
                 await UnityRemoteConfig.FetchConfigsAsync(configType, userAttributes, appAttributes, filterAttributes);
 
                 ConfigFetched?.Invoke(GetConfig(configType));

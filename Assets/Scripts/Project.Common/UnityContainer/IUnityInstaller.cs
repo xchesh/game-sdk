@@ -1,7 +1,8 @@
 using UnityEngine;
 
-namespace Core.Common.UnityContainer
+namespace Project.Common.UnityContainer
 {
+    // ReSharper disable once InconsistentNaming
     public abstract class IUnityInstaller : ScriptableObject
     {
         public abstract void InstallBindings(IUnityContainer container);

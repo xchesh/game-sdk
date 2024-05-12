@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace GameSdk.Core.Loggers
 {
+    [JetBrains.Annotations.UsedImplicitly]
     public class SystemLogger : ISystemLogger
     {
         public ILogger Logger { get; set; }
@@ -12,6 +13,7 @@ namespace GameSdk.Core.Loggers
         public LogType FilterLogType { get; set; } = LogType.Exception;
         public Dictionary<string, bool> LogTags { get; set; } = new();
 
+        [UnityEngine.Scripting.RequiredMember]
         public SystemLogger(ILogger logger)
         {
             Logger = logger;

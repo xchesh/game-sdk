@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
-namespace Core.Common.UnityContainer
+namespace Project.Common.UnityContainer
 {
     [CustomEditor(typeof(UnityInstaller))]
     internal class UnityInstallerEditor : Editor

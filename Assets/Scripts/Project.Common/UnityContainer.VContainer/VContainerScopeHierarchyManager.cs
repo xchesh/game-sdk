@@ -1,9 +1,9 @@
 #if UNITY_EDITOR
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 using VContainer.Unity;
 
-namespace Core.Common.UnityContainer
+namespace Project.Common.UnityContainer.VContainer
 {
     [InitializeOnLoad]
     public class VContainerScopeHierarchyManager

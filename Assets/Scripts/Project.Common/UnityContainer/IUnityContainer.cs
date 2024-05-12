@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.Common.UnityContainer
+namespace Project.Common.UnityContainer
 {
     public interface IUnityContainer
     {

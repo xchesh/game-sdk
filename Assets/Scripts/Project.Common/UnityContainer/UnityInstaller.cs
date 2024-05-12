@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Core.Common.UnityContainer
+namespace Project.Common.UnityContainer
 {
     [CreateAssetMenu(fileName = nameof(UnityInstaller), menuName = "Unity Installer")]
     public partial class UnityInstaller : ScriptableObject

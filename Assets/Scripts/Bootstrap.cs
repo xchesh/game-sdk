@@ -1,14 +1,13 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
+[JetBrains.Annotations.UsedImplicitly]
 public class Bootstrap : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private AssetReference _scene;
+    
+    private void Start()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        Addressables.LoadSceneAsync(_scene, UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 }
