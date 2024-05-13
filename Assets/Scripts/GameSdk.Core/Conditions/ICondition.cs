@@ -8,12 +8,5 @@ namespace GameSdk.Core.Conditions
         Type DataType { get; }
 
         bool Evaluate(IConditionData data, params IParameter[] parameters);
-
-        public interface IWithSystem
-        {
-            IConditionsSystem System { get; }
-
-            void SetSystem(IConditionsSystem system);
-        }
     }
 }
