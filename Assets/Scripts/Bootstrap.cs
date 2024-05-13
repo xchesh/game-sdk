@@ -1,13 +1,52 @@
+using Cysharp.Threading.Tasks;
+using GameSdk.Core.Loggers;
+using GameSdk.Services.Authentication;
+using GameSdk.Services.InApp;
+using GameSdk.Services.InternetReachability;
+using GameSdk.Services.RemoteConfig;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 [JetBrains.Annotations.UsedImplicitly]
-public class Bootstrap : MonoBehaviour
+public class Bootstrap : VContainer.Unity.IInitializable
 {
-    [SerializeField] private AssetReference _scene;
-    
-    private void Start()
+    private readonly ISystemLogger _systemLogger;
+    private readonly IAuthenticationService _authenticationService;
+    private readonly IInAppService _inAppService;
+    private readonly IInternetReachabilityService _internetReachabilityService;
+    private readonly IRemoteConfigService _remoteConfigService;
+
+    public Bootstrap(
+        ISystemLogger systemLogger,
+        IAuthenticationService authenticationService,
+        IInAppService inAppService,
+        IInternetReachabilityService internetReachabilityService,
+        IRemoteConfigService remoteConfigService)
     {
-        Addressables.LoadSceneAsync(_scene, UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        _systemLogger = systemLogger;
+        _authenticationService = authenticationService;
+        _inAppService = inAppService;
+        _internetReachabilityService = internetReachabilityService;
+        _remoteConfigService = remoteConfigService;
+    }
+
+    public void Initialize()
+    {
+        InitializeProcess().Forget();
+    }
+
+    private async UniTaskVoid InitializeProcess()
+    {
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+        _systemLogger.Log(LogType.Log, "Bootstrap", "Start initialization...");
+
+        _internetReachabilityService.Initialize();
+
+        await _authenticationService.Initialize();
+        await _remoteConfigService.Initialize();
+
+        _inAppService.Initialize();
+
+        sw.Stop();
+        _systemLogger.Log(LogType.Log, "Bootstrap", $"Initialization completed in {sw.ElapsedMilliseconds} ms");
     }
 }

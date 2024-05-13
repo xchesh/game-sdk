@@ -19,7 +19,7 @@ namespace GameSdk.Services.Unity
                 return UniTask.FromResult(UnityServices.State);
             }
 
-            if (Utilities.CheckForInternetConnection())
+            if (Utilities.CheckForInternetConnection() is false)
             {
                 return UniTask.FromResult(ServicesInitializationState.Uninitialized);
             }

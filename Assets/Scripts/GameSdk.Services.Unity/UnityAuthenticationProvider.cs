@@ -69,7 +69,7 @@ namespace GameSdk.Services.Unity
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
                 _systemLogger.Log(LogType.Log, TAG, "Sign in anonymously succeeded!");
-                _systemLogger.Log(LogType.Log, TAG, $"PlayerId: {AuthenticationService.Instance.PlayerId}");
+                _systemLogger.Log(LogType.Log, TAG, $"PlayerId - {AuthenticationService.Instance.PlayerId}");
             }
             catch (AuthenticationException ex)
             {

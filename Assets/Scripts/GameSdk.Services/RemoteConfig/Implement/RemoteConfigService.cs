@@ -32,7 +32,7 @@ namespace GameSdk.Services.RemoteConfig
 
         public UniTask Initialize()
         {
-            return _remoteConfigProvider.Initialize();
+            return Initialize(AppConfigType);
         }
 
         public async UniTask Initialize(params string[] configs)

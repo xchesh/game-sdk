@@ -7,7 +7,7 @@ namespace GameSdk.Services.InApp
 {
     public interface IInAppService
     {
-        const string TAG = "IAP";
+        const string TAG = "InApp";
         const string BUY = "buy";
 
         event Action<bool, string> PurchasesInitialized;

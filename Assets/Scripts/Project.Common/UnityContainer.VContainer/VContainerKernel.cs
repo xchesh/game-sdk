@@ -7,7 +7,7 @@ using VContainer.Unity;
 
 namespace Project.Common.UnityContainer.VContainer
 {
-    public class VContainerKernel : IStartable
+    public class VContainerKernel : IPostInitializable
     {
         private readonly IEnumerable<IInitializable> _initializables;
         private readonly IEnumerable<INonLazy> _nonLazies;
@@ -23,9 +23,9 @@ namespace Project.Common.UnityContainer.VContainer
             _systemLogger = systemLogger;
         }
 
-        public void Start()
+        public void PostInitialize()
         {
-            _systemLogger.Log(LogType.Log, "UnityContainer.VContainer", $"NonLazy: {_nonLazies.Count()}");
+            _systemLogger.Log(LogType.Log, "UnityContainer", $"NonLazy: {_nonLazies.Count()}");
 
             foreach (var unityInitializable in _initializables.OrderBy(i => i.Order))
             {
