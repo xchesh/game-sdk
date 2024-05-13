@@ -17,6 +17,11 @@ namespace GameSdk.Core.Loggers
         public SystemLogger(ILogger logger)
         {
             Logger = logger;
+            
+            if (Debug.isDebugBuild || Application.isEditor)
+            {
+                FilterLogType = LogType.Log;    
+            }
         }
 
         /// <summary>

@@ -10,6 +10,6 @@ namespace GameSdk.Core.Prices
 
         bool CanPurchase(IPriceData priceData, params IParameter[] parameters);
 
-        UniTask<IPurchaseResult> Purchase(IPriceData priceData, params IParameter[] parameters);
+        UniTask<IPriceResult> Purchase(IPriceData priceData, params IParameter[] parameters);
     }
 }

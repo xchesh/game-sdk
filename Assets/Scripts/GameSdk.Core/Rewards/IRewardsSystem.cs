@@ -11,12 +11,7 @@ namespace GameSdk.Core.Rewards
         bool CanClaim(IRewardData rewardData, params IParameter[] parameters);
         bool CanClaim(IEnumerable<IRewardData> rewardsData, params IParameter[] parameters);
 
-        IRewardData Claim(IRewardData rewardData, params IParameter[] parameters);
-        IEnumerable<IRewardData> Claim(IEnumerable<IRewardData> rewardsData, params IParameter[] parameters);
-
-        bool TryClaim(IRewardData rewardData, out IRewardData result, params IParameter[] parameters);
-
-        bool TryClaim(IEnumerable<IRewardData> rewardsData, out IEnumerable<IRewardData> result,
-            params IParameter[] parameters);
+        IRewardResult Claim(IRewardData rewardData, params IParameter[] parameters);
+        IEnumerable<IRewardResult> Claim(IEnumerable<IRewardData> rewardsData, params IParameter[] parameters);
     }
 }

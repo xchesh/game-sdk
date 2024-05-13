@@ -22,45 +22,14 @@ namespace GameSdk.Core.Rewards
             return rewardsData != null && rewardsData.All(data => CanClaim(data, parameters));
         }
 
-        public IRewardData Claim(IRewardData rewardData, params IParameter[] parameters)
+        public IRewardResult Claim(IRewardData rewardData, params IParameter[] parameters)
         {
             return _rewardsManager.Get(rewardData.GetType()).Claim(rewardData, parameters);
         }
 
-        public IEnumerable<IRewardData> Claim(IEnumerable<IRewardData> rewardsData, params IParameter[] parameters)
+        public IEnumerable<IRewardResult> Claim(IEnumerable<IRewardData> rewardsData, params IParameter[] parameters)
         {
             return rewardsData.Select(data => Claim(data, parameters));
-        }
-
-        public bool TryClaim(IRewardData rewardData, out IRewardData result, params IParameter[] parameters)
-        {
-            result = null;
-
-            if (CanClaim(rewardData, parameters))
-            {
-                result = Claim(rewardData, parameters);
-
-                return result != null;
-            }
-
-            return false;
-        }
-
-        public bool TryClaim(IEnumerable<IRewardData> rewardsData, out IEnumerable<IRewardData> result,
-            params IParameter[] parameters)
-        {
-            result = null;
-
-            var list = rewardsData as IRewardData[] ?? rewardsData.ToArray();
-
-            if (CanClaim(list, parameters))
-            {
-                result = Claim(list, parameters);
-
-                return result != null && result.Any();
-            }
-
-            return false;
         }
     }
 }

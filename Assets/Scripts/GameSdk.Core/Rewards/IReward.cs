@@ -8,6 +8,6 @@ namespace GameSdk.Core.Rewards
         Type DataType { get; }
 
         bool CanClaim(IRewardData data, params IParameter[] parameters);
-        IRewardData Claim(IRewardData data, params IParameter[] parameters);
+        IRewardResult Claim(IRewardData data, params IParameter[] parameters);
     }
 }

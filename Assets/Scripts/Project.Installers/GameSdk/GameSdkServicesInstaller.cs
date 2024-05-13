@@ -15,12 +15,12 @@ namespace Project.Installers
         public override void InstallBindings(IUnityContainer container)
         {
             // Authentication
-            UnityEngine.Assertions.Assert.IsNotNull(_authenticationConfig);
+            UnityEngine.Assertions.Assert.IsNotNull(_authenticationConfig, "AuthenticationConfig is not set");
             container.RegisterInstance(_authenticationConfig).As<AuthenticationConfig>();
             container.Register<AuthenticationService>().As<IAuthenticationService>();
 
             // Internet Reachability
-            UnityEngine.Assertions.Assert.IsNotNull(_internetReachabilityConfig);
+            UnityEngine.Assertions.Assert.IsNotNull(_internetReachabilityConfig, "InternetReachabilityConfig is not set");
             container.RegisterInstance(_internetReachabilityConfig).As<InternetReachabilityConfig>();
             container.Register<InternetReachabilityService>().As<IInternetReachabilityService>();
 

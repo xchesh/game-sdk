@@ -24,12 +24,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006b7b883d6721349af47698823ca11c, type: 3}
   m_Name: UnityInstaller.Project
   m_EditorClassIdentifier: 
+  _path: Assets/Scripts/Project.Installers
   _installers:
   - {fileID: 2274869147025068552}
   - {fileID: 960941086406209503}
   - {fileID: -2271702407264161353}
   - {fileID: 4096052710635629702}
-  _path: Assets/Scripts/Project.Installers
 --- !u!114 &960941086406209503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,6 +42,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351a582671c74cc79e83ba7dfdc14cba, type: 3}
   m_Name: GameSdkServicesInstaller
   m_EditorClassIdentifier: 
+  _authenticationConfig: {fileID: 11400000, guid: db0b4f84eaeab02da899b85f9a94db45, type: 2}
+  _internetReachabilityConfig: {fileID: 11400000, guid: dbcad340231a2974085e76dc904cb257, type: 2}
 --- !u!114 &2274869147025068552
 MonoBehaviour:
   m_ObjectHideFlags: 0

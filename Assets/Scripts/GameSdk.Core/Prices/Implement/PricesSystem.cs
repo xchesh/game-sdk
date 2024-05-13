@@ -16,7 +16,7 @@ namespace GameSdk.Core.Prices
             return priceData != null && _manager.Get(priceData.GetType()).CanPurchase(priceData, parameters);
         }
 
-        public UniTask<IPurchaseResult> Purchase(IPriceData priceData, params IParameter[] parameters)
+        public UniTask<IPriceResult> Purchase(IPriceData priceData, params IParameter[] parameters)
         {
             return _manager.Get(priceData.GetType()).Purchase(priceData, parameters);
         }
