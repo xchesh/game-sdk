@@ -2,7 +2,7 @@
 
 namespace GameSdk.Services.InternetReachability
 {
-    [CreateAssetMenu(fileName = "GameSdk_InternetReachability", menuName = "GameSds/Internet Reachability Config",
+    [CreateAssetMenu(fileName = "GameSdk_InternetReachabilityConfig", menuName = "GameSds/Internet Reachability Config",
         order = 0)]
     public class InternetReachabilityConfig : ScriptableObject
     {

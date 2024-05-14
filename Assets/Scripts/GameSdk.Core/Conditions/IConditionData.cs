@@ -1,6 +1,8 @@
-﻿namespace GameSdk.Core.Conditions
+﻿using GameSdk.Core.Converters;
+
+namespace GameSdk.Core.Conditions
 {
-    public interface IConditionData
+    public interface IConditionData : IJsonData
     {
     }
 }
