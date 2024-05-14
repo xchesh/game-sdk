@@ -18,7 +18,7 @@ namespace GameSdk.Services.GraphicQuality
 
         public IGraphicQualityPreset GetDefaultPreset()
         {
-            return new GraphicQualityPreset(Application.platform, DefaultQualityLevel, DefaultQualityLevel, null);
+            return new GraphicQualityPreset(Application.platform, _defaultQualityLevel, _defaultFrameRate, null);
         }
     }
 }

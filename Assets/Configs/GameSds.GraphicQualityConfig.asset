@@ -15,15 +15,7 @@ MonoBehaviour:
   _autoEnable: 1
   _defaultFrameRate: 60
   _defaultQualityLevel: 0
-  presets:
-  - _qualityName: 
-    _platform: 8
-    _qualityLevel: 1
-    _maxFrameRate: 0
-    _condition:
-      rid: -2
+  presets: []
   references:
     version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    RefIds: []

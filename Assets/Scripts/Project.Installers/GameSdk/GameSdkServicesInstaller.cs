@@ -1,4 +1,6 @@
-﻿using GameSdk.Services.Authentication;
+﻿using GameSdk.Core.Conditions;
+using GameSdk.Services.Authentication;
+using GameSdk.Services.GraphicQuality;
 using GameSdk.Services.InApp;
 using GameSdk.Services.InternetReachability;
 using GameSdk.Services.RemoteConfig;
@@ -11,6 +13,7 @@ namespace Project.Installers
     {
         [SerializeField] private AuthenticationConfig _authenticationConfig;
         [SerializeField] private InternetReachabilityConfig _internetReachabilityConfig;
+        [SerializeField] private GraphicQualityConfig _graphicQualityConfig;
 
         public override void InstallBindings(IUnityContainer container)
         {
@@ -30,6 +33,18 @@ namespace Project.Installers
             // Remote Config
             container.Register<RemoteConfigContext>().As<IRemoteConfigContext>();
             container.Register<RemoteConfigService>().As<IRemoteConfigService>();
+
+            // Graphic Quality
+            UnityEngine.Assertions.Assert.IsNotNull(_graphicQualityConfig, "GraphicQualityConfig is not set");
+            container.RegisterInstance(_graphicQualityConfig).As<IGraphicQualityConfig>();
+            container.Register<GraphicQualityService>().As<IGraphicQualityService>();
+
+            // Graphic Quality Conditions
+            container.Register<DeviceIdCondition>().As<ICondition>();
+            container.Register<DeviceModelsCondition>().As<ICondition>();
+            container.Register<GraphicsDeviceNameCondition>().As<ICondition>();
+            container.Register<GraphicsDeviceTypeCondition>().As<ICondition>();
+            container.Register<MemorySizeCondition>().As<ICondition>();
         }
     }
 }
