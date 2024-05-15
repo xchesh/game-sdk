@@ -1,4 +1,4 @@
-namespace GameSdk.Core.Parameters
+namespace GameSdk.Core.Common
 {
     public interface ICountable
     {

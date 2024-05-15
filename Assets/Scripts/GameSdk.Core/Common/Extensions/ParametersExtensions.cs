@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GameSdk.Core.Parameters
+namespace GameSdk.Core.Common
 {
     public static class ParametersExtensions
     {

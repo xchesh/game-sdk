@@ -1,6 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using GameSdk.Core.Parameters;
+using GameSdk.Core.Common;
 
 namespace GameSdk.Core.Prices
 {

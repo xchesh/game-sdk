@@ -1,4 +1,4 @@
-﻿using GameSdk.Core.Parameters;
+﻿using GameSdk.Core.Common;
 using Newtonsoft.Json;
 using System;
 using System.Collections;

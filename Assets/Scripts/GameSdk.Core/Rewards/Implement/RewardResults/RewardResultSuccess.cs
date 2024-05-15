@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using GameSdk.Core.Parameters;
+using GameSdk.Core.Common;
 
 namespace GameSdk.Core.Rewards.RewardResults
 {

@@ -1,5 +1,5 @@
 ﻿using System;
-using GameSdk.Core.Parameters;
+using GameSdk.Core.Common;
 
 namespace GameSdk.Core.Conditions
 {
