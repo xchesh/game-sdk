@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.Common.Toolbox
+namespace GameSdk.Core.Toolbox
 {
     public static class MathExtensions
     {

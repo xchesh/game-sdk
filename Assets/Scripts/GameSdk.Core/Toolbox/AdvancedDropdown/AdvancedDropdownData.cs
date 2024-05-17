@@ -1,4 +1,4 @@
-namespace Core.Common.Toolbox
+namespace GameSdk.Core.Toolbox
 {
     public class AdvancedDropdownData
     {

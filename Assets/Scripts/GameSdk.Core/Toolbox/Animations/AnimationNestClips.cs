@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
 
-namespace Core.Common.Toolbox
+namespace GameSdk.Core.Toolbox
 {
     /// <summary>
     /// Nest all animation clips in an animator controller.

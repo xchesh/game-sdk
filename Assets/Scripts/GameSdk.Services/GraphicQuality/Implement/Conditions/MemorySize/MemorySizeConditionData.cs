@@ -1,12 +1,11 @@
 using System;
-using GameSdk.Core.Conditions;
 using Newtonsoft.Json;
 using UnityEngine;
 
 namespace GameSdk.Services.GraphicQuality
 {
     [Serializable, JsonObject(MemberSerialization.OptIn)]
-    public struct MemorySizeConditionData : IConditionData
+    public struct MemorySizeConditionData : IGraphicQualityConditionData
     {
         [SerializeField, JsonProperty("memoryMin")] private int _min;
         [SerializeField, JsonProperty("memoryMax")] private int _max;

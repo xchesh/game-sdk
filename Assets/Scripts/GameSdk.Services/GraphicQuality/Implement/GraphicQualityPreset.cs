@@ -1,3 +1,4 @@
+using GameSdk.Core.Toolbox;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -8,18 +9,18 @@ namespace GameSdk.Services.GraphicQuality
     public class GraphicQualityPreset : IGraphicQualityPreset
     {
         [HideInInspector, SerializeField]
-        internal string _qualityName;
+        internal string QualityName;
 
         [SerializeField, JsonProperty("platform")]
-        private RuntimePlatform _platform = RuntimePlatform.Android;
+        private RuntimePlatform _platform;
 
         [SerializeField, JsonProperty("quality_level"), GraphicQuality]
         private int _qualityLevel = 0;
 
         [SerializeField, JsonProperty("max_frame_rate")]
-        private int _maxFrameRate = 60;
+        private int _maxFrameRate;
 
-        [SerializeReference, JsonProperty("condition"), Space]
+        [SerializeReference, JsonProperty("condition"), SerializeReferenceDropdown(typeof(IGraphicQualityConditionData))]
         private IGraphicQualityConditionData _condition;
 
         public RuntimePlatform Platform => _platform;

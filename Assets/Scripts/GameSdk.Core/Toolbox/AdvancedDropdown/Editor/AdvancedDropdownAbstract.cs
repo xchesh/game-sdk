@@ -1,9 +1,10 @@
+#if UNITY_EDITOR
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
-namespace Core.Common.Toolbox
+namespace GameSdk.Core.Toolbox
 {
     public abstract class AdvancedDropdownAbstract<T> : AdvancedDropdown where T : AdvancedDropdownItem
     {
@@ -75,3 +76,4 @@ namespace Core.Common.Toolbox
         }
     }
 }
+#endif

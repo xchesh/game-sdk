@@ -1,8 +1,11 @@
 using UnityEngine;
 
-public class GraphicQualityAttribute : PropertyAttribute
+namespace GameSdk.Services.GraphicQuality
 {
-    public GraphicQualityAttribute()
+    public class GraphicQualityAttribute : PropertyAttribute
     {
+        public GraphicQualityAttribute()
+        {
+        }
     }
 }

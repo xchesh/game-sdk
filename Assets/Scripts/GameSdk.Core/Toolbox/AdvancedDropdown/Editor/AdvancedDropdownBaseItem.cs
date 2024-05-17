@@ -1,6 +1,7 @@
+#if UNITY_EDITOR
 using UnityEditor.IMGUI.Controls;
 
-namespace Core.Common.Toolbox
+namespace GameSdk.Core.Toolbox
 {
     public class AdvancedDropdownBaseItem : AdvancedDropdownItem
     {
@@ -12,3 +13,4 @@ namespace Core.Common.Toolbox
         }
     }
 }
+#endif

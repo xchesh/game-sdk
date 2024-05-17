@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Core.Common.Toolbox
+namespace GameSdk.Core.Toolbox
 {
     /// <summary>
     /// Provides a lot of convenience methods for handling Unity data types, either in the form of extension methods

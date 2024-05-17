@@ -1,12 +1,11 @@
-﻿using GameSdk.Core.Conditions;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using UnityEngine;
 
 namespace GameSdk.Services.GraphicQuality
 {
     [Serializable, JsonObject(MemberSerialization.OptIn)]
-    public struct DeviceIdConditionData : IConditionData
+    public struct DeviceIdConditionData : IGraphicQualityConditionData
     {
         [SerializeField, JsonProperty("deviceId")] private string _deviceId;
 

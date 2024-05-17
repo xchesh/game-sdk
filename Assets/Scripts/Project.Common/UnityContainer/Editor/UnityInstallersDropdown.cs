@@ -1,6 +1,7 @@
+#if UNITY_EDITOR
 using System;
 using System.Collections.Generic;
-using Core.Common.Toolbox;
+using GameSdk.Core.Toolbox;
 using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 
@@ -24,3 +25,4 @@ namespace Project.Common.UnityContainer
         }
     }
 }
+#endif

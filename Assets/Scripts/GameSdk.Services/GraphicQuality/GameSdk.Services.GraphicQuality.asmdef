@@ -1,8 +1,8 @@
 {
-    "name": "Project.Common.Toolbox",
+    "name": "GameSdk.Services.GraphicQuality",
     "rootNamespace": "",
     "references": [
-        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+        "GUID:481386834acb44dd96951e450a61f758"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
