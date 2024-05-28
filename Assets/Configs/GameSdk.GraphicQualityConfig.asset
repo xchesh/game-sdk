@@ -15,17 +15,7 @@ MonoBehaviour:
   _autoEnable: 1
   _defaultFrameRate: 60
   _defaultQualityLevel: 0
-  presets:
-  - QualityName: 
-    _platform: 11
-    _qualityLevel: 0
-    _maxFrameRate: 0
-    _condition:
-      rid: 4837943925480095825
+  presets: []
   references:
     version: 2
-    RefIds:
-    - rid: 4837943925480095825
-      type: {class: DeviceIdConditionData, ns: GameSdk.Services.GraphicQuality, asm: GameSdk.Services.GraphicQuality}
-      data:
-        _deviceId: 
+    RefIds: []

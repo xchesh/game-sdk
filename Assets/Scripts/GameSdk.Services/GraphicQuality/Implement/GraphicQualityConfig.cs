@@ -9,12 +9,12 @@ namespace GameSdk.Services.GraphicQuality
         [SerializeField] private bool _autoEnable = true;
         [SerializeField, Space] private int _defaultFrameRate = 60;
         [SerializeField, GraphicQuality] private int _defaultQualityLevel;
-        [SerializeField, Space] private List<GraphicQualityPreset> presets = new();
+        [SerializeField, Space] private List<GraphicQualityPreset> _presets = new();
 
         public bool AutoEnable => _autoEnable;
         public int DefaultFrameRate => _defaultFrameRate;
         public int DefaultQualityLevel => _defaultQualityLevel;
-        public List<GraphicQualityPreset> Presets => presets;
+        public List<GraphicQualityPreset> Presets => _presets;
 
         public IGraphicQualityPreset GetDefaultPreset()
         {
