@@ -8,7 +8,7 @@ using GameSdk.Services.RemoteConfig;
 using UnityEngine;
 
 [JetBrains.Annotations.UsedImplicitly]
-public class Bootstrap : VContainer.Unity.IInitializable
+public class Bootstrap : Project.Common.UnityContainer.IBootstrap
 {
     private readonly ISystemLogger _systemLogger;
     private readonly IAuthenticationService _authenticationService;
@@ -33,12 +33,12 @@ public class Bootstrap : VContainer.Unity.IInitializable
         _remoteConfigService = remoteConfigService;
     }
 
-    public void Initialize()
+    public void Boot()
     {
-        InitializeProcess().Forget();
+        Initialize().Forget();
     }
 
-    private async UniTaskVoid InitializeProcess()
+    private async UniTaskVoid Initialize()
     {
         var sw = System.Diagnostics.Stopwatch.StartNew();
         _systemLogger.Log(LogType.Log, "Bootstrap", "Start initialization...");

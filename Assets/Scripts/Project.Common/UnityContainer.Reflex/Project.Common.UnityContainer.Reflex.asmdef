@@ -1,0 +1,26 @@
+{
+    "name": "Project.Common.UnityContainer.Reflex",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e2d5a42a837124e6c82e2acdce47501e",
+        "GUID:1530a967b84cfb44dbdd5e8a1989764f",
+        "GUID:481386834acb44dd96951e450a61f758"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "REFLEX_ENABLE"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.gustavopsantos.reflex",
+            "expression": "8.0.0",
+            "define": "REFLEX_ENABLE"
+        }
+    ],
+    "noEngineReferences": false
+}

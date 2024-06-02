@@ -8,9 +8,7 @@ namespace Project.Installers
     {
         public override void InstallBindings(IUnityContainer container)
         {
-            // Don't use the VContainer.Unity.IInitializable directly, use the UnityContainer.IInitializable instead
-            container.Register<Bootstrap>().As<VContainer.Unity.IInitializable>();
-
+            container.Register<Bootstrap>().As<IBootstrap>();
             container.Register<ProjectRemoteConfigAttribution>().As<IRemoteConfigAttribution>();
         }
     }
