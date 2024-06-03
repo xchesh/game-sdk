@@ -9,28 +9,28 @@ namespace Project.Common.UnityContainer.VContainer
 {
     public class VContainerKernel : IPostInitializable
     {
-        private readonly IBootstrap _bootstrap;
+        private readonly IEnumerable<IBootstrap> _bootstraps;
         private readonly IEnumerable<IInitializable> _initializables;
         private readonly IEnumerable<INonLazy> _nonLazies;
-        private readonly ISystemLogger _systemLogger;
 
         public VContainerKernel(
-            ContainerLocal<IBootstrap> localBootstrap,
-            ContainerLocal<IReadOnlyList<IInitializable>> localInitializables,
+            ContainerLocal<IReadOnlyList<IBootstrap>> localBootstraps,
             ContainerLocal<IReadOnlyList<INonLazy>> localNonLazies,
-            ISystemLogger systemLogger)
+            ContainerLocal<IReadOnlyList<IInitializable>> localInitializables)
         {
-            _bootstrap = localBootstrap.Value;
-            _initializables = localInitializables.Value;
+            _bootstraps = localBootstraps.Value;
             _nonLazies = localNonLazies.Value;
-            _systemLogger = systemLogger;
+            _initializables = localInitializables.Value;
         }
 
         public void PostInitialize()
         {
-            _bootstrap.Boot();
+            foreach (var bootstrap in _bootstraps)
+            {
+                bootstrap.Boot();
+            }
 
-            _systemLogger.Log(LogType.Log, "UnityContainer", $"NonLazy: {_nonLazies.Count()}");
+            SystemLog.Log(LogType.Log, "UnityContainer", $"NonLazy: {_nonLazies.Count()}");
 
             foreach (var unityInitializable in _initializables.OrderBy(i => i.Order))
             {

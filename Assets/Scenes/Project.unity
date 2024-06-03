@@ -434,8 +434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2043403068}
-  - component: {fileID: 2043403067}
-  - component: {fileID: 2043403066}
+  - component: {fileID: 2043403069}
   m_Layer: 0
   m_Name: Project Scope
   m_TagString: Untagged
@@ -443,32 +442,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2043403066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043403065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031eb70cbc193a44d947ebd8bfa9aeaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _unityInstallers:
-  - {fileID: 11400000, guid: dd9571dbde80a304baa11358858a851c, type: 2}
---- !u!114 &2043403067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043403065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fd1482e4a9dee141aecc5bcd0a4f0f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2043403068
 Transform:
   m_ObjectHideFlags: 0
@@ -484,6 +457,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2043403069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043403065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4948c4d7220af234a83ce2650f03c55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
+  _unityInstallers:
+  - {fileID: 11400000, guid: dd9571dbde80a304baa11358858a851c, type: 2}
+  _scene:
+    m_AssetGUID: db46517fac5588b428808987c291c738
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -5,10 +5,11 @@ using GameSdk.Services.GraphicQuality;
 using GameSdk.Services.InApp;
 using GameSdk.Services.InternetReachability;
 using GameSdk.Services.RemoteConfig;
+using Project.Common.UnityContainer;
 using UnityEngine;
 
 [JetBrains.Annotations.UsedImplicitly]
-public class Bootstrap : Project.Common.UnityContainer.IBootstrap
+public class Bootstrap : IBootstrap
 {
     private readonly ISystemLogger _systemLogger;
     private readonly IAuthenticationService _authenticationService;

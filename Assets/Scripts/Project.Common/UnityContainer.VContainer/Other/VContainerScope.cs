@@ -7,23 +7,8 @@ namespace Project.Common.UnityContainer.VContainer
 {
     public abstract class VContainerScope : LifetimeScope
     {
-        [Header("UnityContainer Scope")] [SerializeField, Space(5)]
-        private bool _autoInjectScene;
-
+        [Header("Unity Installers")]
         [SerializeField] private List<UnityInstaller> _unityInstallers;
-
-        public bool AutoInjectScene => _autoInjectScene;
-
-        protected override void Awake()
-        {
-            if (_autoInjectScene)
-            {
-                autoInjectGameObjects.Clear();
-                autoInjectGameObjects.AddRange(gameObject.scene.GetRootGameObjects());
-            }
-
-            base.Awake();
-        }
 
         protected override void Configure(IContainerBuilder builder)
         {
