@@ -26,11 +26,6 @@ public class BootstrapLoader : MonoBehaviour
 
     private async UniTaskVoid LoadScene()
     {
-#if UNITY_EDITOR
-        var waitTime = Random.Range(500, 1500);
-        await UniTask.Delay(waitTime);
-        Debug.Log($"UNITY_EDITOR: Waited for {waitTime} ms");
-#endif
         await Addressables.LoadSceneAsync(_scene);
         await Tween.Alpha(_canvasGroup, 1, 0, 0.5f);
 

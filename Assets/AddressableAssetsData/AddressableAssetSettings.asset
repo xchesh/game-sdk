@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 7866670acb1abcc6d98f97c27e9be80d
   m_currentHash:
     serializedVersion: 2
-    Hash: 98a72261705f8eb9677178df61f71452
+    Hash: 6d8ce42629ae14b78517a0849d9bd216
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
     m_Id: 
   m_RemoteCatalogLoadPath:
     m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
@@ -71,29 +71,29 @@ MonoBehaviour:
       m_Values:
       - m_Id: 0cb578f5a6dee5a71bef578a03352af9
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
-      - m_Id: f524e9afbd5d62778bd21a07f0bc71df
-        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
-      - m_Id: 842e395fc297a54b2bc4dedc3b9a1ee8
-        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
-      - m_Id: 58b9a04e13d0ef380a941d42830def7a
-        m_Value: 'ServerData/[BuildTarget]'
       - m_Id: 1f1a89716b1bc74609c6a4ac13a146b9
         m_Value: <undefined>
+      - m_Id: 58b9a04e13d0ef380a941d42830def7a
+        m_Value: 'ServerData/[BuildTarget]'
+      - m_Id: 842e395fc297a54b2bc4dedc3b9a1ee8
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: f524e9afbd5d62778bd21a07f0bc71df
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
     m_ProfileEntryNames:
     - m_Id: 0cb578f5a6dee5a71bef578a03352af9
       m_Name: BuildTarget
       m_InlineUsage: 0
-    - m_Id: f524e9afbd5d62778bd21a07f0bc71df
-      m_Name: Local.BuildPath
-      m_InlineUsage: 0
-    - m_Id: 842e395fc297a54b2bc4dedc3b9a1ee8
-      m_Name: Local.LoadPath
+    - m_Id: 1f1a89716b1bc74609c6a4ac13a146b9
+      m_Name: Remote.LoadPath
       m_InlineUsage: 0
     - m_Id: 58b9a04e13d0ef380a941d42830def7a
       m_Name: Remote.BuildPath
       m_InlineUsage: 0
-    - m_Id: 1f1a89716b1bc74609c6a4ac13a146b9
-      m_Name: Remote.LoadPath
+    - m_Id: 842e395fc297a54b2bc4dedc3b9a1ee8
+      m_Name: Local.LoadPath
+      m_InlineUsage: 0
+    - m_Id: f524e9afbd5d62778bd21a07f0bc71df
+      m_Name: Local.BuildPath
       m_InlineUsage: 0
     m_ProfileVersion: 1
   m_LabelTable:
