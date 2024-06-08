@@ -12,11 +12,25 @@ namespace GameSdk.Core.Datetime
         /// </summary>
         public static ISystemTime Time => _systemTime ?? new SystemTime();
 
-        private Func<DateTime> _dateTimeNowFn = ISystemTime.DefautNow;
-        private Func<DateTimeOffset> _dateTimeOffsetFn = ISystemTime.DefaultNowOffset;
+        private Func<DateTime> _dateTimeNowFn;
+        private Func<DateTimeOffset> _dateTimeOffsetFn;
 
+        private ISystemTime Self => this;
+
+        public TimeSpan Offset { get; private set; }
         public DateTime Now => _dateTimeNowFn.Invoke();
         public DateTimeOffset NowOffset => _dateTimeOffsetFn.Invoke();
+
+        public SystemTime()
+        {
+            _dateTimeNowFn = Self.DefautNow;
+            _dateTimeOffsetFn = Self.DefaultNowOffset;
+        }
+
+        public void SetOffset(TimeSpan offset)
+        {
+            Offset = offset;
+        }
 
         public void SetDateTime(Func<DateTime> dateTimeNowFn)
         {
@@ -28,14 +42,19 @@ namespace GameSdk.Core.Datetime
             _dateTimeOffsetFn = dateTimeOffsetFn;
         }
 
+        public void ResetOffset()
+        {
+            Offset = TimeSpan.Zero;
+        }
+
         public void ResetDateTime()
         {
-            _dateTimeNowFn = ISystemTime.DefautNow;
+            _dateTimeNowFn = Self.DefautNow;
         }
 
         public void ResetDateTimeOffset()
         {
-            _dateTimeOffsetFn = ISystemTime.DefaultNowOffset;
+            _dateTimeOffsetFn = Self.DefaultNowOffset;
         }
     }
 }
