@@ -74,7 +74,7 @@ namespace GameSdk.Services.InternetReachability
                 isInternetReachable = false;
             }
 
-            _lastCheckTimeMs = _systemTime.OffsetNow().ToUnixTimeMilliseconds();
+            _lastCheckTimeMs = _systemTime.NowOffset.ToUnixTimeMilliseconds();
 
             if (IsInternetReachable != isInternetReachable)
             {
@@ -124,7 +124,7 @@ namespace GameSdk.Services.InternetReachability
 
         private void UpdateCheckAuto()
         {
-            var passedMs = _systemTime.OffsetNow().ToUnixTimeMilliseconds() - _lastCheckTimeMs;
+            var passedMs = _systemTime.NowOffset.ToUnixTimeMilliseconds() - _lastCheckTimeMs;
             var checkTimeMs = IsInternetReachable ? _config.CheckIntervalActiveMS : _config.CheckIntervalInactiveMS;
 
             if (passedMs >= checkTimeMs)

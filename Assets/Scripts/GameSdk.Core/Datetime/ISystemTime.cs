@@ -10,27 +10,17 @@ namespace GameSdk.Core.Datetime
         /// <summary>
         /// Normally this is a pass-through to DateTime.Now, but it can be overridden with SetDateTime( .. ) for unit testing and debugging.
         /// </summary>
-        Func<DateTime> Now { get; }
+        DateTime Now { get; }
 
         /// <summary>
         /// Normally this is a pass-through to DateTimeOffset.Now, but it can be overridden with SetDateTime( .. ) for unit testing and debugging.
         /// </summary>
-        Func<DateTimeOffset> OffsetNow { get; }
-
-        /// <summary>
-        /// Set time to return when ISystemTime.Now() is called.
-        /// </summary>
-        void SetDateTime(DateTime dateTimeNow);
+        DateTimeOffset NowOffset { get; }
 
         /// <summary>
         /// Set time func to return when ISystemTime.Now() is called.
         /// </summary>
         void SetDateTime(Func<DateTime> dateTimeNowFn);
-
-        /// <summary>
-        /// Set time to return when ISystemTime.OffsetNow() is called.
-        /// </summary>
-        void SetDateTimeOffset(DateTimeOffset dateTimeOffset);
 
         /// <summary>
         /// Set time func to return when ISystemTime.OffsetNow() is called.
@@ -41,5 +31,13 @@ namespace GameSdk.Core.Datetime
         /// Resets ISystemTime.Now() and ISystemTime.OffsetNow() to return DateTime.Now and DateTimeOffset.Now respectively.
         /// </summary> 
         void ResetDateTime();
+
+        /// <summary>
+        /// Resets ISystemTime.Now() and ISystemTime.OffsetNow() to return DateTime.Now and DateTimeOffset.Now respectively.
+        /// </summary>
+        void ResetDateTimeOffset();
+
+        static DateTime DefautNow() => DateTime.Now;
+        static DateTimeOffset DefaultNowOffset() => DateTimeOffset.Now;
     }
 }
