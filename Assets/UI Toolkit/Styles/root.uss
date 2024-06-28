@@ -1,0 +1,34 @@
+:root {
+    /* Setup block */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    display: flex;
+    flex-direction: column;
+    /* Font and color */
+    font-size: var(--general-font-size);
+    color: var(--general-font-color);
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/NotoSans-Regular.ttf?fileID=12800000&guid=09b7560f9bb68694d852fc14aa351467&type=3#NotoSans-Regular");
+}
+
+#Safe-Area_Top {
+    border-width: 0;
+    background-color: transparent;
+}
+
+#Safe-Area_Bottom {
+    border-width: 0;
+    background-color: var(--general-background-color);
+}
+
+.fps-counter {
+    position: absolute;
+    right: 1%;
+    bottom: 230px;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 5px 25px;
+    -unity-font-style: bold;
+    -unity-text-outline: 2px rgb(10, 10, 10);
+}

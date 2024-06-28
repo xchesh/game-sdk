@@ -1,0 +1,112 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/variables.uss?fileID=7433441132597879392&amp;guid=97cfbb29708aff743a3244e050432dc5&amp;type=3#variables" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/root.uss?fileID=7433441132597879392&amp;guid=390cc33335c56d046b885c1f9dad5774&amp;type=3#root" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/header.uss?fileID=7433441132597879392&amp;guid=d3af310b57b77f844a5785b5c369a2e0&amp;type=3#header" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/main.uss?fileID=7433441132597879392&amp;guid=05694167d5dda0b47a4d693fdfe9eba6&amp;type=3#main" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/footer.uss?fileID=7433441132597879392&amp;guid=e912c4deba74233428773e5a03e122cc&amp;type=3#footer" />
+    <engine:VisualElement name="Safe-Area_Top" />
+    <engine:VisualElement name="Main" class="main">
+        <engine:ScrollView horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden">
+            <engine:VisualElement name="List">
+                <engine:VisualElement>
+                    <engine:Label text="1" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="2" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="3" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="4" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="5" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="6" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="7" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="8" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="9" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="10" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="11" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="12" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="13" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="14" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="15" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="16" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="17" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="18" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="19" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="20" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="21" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="22" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="23" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="24" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="25" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="26" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="27" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="28" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+                <engine:VisualElement>
+                    <engine:Label text="29" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:ScrollView>
+    </engine:VisualElement>
+    <engine:VisualElement name="Footer" class="footer">
+        <engine:Button text="Task" name="Button_Tasks" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" class="footer-button" />
+        <engine:Button text="Build" name="Button_Building" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" focusable="false" triple-click-selects-line="false" display-tooltip-when-elided="false" class="footer-button" />
+        <engine:VisualElement name="Buttons_Group" class="footer-buttons-group">
+            <engine:Button text="Trade" name="Button_Trade" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" class="footer-button footer-button__group" />
+            <engine:Button text="Smelt" name="Button_Smelt" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" class="footer-button footer-button__group" />
+            <engine:Button text="Craft" name="Button_Craft" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" class="footer-button footer-button__group" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+    <engine:VisualElement name="Safe-Area_Bottom" />
+    <engine:Label text="FPS: 60" name="fps-counter" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" class="fps-counter" />
+</engine:UXML>

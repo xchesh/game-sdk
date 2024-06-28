@@ -1,0 +1,43 @@
+:root {
+    --main-background-color: rgb(255, 255, 255);
+}
+
+.main {
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: var(--main-background-color);
+}
+
+#List {
+    background-color: rgb(255, 255, 125);
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-shrink: 0;
+    align-items: stretch;
+    justify-self: stretch;
+    align-content: flex-start;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-width: 0;
+    height: auto;
+    align-self: flex-start;
+}
+
+#List VisualElement {
+    width: 470px;
+    height: 470px;
+    background-color: transparent;
+    border-width: 0;
+    padding: 20px;
+}
+
+#List VisualElement Label {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: rgb(30, 30, 30);
+    font-size: 300%;
+    border-width: 0;
+    -unity-text-align: middle-center;
+}
