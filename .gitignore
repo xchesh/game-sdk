@@ -75,3 +75,7 @@ crashlytics-build.properties
 
 .utmp/
 **BurstDebugInformation_DoNotShip/
+
+/Sources/**/bin/
+/Sources/**/obj/
+/Sources/**/[Pp]ackages/
