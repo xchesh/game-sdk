@@ -1,0 +1,9 @@
+{
+  "name": "gamesdk.sources",
+  "displayName": "GameSdk.Sources",
+  "version": "1.0.0",
+  "unity": "2022.3",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.1"
+  }
+}
