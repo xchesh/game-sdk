@@ -97,7 +97,7 @@ namespace {JsonGeneratorParams.namespaceGenerated}
             var fileContent = $@"
 namespace {JsonGeneratorParams.namespaceGenerated}
 {{
-    public class {name} : {JsonGeneratorParams.nameConverterRead}<{fullName}> {{ }}
+    internal class {name} : {JsonGeneratorParams.nameConverterRead}<{fullName}> {{ }}
 }}
 ";
             return (fileName, fileContent, name);
@@ -114,7 +114,7 @@ using Newtonsoft.Json;
 
 namespace {JsonGeneratorParams.namespaceGenerated}
 {{
-    public sealed class {JsonGeneratorParams.nameConverterRead}Cache
+    internal sealed class {JsonGeneratorParams.nameConverterRead}Cache
     {{
         public static IList<JsonConverter> Converters = new List<JsonConverter>()
         {{

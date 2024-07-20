@@ -41,7 +41,7 @@ using System.Collections.Generic;
 
 namespace {JsonGeneratorParams.namespaceGenerated}
 {{
-    public sealed class {JsonGeneratorParams.nameConvertable}Cache
+    internal sealed class {JsonGeneratorParams.nameConvertable}Cache
     {{
         public static IDictionary<string, Type> Convertables = new Dictionary<string, Type>()
         {{
@@ -66,6 +66,7 @@ namespace {JsonGeneratorParams.namespaceGenerated}
             var attribute = typeDeclarationSyntax.AttributeLists.SelectMany(a => a.Attributes).First(a => JsonGeneratorParams.ContainsAttribute(a.Name.ToString(), JsonGeneratorParams.nameConvertable));
             var attributeArg1 = attribute.ArgumentList.Arguments.First().Expression.ToString().Trim('"');
 
+            var modifiers = string.Join(" ", typeDeclarationSyntax.Modifiers); // Save original modifiers
             var fullName = $"global::{typeNamespace}.{typeName}";
             var fileName = $"{typeName}.g.cs";
             var fileContent = $@"
@@ -75,7 +76,7 @@ using Newtonsoft.Json;
 namespace {typeNamespace}
 {{
     [JsonObject(MemberSerialization.OptIn)]
-    public partial {declarationType} {typeName}
+    {modifiers} {declarationType} {typeName}
     {{
         [JsonProperty(""key"")]
         public string Key => ""{attributeArg1}"";

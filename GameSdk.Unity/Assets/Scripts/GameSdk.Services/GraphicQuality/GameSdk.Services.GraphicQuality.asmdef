@@ -2,7 +2,8 @@
     "name": "GameSdk.Services.GraphicQuality",
     "rootNamespace": "",
     "references": [
-        "GUID:481386834acb44dd96951e450a61f758"
+        "GUID:481386834acb44dd96951e450a61f758",
+        "GUID:afb7c3019c472224bbbe0932ab9c4772"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

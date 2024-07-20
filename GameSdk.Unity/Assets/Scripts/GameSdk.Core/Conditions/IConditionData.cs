@@ -1,8 +1,10 @@
-﻿using GameSdk.Core.Converters;
+﻿
+using GameSdk.Sources.Generated;
 
 namespace GameSdk.Core.Conditions
 {
-    public interface IConditionData : IJsonData
+    [JsonConverterRead]
+    public interface IConditionData
     {
     }
 }

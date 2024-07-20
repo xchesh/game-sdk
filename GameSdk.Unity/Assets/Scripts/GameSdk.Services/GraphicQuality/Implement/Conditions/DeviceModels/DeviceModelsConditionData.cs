@@ -1,15 +1,15 @@
 using System;
 using Newtonsoft.Json;
 using UnityEngine;
+using GameSdk.Sources.Generated;
 
 namespace GameSdk.Services.GraphicQuality
 {
-    [Serializable, JsonObject(MemberSerialization.OptIn)]
-    public struct DeviceModelsConditionData : IGraphicQualityConditionData
+    [Serializable, JsonConvertable("device_models")]
+    public partial struct DeviceModelsConditionData : IGraphicQualityConditionData
     {
         [SerializeField, JsonProperty("deviceModels")] private string[] _deviceModels;
 
         public readonly string[] DeviceModels => _deviceModels;
-        public readonly string Key => "device_models";
     }
 }
