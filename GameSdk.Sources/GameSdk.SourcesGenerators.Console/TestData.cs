@@ -26,4 +26,15 @@ namespace GameSdk.SourcesGenerators.Console
         [JsonProperty("test_intrfc")] public ITestInterface intrfc;
     }
 
+    [JsonNotify]
+    public partial class TestNotify
+    {
+        [JsonProperty("MyTestField")]
+        private int _testField;
+
+        [JsonProperty]
+        private string _testString;
+
+        private int _testField2;
+    }
 }

@@ -17,7 +17,7 @@ using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace {JsonGeneratorParams.namespaceGenerated}
+namespace {JsonGeneratorParams.nameNamespace}
 {{
     public class {JsonGeneratorParams.nameConverterRead}<T> : JsonConverter
     {{
@@ -76,7 +76,7 @@ namespace {JsonGeneratorParams.namespaceGenerated}
             var fileContent = $@"
 using System;
 
-namespace {JsonGeneratorParams.namespaceGenerated}
+namespace {JsonGeneratorParams.nameNamespace}
 {{
     [AttributeUsage(AttributeTargets.Interface, Inherited = false, AllowMultiple = false)]
     public sealed class {JsonGeneratorParams.nameConverterRead}Attribute : Attribute
@@ -89,13 +89,13 @@ namespace {JsonGeneratorParams.namespaceGenerated}
 
         private (string fileName, string fileContent, string name) GetConverterRead(TypeDeclarationSyntax typeDeclarationSyntax)
         {
-            var (typeName, typeNamespace, declarationType) = GetTypeDeclaration(typeDeclarationSyntax);
+            var (typeName, typeNamespace, declarationType) = typeDeclarationSyntax.GetTypeDeclaration();
 
             var name = JsonGeneratorParams.nameConverterRead + typeName;
             var fullName = $"global::{typeNamespace}.{typeName}";
             var fileName = $"{JsonGeneratorParams.nameConverterRead}{typeName}.g.cs";
             var fileContent = $@"
-namespace {JsonGeneratorParams.namespaceGenerated}
+namespace {JsonGeneratorParams.nameNamespace}
 {{
     internal class {name} : {JsonGeneratorParams.nameConverterRead}<{fullName}> {{ }}
 }}
@@ -112,7 +112,7 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace {JsonGeneratorParams.namespaceGenerated}
+namespace {JsonGeneratorParams.nameNamespace}
 {{
     internal sealed class {JsonGeneratorParams.nameConverterRead}Cache
     {{

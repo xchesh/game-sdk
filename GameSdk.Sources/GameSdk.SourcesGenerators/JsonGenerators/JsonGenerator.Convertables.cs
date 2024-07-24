@@ -14,7 +14,7 @@ namespace GameSdk.SourcesGenerators
             var fileContent = $@"
 using System;
 
-namespace {JsonGeneratorParams.namespaceGenerated}
+namespace {JsonGeneratorParams.nameNamespace}
 {{
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct, Inherited = false, AllowMultiple = false)]
     public sealed class {JsonGeneratorParams.nameConvertable}Attribute : Attribute
@@ -39,7 +39,7 @@ namespace {JsonGeneratorParams.namespaceGenerated}
 using System;
 using System.Collections.Generic;
 
-namespace {JsonGeneratorParams.namespaceGenerated}
+namespace {JsonGeneratorParams.nameNamespace}
 {{
     internal sealed class {JsonGeneratorParams.nameConvertable}Cache
     {{
@@ -62,8 +62,8 @@ namespace {JsonGeneratorParams.namespaceGenerated}
         // Generate single partial convertable type with key property
         private (string fileName, string fileContent, string key, string fullName) GetConvertable(TypeDeclarationSyntax typeDeclarationSyntax)
         {
-            var (typeName, typeNamespace, declarationType) = GetTypeDeclaration(typeDeclarationSyntax);
-            var attribute = typeDeclarationSyntax.AttributeLists.SelectMany(a => a.Attributes).First(a => JsonGeneratorParams.ContainsAttribute(a.Name.ToString(), JsonGeneratorParams.nameConvertable));
+            var (typeName, typeNamespace, declarationType) = typeDeclarationSyntax.GetTypeDeclaration();
+            var attribute = typeDeclarationSyntax.AttributeLists.SelectMany(a => a.Attributes).First(a => SourceGeneratorParams.ContainsAttribute(a.Name.ToString(), JsonGeneratorParams.nameConvertable));
             var attributeArg1 = attribute.ArgumentList.Arguments.First().Expression.ToString().Trim('"');
 
             var modifiers = string.Join(" ", typeDeclarationSyntax.Modifiers); // Save original modifiers

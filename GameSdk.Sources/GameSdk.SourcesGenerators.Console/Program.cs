@@ -1,4 +1,6 @@
 
+using System.ComponentModel;
+using System.Reflection;
 using GameSdk.Sources.Generated;
 using GameSdk.SourcesGenerators.Console;
 using Newtonsoft.Json;
@@ -29,5 +31,24 @@ public class Program
         var result = JsonConvert.DeserializeObject<TestSerializable>(json, jsonSerializerSettings);
 
         Console.WriteLine($"Result: " + result.intrfc.ToString());
+
+        var notify = new TestNotify();
+
+        notify.PropertyChanged += PropertyChanged;
+
+        notify.TestString = "My test string change";
+        notify.TestField = 5;
+        notify.TestField = 1;
+        notify.TestString = "test";
+
+        notify.PropertyChanged -= PropertyChanged;
+
+        notify.TestString = "Empty";
+        notify.TestField = 0;
+    }
+
+    private static void PropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        Console.WriteLine($"Property changed: {e.PropertyName}");
     }
 }

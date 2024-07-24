@@ -1,6 +1,4 @@
-using System.Linq;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace GameSdk.SourcesGenerators
 {
@@ -12,7 +10,7 @@ namespace GameSdk.SourcesGenerators
         {
             // Generate code only for current assembly or assembly which dependent on current assebly
             // and only for JsonGeneratorSyntaxReceiver
-            if (JsonGeneratorParams.ContainsAssembly(context.Compilation) is false
+            if (SourceGeneratorParams.ContainsAssembly(context.Compilation) is false
                 || context.SyntaxReceiver is not JsonGeneratorSyntaxReceiver jsonConvertableReceiver)
             {
                 return;
@@ -36,7 +34,7 @@ namespace GameSdk.SourcesGenerators
 
             // Generate code only for current assembly
             // Optional: All attributes and converter (not caches) can be located inside the assembly code and not created by the generator
-            if (JsonGeneratorParams.ContainsAssembly(context.Compilation.AssemblyName) is false)
+            if (SourceGeneratorParams.ContainsAssembly(context.Compilation.AssemblyName) is false)
             {
                 return;
             }
@@ -59,27 +57,6 @@ namespace GameSdk.SourcesGenerators
         public void Initialize(GeneratorInitializationContext context)
         {
             context.RegisterForSyntaxNotifications(() => new JsonGeneratorSyntaxReceiver());
-        }
-
-        private static string GetDeclarationType(TypeDeclarationSyntax typeDeclarationSyntax)
-        {
-            return typeDeclarationSyntax switch
-            {
-                ClassDeclarationSyntax => "class",
-                InterfaceDeclarationSyntax => "interface",
-                StructDeclarationSyntax => "struct",
-                _ => "record"
-            };
-        }
-
-        private static (string typeName, string typeNamespace, string declarationType) GetTypeDeclaration(TypeDeclarationSyntax typeDeclarationSyntax)
-        {
-
-            var declarationType = GetDeclarationType(typeDeclarationSyntax);
-            var typeName = typeDeclarationSyntax.Identifier.Text;
-            var typeNamespace = typeDeclarationSyntax.Ancestors().OfType<NamespaceDeclarationSyntax>().First().Name.ToString();
-
-            return (typeName, typeNamespace, declarationType);
         }
     }
 }
