@@ -1,7 +1,6 @@
-using GameSdk.Sources.Generated;
 using Newtonsoft.Json;
 
-namespace GameSdk.SourcesGenerators.Console
+namespace Games.Uni.Common.Console
 {
     [JsonConverterRead]
 

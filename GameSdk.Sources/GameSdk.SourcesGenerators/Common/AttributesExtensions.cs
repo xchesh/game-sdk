@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace GameSdk.SourcesGenerators
+namespace Games.Uni.Common.SourcesGenerators
 {
     /// <summary>
     /// Extension methods for working with attributes.

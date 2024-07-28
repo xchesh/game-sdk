@@ -1,6 +1,6 @@
 using Microsoft.CodeAnalysis;
 
-namespace GameSdk.SourcesGenerators
+namespace Games.Uni.Common.SourcesGenerators
 {
 
     [Generator]

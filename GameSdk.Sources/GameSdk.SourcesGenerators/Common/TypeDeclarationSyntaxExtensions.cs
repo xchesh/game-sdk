@@ -1,7 +1,7 @@
 using System.Linq;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace GameSdk.SourcesGenerators
+namespace Games.Uni.Common.SourcesGenerators
 {
     /// <summary>
     /// Provides extension methods for <see cref="TypeDeclarationSyntax"/>.

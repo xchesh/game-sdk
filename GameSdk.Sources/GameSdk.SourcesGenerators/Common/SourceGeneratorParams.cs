@@ -1,12 +1,12 @@
 using System.Linq;
 using Microsoft.CodeAnalysis;
 
-namespace GameSdk.SourcesGenerators
+namespace Games.Uni.Common.SourcesGenerators
 {
     internal class SourceGeneratorParams
     {
-        internal static readonly string assemblyName = "GameSdk.Sources";
-        internal static readonly string assemblyNameConsole = "GameSdk.SourcesGenerators.Console";
+        internal static readonly string assemblyName = "Games.Uni.Common";
+        internal static readonly string assemblyNameConsole = "Games.Uni.Common.Console";
 
         internal static bool ContainsAttribute(string name, string attribute)
         {

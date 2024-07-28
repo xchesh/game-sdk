@@ -1,8 +1,7 @@
 
 using System.ComponentModel;
-using System.Reflection;
-using GameSdk.Sources.Generated;
-using GameSdk.SourcesGenerators.Console;
+using Games.Uni.Common;
+using Games.Uni.Common.Console;
 using Newtonsoft.Json;
 
 public class Program

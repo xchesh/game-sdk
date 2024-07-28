@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace GameSdk.SourcesGenerators
+namespace Games.Uni.Common.SourcesGenerators
 {
     public partial class JsonGenerator
     {

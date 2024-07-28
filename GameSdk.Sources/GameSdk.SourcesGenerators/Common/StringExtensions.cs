@@ -1,9 +1,6 @@
-using System;
-using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 
-namespace GameSdk.SourcesGenerators
+namespace Games.Uni.Common.SourcesGenerators
 {
     internal static class StringExtensions
     {

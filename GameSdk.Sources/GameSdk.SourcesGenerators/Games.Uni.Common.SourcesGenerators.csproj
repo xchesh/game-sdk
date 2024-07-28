@@ -6,7 +6,7 @@
     <IsRoslynComponent>true</IsRoslynComponent>
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
-    <AssemblyName>GameSdk.SourcesGenerators</AssemblyName>
+    <AssemblyName>Games.Uni.Common.SourcesGenerators</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
