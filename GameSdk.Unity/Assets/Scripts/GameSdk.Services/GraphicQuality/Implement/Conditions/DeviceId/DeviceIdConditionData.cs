@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using System;
 using UnityEngine;
-using GameSdk.Sources.Generated;
+using GameSdk.Sources.Json.Generated;
 
 namespace GameSdk.Services.GraphicQuality
 {

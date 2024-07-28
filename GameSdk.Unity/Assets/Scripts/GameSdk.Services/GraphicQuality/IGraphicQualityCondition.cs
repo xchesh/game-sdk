@@ -1,5 +1,5 @@
 using GameSdk.Core.Conditions;
-using GameSdk.Sources.Generated;
+using GameSdk.Sources.Json.Generated;
 
 namespace GameSdk.Services.GraphicQuality
 {

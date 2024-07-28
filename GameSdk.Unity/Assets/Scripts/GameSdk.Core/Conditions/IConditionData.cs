@@ -1,5 +1,5 @@
 ﻿
-using GameSdk.Sources.Generated;
+using GameSdk.Sources.Json.Generated;
 
 namespace GameSdk.Core.Conditions
 {
