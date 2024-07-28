@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c89d44fd9dfae4a42aecdd9aa84e1198, type: 3}
-  m_Name: GameSdk.GraphicQualityConfig
+  m_Name: GameSdk.Config.GraphicQuality
   m_EditorClassIdentifier: 
   _autoEnable: 1
   _defaultFrameRate: 60
