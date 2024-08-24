@@ -39,7 +39,7 @@ namespace GameSdk.Core.Toolbox
                     {
                         break;
                     }
-                    
+
                     container.Add(new PropertyField(propertyCopy));
                 } while (propertyCopy.NextVisible(false));
             }
@@ -59,7 +59,7 @@ namespace GameSdk.Core.Toolbox
                 return new Label() { name = "unity-invalid-type-label" };
             }
 
-            var values = GetDropdownValues(dropdownAttr.Type, dropdownAttr.GroupByNamespace);
+            var values = GetDropdownValues(fieldInfo.FieldType, dropdownAttr.GroupByNamespace, dropdownAttr.Types);
 
             var choices = values.Select(v => v.DisplayName).ToList();
             var typeName = GetTypeName(property.managedReferenceFullTypename);
@@ -106,7 +106,7 @@ namespace GameSdk.Core.Toolbox
             return typeName;
         }
 
-        protected virtual List<SerializeReferenceDropdownData> GetDropdownValues(Type type, bool group)
+        protected virtual List<SerializeReferenceDropdownData> GetDropdownValues(Type type, bool group, Type[] types)
         {
             if (_cachedTypes.ContainsKey(type) is false)
             {
@@ -114,8 +114,8 @@ namespace GameSdk.Core.Toolbox
             }
 
             return _cachedTypes[type]
-                .Select(t =>
-                    new SerializeReferenceDropdownData(t, $"{t.Name} : {type.Name}", group ? t.Namespace : null))
+                .Where(t => types.Length == 0 || types.Any(type => type.IsAssignableFrom(t)))
+                .Select(t => new SerializeReferenceDropdownData(t, $"{t.Name} : {type.Name}", group ? t.Namespace : null))
                 .Prepend(new SerializeReferenceDropdownData(null, "<null>"))
                 .ToList();
         }

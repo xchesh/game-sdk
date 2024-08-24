@@ -29,7 +29,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.burst": {
-      "version": "1.8.16",
+      "version": "1.8.17",
       "depth": 2,
       "source": "registry",
       "dependencies": {
@@ -247,13 +247,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.services.analytics": {
-      "version": "5.1.1",
+      "version": "6.0.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.ugui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0",
-        "com.unity.services.core": "1.12.5"
+        "com.unity.services.core": "1.12.4"
       },
       "url": "https://packages.unity.com"
     },
@@ -319,7 +319,7 @@
     },
     "com.unity.test-framework.performance": {
       "version": "3.0.3",
-      "depth": 3,
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.1.31",
@@ -345,7 +345,7 @@
       }
     },
     "jp.hadashikick.vcontainer": {
-      "version": "1.16.2",
+      "version": "1.16.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {},

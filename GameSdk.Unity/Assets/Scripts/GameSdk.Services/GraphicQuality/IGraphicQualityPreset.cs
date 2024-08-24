@@ -1,3 +1,4 @@
+using GameSdk.Core.Conditions;
 using UnityEngine;
 
 namespace GameSdk.Services.GraphicQuality
@@ -7,6 +8,6 @@ namespace GameSdk.Services.GraphicQuality
         RuntimePlatform Platform { get; }
         int QualityLevel { get; }
         int MaxFrameRate { get; }
-        IGraphicQualityConditionData Condition { get; }
+        IConditionData Condition { get; }
     }
 }

@@ -9,5 +9,17 @@ namespace Game.UI.Navigations
 
         void OnBlur();
         void OnFocus();
+
+        void INavigationScreenActions.Show()
+        {
+            OnShow();
+            OnFocus();
+        }
+
+        void INavigationScreenActions.Hide()
+        {
+            OnBlur();
+            OnHide();
+        }
     }
 }

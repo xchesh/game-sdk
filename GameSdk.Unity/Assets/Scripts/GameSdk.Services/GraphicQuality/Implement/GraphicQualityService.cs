@@ -41,7 +41,8 @@ namespace GameSdk.Services.GraphicQuality
 
         public void SetFrameRate(int frameRate)
         {
-            var targetFrameRate = Mathf.Min((int)Screen.currentResolution.refreshRateRatio.value, frameRate);
+            var screenRefreshRate = Mathf.Min(60, (int)Screen.currentResolution.refreshRateRatio.value);
+            var targetFrameRate = Mathf.Min(screenRefreshRate, frameRate);
 
             Application.targetFrameRate = targetFrameRate;
         }

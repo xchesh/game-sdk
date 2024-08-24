@@ -75,7 +75,7 @@ namespace GameSdk.Core.Toolbox
         {
             if (_panel == null)
             {
-                _panel = GetComponent<RectTransform>();
+                return;
             }
 
             _lastSafeArea = new Rect(0, 0, 0, 0);

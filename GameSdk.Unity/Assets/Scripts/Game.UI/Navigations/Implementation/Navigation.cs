@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Game.UI.Navigations;
 using GameSdk.Core.Common;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace GameSdk.UI.Navigations
@@ -33,43 +32,37 @@ namespace GameSdk.UI.Navigations
 
             var screen = _stack.Pop();
 
-            screen.Blur(() =>
-            {
-                screen.Hide();
-            });
+            screen.Hide();
 
             Current = _stack.Peek();
-            Current.Focus();
+            Current.Show();
         }
 
         public T PopTo<T>(string name, params IParameter[] parameters) where T : INavigationScreen
         {
-
             while (_stack.Count > 1)
             {
                 var screen = _stack.Pop();
 
                 if (screen.GetType().Name == name)
                 {
-                    screen.Blur(() =>
-                    {
-                        screen.Hide();
-                    });
+                    screen.Hide();
 
                     break;
                 }
 
-                screen.Blur(() =>
-                {
-                    screen.Hide();
-                });
+                screen.Hide();
             }
 
             Current = _stack.Peek();
-            Current.Focus();
+            Current.Show();
 
             return (T)Current;
         }
-        public T Push<T>(string name, params IParameter[] parameters) where T : INavigationScreen => throw new System.NotImplementedException();
+
+        public T Push<T>(string name, params IParameter[] parameters) where T : INavigationScreen
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

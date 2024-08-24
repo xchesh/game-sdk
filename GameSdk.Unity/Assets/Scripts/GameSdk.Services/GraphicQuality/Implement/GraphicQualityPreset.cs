@@ -1,3 +1,4 @@
+using GameSdk.Core.Conditions;
 using GameSdk.Core.Toolbox;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -21,12 +22,12 @@ namespace GameSdk.Services.GraphicQuality
         private int _maxFrameRate;
 
         [SerializeReference, JsonProperty("condition"), SerializeReferenceDropdown(typeof(IGraphicQualityConditionData))]
-        private IGraphicQualityConditionData _condition;
+        private IConditionData _condition;
 
         public RuntimePlatform Platform => _platform;
         public int QualityLevel => _qualityLevel;
         public int MaxFrameRate => _maxFrameRate;
-        public IGraphicQualityConditionData Condition => _condition;
+        public IConditionData Condition => _condition;
 
         public GraphicQualityPreset(RuntimePlatform platform, int qualityLevel, int maxFrameRate, IGraphicQualityConditionData condition)
         {

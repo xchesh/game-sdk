@@ -15,7 +15,7 @@ MonoBehaviour:
   _autoEnable: 1
   _defaultFrameRate: 60
   _defaultQualityLevel: 0
-  presets: []
+  _presets: []
   references:
     version: 2
     RefIds: []
