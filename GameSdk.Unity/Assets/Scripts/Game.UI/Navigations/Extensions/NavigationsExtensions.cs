@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameSdk.Core.Common;
+using GameSdk.Sources.Core.Common;
 
 namespace Game.UI.Navigations
 {

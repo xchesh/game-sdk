@@ -1,4 +1,4 @@
-﻿using GameSdk.Core.Loggers;
+﻿using GameSdk.Sources.Core.Loggers;
 using UnityEngine;
 using UnityEngine.Purchasing;
 

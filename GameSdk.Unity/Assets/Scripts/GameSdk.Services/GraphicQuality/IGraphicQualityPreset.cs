@@ -1,4 +1,4 @@
-using GameSdk.Core.Conditions;
+using GameSdk.Sources.Core.Conditions;
 using UnityEngine;
 
 namespace GameSdk.Services.GraphicQuality

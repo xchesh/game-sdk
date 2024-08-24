@@ -1,6 +1,6 @@
 using UnityEngine;
 using Reflex.Core;
-using GameSdk.Core.Loggers;
+using GameSdk.Sources.Core.Loggers;
 using System.Collections.Generic;
 using System.Linq;
 

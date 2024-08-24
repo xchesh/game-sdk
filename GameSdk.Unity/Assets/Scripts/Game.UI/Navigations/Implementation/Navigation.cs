@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Game.UI.Navigations;
-using GameSdk.Core.Common;
+using GameSdk.Sources.Core.Common;
 using UnityEngine.UIElements;
 
 namespace GameSdk.UI.Navigations

@@ -1,6 +1,6 @@
 using System;
-using GameSdk.Core.Conditions;
-using GameSdk.Core.Loggers;
+using GameSdk.Sources.Core.Conditions;
+using GameSdk.Sources.Core.Loggers;
 using UnityEngine;
 using UnityEngine.Assertions;
 

@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using GameSdk.Core.Loggers;
+using GameSdk.Sources.Core.Loggers;
 using GameSdk.Services.Authentication;
 using GameSdk.Services.GraphicQuality;
 using GameSdk.Services.InApp;

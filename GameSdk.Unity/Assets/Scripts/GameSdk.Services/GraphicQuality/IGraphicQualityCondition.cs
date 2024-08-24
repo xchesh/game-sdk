@@ -1,4 +1,4 @@
-using GameSdk.Core.Conditions;
+using GameSdk.Sources.Core.Conditions;
 using GameSdk.Sources.Json.Generated;
 
 namespace GameSdk.Services.GraphicQuality

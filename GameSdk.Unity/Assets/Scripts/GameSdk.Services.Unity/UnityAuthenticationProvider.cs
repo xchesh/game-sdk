@@ -1,6 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
-using GameSdk.Core.Loggers;
+using GameSdk.Sources.Core.Loggers;
 using GameSdk.Services.Authentication;
 using Unity.Services.Authentication;
 using Unity.Services.Core;

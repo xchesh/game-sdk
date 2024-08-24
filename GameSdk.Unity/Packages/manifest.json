@@ -19,6 +19,7 @@
     "com.unity.test-framework.performance": "3.0.3",
     "com.unity.ugui": "2.0.0",
     "gamesdk.sources.json": "file:../../GameSdk.Sources/GameSdk.Sources.Json.Unity/Assets/Package",
+    "gamesdk.sources.core": "file:../../GameSdk.Sources/GameSdk.Sources.Core.Unity/Assets/Package",
     "jp.hadashikick.vcontainer": "1.16.3",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

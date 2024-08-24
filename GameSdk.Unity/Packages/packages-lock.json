@@ -336,6 +336,16 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "gamesdk.sources.core": {
+      "version": "file:../../GameSdk.Sources/GameSdk.Sources.Core.Unity/Assets/Package",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "gamesdk.sources.json": "1.0.0",
+        "com.cysharp.unitask": "2.2.5",
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      }
+    },
     "gamesdk.sources.json": {
       "version": "file:../../GameSdk.Sources/GameSdk.Sources.Json.Unity/Assets/Package",
       "depth": 0,

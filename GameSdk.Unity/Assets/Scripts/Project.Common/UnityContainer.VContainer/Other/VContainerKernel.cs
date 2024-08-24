@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using GameSdk.Core.Loggers;
+using GameSdk.Sources.Core.Loggers;
 using UnityEngine;
 using VContainer.Internal;
 using VContainer.Unity;

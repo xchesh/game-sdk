@@ -1,5 +1,5 @@
-using GameSdk.Core.Common;
-using GameSdk.Core.Conditions;
+using GameSdk.Sources.Core.Common;
+using GameSdk.Sources.Core.Conditions;
 
 namespace GameSdk.Services.GraphicQuality
 {

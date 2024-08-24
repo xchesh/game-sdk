@@ -1,6 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
-using GameSdk.Core.Loggers;
+using GameSdk.Sources.Core.Loggers;
 using GameSdk.Services.InternetReachability;
 using UnityEngine;
 

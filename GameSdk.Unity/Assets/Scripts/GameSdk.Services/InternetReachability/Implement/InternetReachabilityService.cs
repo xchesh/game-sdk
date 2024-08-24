@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Net;
 using Cysharp.Threading.Tasks;
-using GameSdk.Core.Datetime;
-using GameSdk.Core.Loggers;
+using GameSdk.Sources.Core.Datetime;
+using GameSdk.Sources.Core.Loggers;
 using UnityEngine;
 
 namespace GameSdk.Services.InternetReachability

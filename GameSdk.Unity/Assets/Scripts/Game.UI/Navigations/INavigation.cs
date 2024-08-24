@@ -1,4 +1,4 @@
-using GameSdk.Core.Common;
+using GameSdk.Sources.Core.Common;
 using UnityEngine.UIElements;
 
 namespace Game.UI.Navigations

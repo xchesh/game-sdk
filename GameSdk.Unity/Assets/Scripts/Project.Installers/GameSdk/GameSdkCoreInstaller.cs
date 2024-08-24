@@ -1,8 +1,8 @@
-﻿using GameSdk.Core.Conditions;
-using GameSdk.Core.Datetime;
-using GameSdk.Core.Loggers;
-using GameSdk.Core.Prices;
-using GameSdk.Core.Rewards;
+﻿using GameSdk.Sources.Core.Conditions;
+using GameSdk.Sources.Core.Datetime;
+using GameSdk.Sources.Core.Loggers;
+using GameSdk.Sources.Core.Prices;
+using GameSdk.Sources.Core.Rewards;
 using Project.Common.UnityContainer;
 using UnityEngine;
 

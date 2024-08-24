@@ -1,4 +1,4 @@
-﻿using GameSdk.Core.Conditions;
+﻿using GameSdk.Sources.Core.Conditions;
 using GameSdk.Services.Authentication;
 using GameSdk.Services.GraphicQuality;
 using GameSdk.Services.InApp;

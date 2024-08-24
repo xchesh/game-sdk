@@ -1,5 +1,5 @@
-using GameSdk.Core.Conditions;
-using GameSdk.Core.Toolbox;
+using GameSdk.Sources.Core.Conditions;
+using GameSdk.Sources.Core.Toolbox;
 using Newtonsoft.Json;
 using UnityEngine;
 

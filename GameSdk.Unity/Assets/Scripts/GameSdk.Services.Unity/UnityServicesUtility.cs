@@ -1,6 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
-using GameSdk.Core.Loggers;
+using GameSdk.Sources.Core.Loggers;
 using Unity.Services.Core;
 using Unity.Services.RemoteConfig;
 

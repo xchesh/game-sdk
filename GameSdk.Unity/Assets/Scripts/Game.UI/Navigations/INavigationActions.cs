@@ -1,5 +1,5 @@
 
-using GameSdk.Core.Common;
+using GameSdk.Sources.Core.Common;
 
 namespace Game.UI.Navigations
 {
