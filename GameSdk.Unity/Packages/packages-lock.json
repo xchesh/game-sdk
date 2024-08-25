@@ -354,6 +354,17 @@
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       }
     },
+    "gamesdk.sources.services": {
+      "version": "file:../../GameSdk.Sources/GameSdk.Sources.Services.Unity/Assets/Package",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "gamesdk.sources.core": "1.0.0",
+        "gamesdk.sources.json": "1.0.0",
+        "com.cysharp.unitask": "2.2.5",
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      }
+    },
     "jp.hadashikick.vcontainer": {
       "version": "1.16.3",
       "depth": 0,

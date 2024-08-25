@@ -1,4 +1,4 @@
-﻿using GameSdk.Services.RemoteConfig;
+﻿using GameSdk.Sources.Services.RemoteConfig;
 
 namespace Project.Services.RemoteConfig
 {

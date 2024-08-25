@@ -1,10 +1,10 @@
 using Cysharp.Threading.Tasks;
 using GameSdk.Sources.Core.Loggers;
-using GameSdk.Services.Authentication;
-using GameSdk.Services.GraphicQuality;
-using GameSdk.Services.InApp;
-using GameSdk.Services.InternetReachability;
-using GameSdk.Services.RemoteConfig;
+using GameSdk.Sources.Services.Authentication;
+using GameSdk.Sources.Services.GraphicQuality;
+using GameSdk.Sources.Services.InApp;
+using GameSdk.Sources.Services.InternetReachability;
+using GameSdk.Sources.Services.RemoteConfig;
 using Project.Common.UnityContainer;
 using UnityEngine;
 

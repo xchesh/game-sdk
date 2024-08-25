@@ -1,6 +1,7 @@
-﻿using GameSdk.Services.Authentication;
-using GameSdk.Services.RemoteConfig;
-using GameSdk.Services.Unity;
+﻿using GameSdk.Sources.Services.UnityTechnology;
+using GameSdk.Sources.Services.Authentication;
+using GameSdk.Sources.Services.RemoteConfig;
+
 using Project.Common.UnityContainer;
 
 namespace Project.Installers
