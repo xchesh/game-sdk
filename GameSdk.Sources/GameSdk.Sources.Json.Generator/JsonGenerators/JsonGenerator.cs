@@ -39,18 +39,10 @@ namespace GameSdk.Sources.Json
                 return;
             }
 
-            var converterRead = GetConverterRead();
-            var converterReadAttribute = GetConverterReadAttribute();
             var convertersReadCache = GetConvertersReadCache(convertersRead);
-
-            var convertableAttribute = GetConvertableAttribute();
             var convertablesCache = GetConvertablesCache(convertables.map);
 
-            context.AddSource(converterRead.fileName, converterRead.fileContent);                   // Optional
-            context.AddSource(converterReadAttribute.fileName, converterReadAttribute.fileContent); // Optional
             context.AddSource(convertersReadCache.fileName, convertersReadCache.fileContent);       // Required
-
-            context.AddSource(convertableAttribute.fileName, convertableAttribute.fileContent);     // Optional
             context.AddSource(convertablesCache.fileName, convertablesCache.fileContent);           // Required
         }
 

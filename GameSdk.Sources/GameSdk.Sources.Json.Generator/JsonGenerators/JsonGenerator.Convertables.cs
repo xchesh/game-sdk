@@ -7,30 +7,6 @@ namespace GameSdk.Sources.Json
 {
     public partial class JsonGenerator
     {
-        // Generate ConvertableAttribute used JsonGeneratorParams
-        private (string fileName, string fileContent) GetConvertableAttribute()
-        {
-            var fileName = $"{JsonGeneratorParams.nameConvertable}Attribute.g.cs";
-            var fileContent = $@"
-using System;
-
-namespace {JsonGeneratorParams.nameNamespace}
-{{
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct, Inherited = false, AllowMultiple = false)]
-    public sealed class {JsonGeneratorParams.nameConvertable}Attribute : Attribute
-    {{
-        public string Key {{ get; }}
-
-        public {JsonGeneratorParams.nameConvertable}Attribute(string key)
-        {{
-            Key = key;
-        }}
-    }}
-}}
-";
-            return (fileName, fileContent);
-        }
-
         // Generate cache file of convertables for prevent runtime reflecion
         private (string fileName, string fileContent) GetConvertablesCache(Dictionary<string, string> convertables)
         {
@@ -41,7 +17,7 @@ using System.Collections.Generic;
 
 namespace {JsonGeneratorParams.nameNamespace}
 {{
-    internal sealed class {JsonGeneratorParams.nameConvertable}Cache
+    public sealed class {JsonGeneratorParams.nameConvertable}Cache
     {{
         public static IDictionary<string, Type> Convertables = new Dictionary<string, Type>()
         {{
@@ -52,7 +28,7 @@ namespace {JsonGeneratorParams.nameNamespace}
             }
 
             fileContent.AppendLine($@"
-        }}; 
+        }};
     }}
 }}
 ");

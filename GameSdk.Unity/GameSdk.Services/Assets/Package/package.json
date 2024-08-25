@@ -1,0 +1,16 @@
+{
+    "name": "gamesdk.services",
+    "version": "1.0.0",
+    "displayName": "GameSdk.Services",
+    "description": "GameSdk services for game development",
+    "unity": "6000.0",
+    "dependencies": {
+        "gamesdk.core": "1.0.0",
+        "gamesdk.sources.json": "1.0.0",
+        "com.cysharp.unitask": "2.2.5",
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+    },
+    "optionalDependencies": {
+        "com.unity.purchasing": "4.12.2"
+    }
+}

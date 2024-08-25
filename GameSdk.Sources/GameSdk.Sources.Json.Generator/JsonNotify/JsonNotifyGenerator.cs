@@ -45,36 +45,12 @@ namespace GameSdk.Sources.Json
             {
                 return;
             }
-
-            var notifyPropertyChangedAttribute = GetAttribute();
-
-            context.AddSource(notifyPropertyChangedAttribute.fileName, notifyPropertyChangedAttribute.fileContent);
         }
 
         public void Initialize(GeneratorInitializationContext context)
         {
             context.RegisterForSyntaxNotifications(() => new JsonNotifySyntaxReceiver());
 
-        }
-
-        private (string fileName, string fileContent) GetAttribute()
-        {
-            var fileName = $"{JsonNotifyParams.nameClassAttribute}Attribute.g.cs";
-            var fileContent = $@"
-using System;
-
-namespace {JsonNotifyParams.nameNamespace}
-{{
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct, Inherited = false, AllowMultiple = false)]
-    public sealed class {JsonNotifyParams.nameClassAttribute}Attribute : Attribute
-    {{
-        public {JsonNotifyParams.nameClassAttribute}Attribute()
-        {{
-        }}
-    }}
-}}
-";
-            return (fileName, fileContent);
         }
 
         // Generate single partial candidate type

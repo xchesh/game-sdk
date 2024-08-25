@@ -1,7 +1,6 @@
 
 using System.ComponentModel;
-using System.Reflection;
-using GameSdk.Sources.Json.Generated;
+using GameSdk.Sources.Json;
 using GameSdk.Sources.Json.Console;
 using Newtonsoft.Json;
 

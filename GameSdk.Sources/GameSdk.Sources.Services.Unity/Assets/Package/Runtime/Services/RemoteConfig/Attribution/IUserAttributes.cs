@@ -1,6 +1,0 @@
-﻿namespace GameSdk.Sources.Services.RemoteConfig
-{
-    public interface IUserAttributes
-    {
-    }
-}

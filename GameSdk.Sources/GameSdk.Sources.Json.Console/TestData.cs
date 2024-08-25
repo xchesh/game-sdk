@@ -1,10 +1,9 @@
-using GameSdk.Sources.Json.Generated;
+using GameSdk.Sources.Json;
 using Newtonsoft.Json;
 
 namespace GameSdk.Sources.Json.Console
 {
     [JsonConverterRead]
-
     public interface ITestInterface
     {
 
