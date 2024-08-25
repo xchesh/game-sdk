@@ -20,8 +20,8 @@
     "com.unity.ugui": "2.0.0",
     "gamesdk.core": "file:../../GameSdk.Packages/GameSdk.Core/Assets/Package",
     "gamesdk.services": "file:../../GameSdk.Packages/GameSdk.Services/Assets/Package",
-    "gamesdk.unitycontainer": "file:../../GameSdk.Packages/GameSdk.UnityContainer/Assets/Package",
     "gamesdk.sources.json": "file:../../GameSdk.Packages/GameSdk.Sources.Json/Assets/Package",
+    "gamesdk.unitycontainer": "file:../../GameSdk.Packages/GameSdk.UnityContainer/Assets/Package",
     "jp.hadashikick.vcontainer": "1.16.3",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -34,8 +34,7 @@
     "com.unity.modules.umbra": "1.0.0",
     "com.unity.modules.unityanalytics": "1.0.0",
     "com.unity.modules.unitywebrequest": "1.0.0",
-    "com.unity.modules.unitywebrequestwww": "1.0.0",
-    "com.unity.modules.video": "1.0.0"
+    "com.unity.modules.unitywebrequestwww": "1.0.0"
   },
   "scopedRegistries": [
     {

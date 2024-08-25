@@ -52,6 +52,11 @@ namespace GameSdk.Core.Toolbox
 
         private void ApplySafeArea(Rect area)
         {
+            if (_panel == null)
+            {
+                return;
+            }
+
             _panel.anchoredPosition = Vector2.zero;
             _panel.sizeDelta = Vector2.zero;
 
@@ -71,8 +76,16 @@ namespace GameSdk.Core.Toolbox
             _lastSafeArea = area;
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
+            UnityEditor.EditorApplication.delayCall += OnValidate_Internal;
+        }
+
+        private void OnValidate_Internal()
+        {
+            UnityEditor.EditorApplication.delayCall -= OnValidate_Internal;
+
             if (_panel == null)
             {
                 return;
@@ -82,5 +95,6 @@ namespace GameSdk.Core.Toolbox
 
             UpdateSafeArea();
         }
+#endif
     }
 }
