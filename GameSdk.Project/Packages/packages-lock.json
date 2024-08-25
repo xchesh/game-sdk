@@ -337,7 +337,7 @@
       }
     },
     "gamesdk.core": {
-      "version": "file:../../GameSdk.Unity/GameSdk.Core/Assets/Package",
+      "version": "file:../../GameSdk.Packages/GameSdk.Core/Assets/Package",
       "depth": 0,
       "source": "local",
       "dependencies": {
@@ -347,7 +347,7 @@
       }
     },
     "gamesdk.services": {
-      "version": "file:../../GameSdk.Unity/GameSdk.Services/Assets/Package",
+      "version": "file:../../GameSdk.Packages/GameSdk.Services/Assets/Package",
       "depth": 0,
       "source": "local",
       "dependencies": {
@@ -358,7 +358,7 @@
       }
     },
     "gamesdk.sources.json": {
-      "version": "file:../../GameSdk.Unity/GameSdk.Sources.Json/Assets/Package",
+      "version": "file:../../GameSdk.Packages/GameSdk.Sources.Json/Assets/Package",
       "depth": 0,
       "source": "local",
       "dependencies": {
@@ -366,7 +366,7 @@
       }
     },
     "gamesdk.unitycontainer": {
-      "version": "file:../../GameSdk.Unity/GameSdk.UnityContainer/Assets/Package",
+      "version": "file:../../GameSdk.Packages/GameSdk.UnityContainer/Assets/Package",
       "depth": 0,
       "source": "local",
       "dependencies": {
