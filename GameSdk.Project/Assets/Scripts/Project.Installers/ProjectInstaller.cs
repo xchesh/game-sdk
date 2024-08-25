@@ -1,5 +1,5 @@
 using GameSdk.Services.RemoteConfig;
-using Project.Common.UnityContainer;
+using GameSdk.UnityContainer;
 using Project.Services.RemoteConfig;
 
 namespace Project.Installers

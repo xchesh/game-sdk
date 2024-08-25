@@ -1,0 +1,10 @@
+{
+    "name": "gamesdk.unitycontainer",
+    "version": "1.0.0",
+    "displayName": "GameSdk.UnityContainer",
+    "description": "GameSdk dependency injection container for Unity",
+    "unity": "6000.0",
+    "dependencies": {
+        "gamesdk.core": "1.0.0"
+    }
+}

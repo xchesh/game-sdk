@@ -2,7 +2,7 @@
 using GameSdk.Services.Authentication;
 using GameSdk.Services.RemoteConfig;
 
-using Project.Common.UnityContainer;
+using GameSdk.UnityContainer;
 
 namespace Project.Installers
 {

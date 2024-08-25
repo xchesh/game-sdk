@@ -3,7 +3,7 @@ using GameSdk.Core.Datetime;
 using GameSdk.Core.Loggers;
 using GameSdk.Core.Prices;
 using GameSdk.Core.Rewards;
-using Project.Common.UnityContainer;
+using GameSdk.UnityContainer;
 using UnityEngine;
 
 namespace Project.Installers

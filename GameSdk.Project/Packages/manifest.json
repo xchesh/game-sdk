@@ -20,6 +20,7 @@
     "com.unity.ugui": "2.0.0",
     "gamesdk.core": "file:../../GameSdk.Unity/GameSdk.Core/Assets/Package",
     "gamesdk.services": "file:../../GameSdk.Unity/GameSdk.Services/Assets/Package",
+    "gamesdk.unitycontainer": "file:../../GameSdk.Unity/GameSdk.UnityContainer/Assets/Package",
     "gamesdk.sources.json": "file:../../GameSdk.Unity/GameSdk.Sources.Json/Assets/Package",
     "jp.hadashikick.vcontainer": "1.16.3",
     "com.unity.modules.androidjni": "1.0.0",

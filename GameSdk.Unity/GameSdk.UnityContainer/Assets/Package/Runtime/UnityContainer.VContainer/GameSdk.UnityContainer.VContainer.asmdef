@@ -1,0 +1,26 @@
+{
+    "name": "GameSdk.UnityContainer.VContainer",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+        "GUID:481386834acb44dd96951e450a61f758",
+        "GUID:49e1dd7ac2ab94044be53b48691bf3d0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "VCONTAINER_ENABLE"
+    ],
+    "versionDefines": [
+        {
+            "name": "jp.hadashikick.vcontainer",
+            "expression": "1.0.0",
+            "define": "VCONTAINER_ENABLE"
+        }
+    ],
+    "noEngineReferences": false
+}

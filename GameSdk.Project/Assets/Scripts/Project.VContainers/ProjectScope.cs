@@ -1,4 +1,4 @@
-using Project.Common.UnityContainer.VContainer;
+using GameSdk.UnityContainer.VContainer;
 
 namespace Project.VContainers
 {

@@ -4,7 +4,7 @@ using GameSdk.Services.GraphicQuality;
 using GameSdk.Services.InApp;
 using GameSdk.Services.InternetReachability;
 using GameSdk.Services.RemoteConfig;
-using Project.Common.UnityContainer;
+using GameSdk.UnityContainer;
 using UnityEngine;
 
 namespace Project.Installers
