@@ -9,9 +9,9 @@ namespace Game.UI.Navigations
 {
     public static class NavigationsExtensions
     {
-        public static T Navigate<T>(this INavigation navigation, string name, T screen, params IParameter[] parameters) where T : INavigationScreen
+        public static T Navigate<T>(this INavigation navigation, T screen) where T : IScreen
         {
-            return navigation.Push<T>(name, parameters);
+            return navigation.Push<T>(screen);
         }
 
         public static void GoBack(this INavigation navigation)

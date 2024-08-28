@@ -1,12 +1,25 @@
-using GameSdk.Core.Common;
 using UnityEngine.UIElements;
 
 namespace Game.UI.Navigations
 {
-    public interface INavigation : INavigationActions
+    public interface INavigation
     {
-        INavigationScreen Current { get; }
+        const string TAG = "Navigation";
 
-        void Initialize(VisualElement navigation);
+        IScreen Current { get; }
+
+        void Initialize(INavigationConfig navigationConfig, VisualElement visualElement, INavigation parent = null);
+
+        void RegisterEventListener(INavigationEventListener eventListeners);
+        void UnregisterEventListener(INavigationEventListener eventListeners);
+
+        T Replace<T>(params object[] parameters) where T : IScreen;
+        T Replace<T>(T screen, params object[] parameters) where T : IScreen;
+
+        T Push<T>(params object[] parameters) where T : IScreen;
+        T Push<T>(T screen, params object[] parameters) where T : IScreen;
+
+        T PopTo<T>() where T : IScreen;
+        void Pop();
     }
 }

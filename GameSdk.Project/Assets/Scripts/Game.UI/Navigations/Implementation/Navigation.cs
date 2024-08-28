@@ -1,68 +1,151 @@
 using System.Collections.Generic;
-using Game.UI.Navigations;
-using GameSdk.Core.Common;
 using UnityEngine.UIElements;
 
-namespace GameSdk.UI.Navigations
+namespace Game.UI.Navigations
 {
-    public class Navigation : INavigation
+    public partial class Navigation : INavigation
     {
-        private readonly Stack<INavigationScreen> _stack = new Stack<INavigationScreen>();
+        private readonly Stack<IScreen> _stack;
+        private readonly IScreenFactory _screenFactory;
+        private readonly IDictionary<System.Type, IScreen> _screens;
 
-        private NavigationComponent _component;
+        public IScreen Current { get; private set; }
+        public INavigation Parent { get; private set; }
+        public INavigationConfig Config { get; private set; }
+        public NavigationComponent Component { get; private set; }
 
-        public INavigationScreen Current { get; private set; }
-
-        public void Initialize(VisualElement navigation)
+        public Navigation(IScreenFactory navigationScreenFactory)
         {
-            _component = navigation as NavigationComponent;
+            _stack = new Stack<IScreen>();
+            _screens = new Dictionary<System.Type, IScreen>();
 
-            if (_component == null)
+            _screenFactory = navigationScreenFactory;
+        }
+
+        public void Initialize(INavigationConfig navigationConfig, VisualElement visualElement, INavigation parent = null)
+        {
+            Parent = parent;
+            Config = navigationConfig;
+            Component = visualElement as NavigationComponent;
+
+            if (Component == null)
             {
                 throw new System.ArgumentException($"Navigation component must be of type {nameof(NavigationComponent)}");
+            }
+
+            if (Config == null)
+            {
+                throw new System.ArgumentException($"Navigation config must be of type {nameof(INavigationConfig)}");
+            }
+
+            // Initialize the navigation non-lazy screens
+            foreach (var screenConfig in Config.Screens)
+            {
+                if (screenConfig.IsLazyLoad is false)
+                {
+                    CreateScreen(screenConfig.Type);
+                }
             }
         }
 
         public void Pop()
         {
-            if (_stack.Count <= 1)
+            // When the stack is empty, try to pop the parent stack
+            if (_stack.Count < 1)
             {
+                Parent?.Pop();
+
                 return;
             }
 
-            var screen = _stack.Pop();
+            // Hide the current screen and remove it from stack
+            HideScreen(_stack.Pop());
 
-            screen.Hide();
+            // Show the last screen from stack as the current screen if it's not empty
+            if (_stack.Count > 0)
+            {
+                ShowScreen(_stack.Peek());
 
-            Current = _stack.Peek();
-            Current.Show();
+                return;
+            }
+
+            // When the stack is empty, try to pop the parent stack
+            Parent?.Pop();
         }
 
-        public T PopTo<T>(string name, params IParameter[] parameters) where T : INavigationScreen
+        public T PopTo<T>() where T : IScreen
         {
-            while (_stack.Count > 1)
+            var type = typeof(T);
+            var count = Parent == null ? 1 : 0;
+
+            while (_stack.Count > count)
             {
-                var screen = _stack.Pop();
+                // Peek the last screen from stack and check if it's the current type
+                var screen = _stack.Peek();
 
-                if (screen.GetType().Name == name)
+                // Break the loop if it's the current type
+                if (screen.GetType() == type)
                 {
-                    screen.Hide();
-
                     break;
                 }
 
-                screen.Hide();
+                // Hide the screen and remove it from stack
+                // if it's not the current type
+                HideScreen(_stack.Pop());
             }
 
-            Current = _stack.Peek();
-            Current.Show();
+            // When the stack is empty, try to pop the parent stack
+            if (_stack.Count < 1 && Parent != null)
+            {
+                return Parent.PopTo<T>();
+            }
 
-            return (T)Current;
+            // Show the last screen from stack as the current screen
+            return ShowScreen((T)_stack.Peek());
         }
 
-        public T Push<T>(string name, params IParameter[] parameters) where T : INavigationScreen
+        public T Push<T>(params object[] parameters) where T : IScreen
         {
-            throw new System.NotImplementedException();
+            return Push(GetScreen<T>());
+        }
+
+        public T Push<T>(T screen, params object[] parameters) where T : IScreen
+        {
+            if (Config.HasScreenConfig<T>() is false)
+            {
+                throw new System.ArgumentException($"Screen {typeof(T).Name} is not configured in the navigation config");
+            }
+
+            if (_stack.Count > 0)
+            {
+                BlurScreen_Action(Current);
+            }
+
+            _stack.Push(screen);
+
+            return ShowScreen((T)screen, parameters);
+        }
+
+        public T Replace<T>(params object[] parameters) where T : IScreen
+        {
+            return Replace(GetScreen<T>());
+        }
+
+        public T Replace<T>(T screen, params object[] parameters) where T : IScreen
+        {
+            if (Config.HasScreenConfig<T>() is false)
+            {
+                throw new System.ArgumentException($"Screen {typeof(T).Name} is not configured in the navigation config");
+            }
+
+            if (_stack.Count > 0)
+            {
+                HideScreen(_stack.Pop());
+            }
+
+            _stack.Push(screen);
+
+            return ShowScreen((T)screen, parameters);
         }
     }
 }
