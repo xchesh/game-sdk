@@ -66,6 +66,8 @@ namespace Game.UI.Navigations
         private void ShowScreen_Action<T>(T screen, params object[] parameters) where T : IScreen
         {
             screen.IsVisible = true;
+            screen.VisualElement.BringToFront();
+
             screen.OnShow(parameters);
 
             NotifyEventListeners(screen, ScreenEvent.Show);
