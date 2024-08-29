@@ -6,7 +6,7 @@
     <IsRoslynComponent>true</IsRoslynComponent>
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
-    <AssemblyName>GameSdk.Sources.Json.Generator</AssemblyName>
+    <AssemblyName>GameSdk.Sources.Navigation.Generator</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="bin\Release\netstandard2.0\GameSdk.Sources.Json.Generator.dll" />
+    <None Remove="bin\Release\netstandard2.0\GameSdk.Sources.Navigation.Generator.dll" />
   </ItemGroup>
 
   <ItemGroup>

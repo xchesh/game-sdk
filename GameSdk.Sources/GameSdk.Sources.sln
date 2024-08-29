@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameSdk.Sources.Json.Genera
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameSdk.Sources.Json.Console", "GameSdk.Sources.Json.Console\GameSdk.Sources.Json.Console.csproj", "{7ACF3943-0D4C-4CD0-87E0-3401016B2E71}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameSdk.Sources.Navigation.Generator", "GameSdk.Sources.Navigation.Generator\GameSdk.Sources.Navigation.Generator.csproj", "{72BB5831-1FD2-4CB9-BD46-0EB526461E02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameSdk.Sources.Navigation.Console", "GameSdk.Sources.Navigation.Console\GameSdk.Sources.Navigation.Console.csproj", "{01B6F6DE-60D0-4193-9E11-8853BDCBA20B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{7ACF3943-0D4C-4CD0-87E0-3401016B2E71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7ACF3943-0D4C-4CD0-87E0-3401016B2E71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ACF3943-0D4C-4CD0-87E0-3401016B2E71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72BB5831-1FD2-4CB9-BD46-0EB526461E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72BB5831-1FD2-4CB9-BD46-0EB526461E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72BB5831-1FD2-4CB9-BD46-0EB526461E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72BB5831-1FD2-4CB9-BD46-0EB526461E02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01B6F6DE-60D0-4193-9E11-8853BDCBA20B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01B6F6DE-60D0-4193-9E11-8853BDCBA20B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01B6F6DE-60D0-4193-9E11-8853BDCBA20B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01B6F6DE-60D0-4193-9E11-8853BDCBA20B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

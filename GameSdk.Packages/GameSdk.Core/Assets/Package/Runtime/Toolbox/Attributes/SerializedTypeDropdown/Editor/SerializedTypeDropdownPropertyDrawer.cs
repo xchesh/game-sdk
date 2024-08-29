@@ -52,6 +52,8 @@ namespace GameSdk.Core.Toolbox
                 property.serializedObject.ApplyModifiedProperties();
             });
 
+            dropdownField.AddToClassList("unity-base-field__aligned");
+
             root.Add(dropdownField);
 
             return root;

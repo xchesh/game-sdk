@@ -50,7 +50,6 @@ namespace GameSdk.Sources.Json
         public void Initialize(GeneratorInitializationContext context)
         {
             context.RegisterForSyntaxNotifications(() => new JsonNotifySyntaxReceiver());
-
         }
 
         // Generate single partial candidate type
