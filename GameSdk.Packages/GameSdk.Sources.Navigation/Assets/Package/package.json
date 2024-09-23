@@ -1,0 +1,11 @@
+{
+    "name": "gamesdk.sources.navigation",
+    "version": "1.0.0",
+    "displayName": "GameSdk.Sources.Navigation",
+    "description": "Navigation sources for GameSdk",
+    "unity": "6000.0",
+    "dependencies": {
+      "gamesdk.core": "1.0.0",
+      "com.unity.nuget.newtonsoft-json": "3.2.1"
+    }
+  }

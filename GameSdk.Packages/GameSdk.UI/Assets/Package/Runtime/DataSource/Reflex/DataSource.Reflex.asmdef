@@ -1,0 +1,25 @@
+{
+    "name": "DataSource.Reflex",
+    "rootNamespace": "",
+    "references": [
+        "Reflex",
+        "GUID:5d5827aadb2636142a9f66344b472d7a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "REFLEX_ENABLE"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.gustavopsantos.reflex",
+            "expression": "9.0.0",
+            "define": "REFLEX_ENABLE"
+        }
+    ],
+    "noEngineReferences": false
+}

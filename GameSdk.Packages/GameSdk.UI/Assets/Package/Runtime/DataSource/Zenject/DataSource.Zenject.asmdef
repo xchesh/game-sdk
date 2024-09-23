@@ -1,0 +1,25 @@
+{
+    "name": "DataSource.Zenject",
+    "rootNamespace": "",
+    "references": [
+        "Zenject",
+        "GUID:5d5827aadb2636142a9f66344b472d7a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "ZENJECT_ENABLE"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.svermeulen.extenject",
+            "expression": "9.2.0",
+            "define": "ZENJECT_ENABLE"
+        }
+    ],
+    "noEngineReferences": false
+}

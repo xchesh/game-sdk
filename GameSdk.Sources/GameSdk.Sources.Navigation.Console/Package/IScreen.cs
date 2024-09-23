@@ -1,3 +1,5 @@
+using UnityEngine.UIElements;
+
 namespace GameSdk.Sources.Navigation
 {
     public interface IScreen : IDisposable

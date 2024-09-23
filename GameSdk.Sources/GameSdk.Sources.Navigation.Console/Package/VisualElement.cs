@@ -1,4 +1,4 @@
-namespace GameSdk.Sources.Navigation
+namespace UnityEngine.UIElements
 {
     public class VisualElement
     {

@@ -1,0 +1,25 @@
+{
+    "name": "DataSource.VContainer",
+    "rootNamespace": "",
+    "references": [
+        "VContainer",
+        "GUID:5d5827aadb2636142a9f66344b472d7a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "VCONTAINER_ENABLE"
+    ],
+    "versionDefines": [
+        {
+            "name": "jp.hadashikick.vcontainer",
+            "expression": "1.0.0",
+            "define": "VCONTAINER_ENABLE"
+        }
+    ],
+    "noEngineReferences": false
+}

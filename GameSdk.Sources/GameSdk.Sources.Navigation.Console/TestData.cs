@@ -1,7 +1,7 @@
 namespace GameSdk.Sources.Navigation.Console
 {
     [Screen]
-    public partial class TestData : IScreen
+    public partial class TestData
     {
         public void Dispose() => throw new NotImplementedException();
         public void OnBlur() => throw new NotImplementedException();

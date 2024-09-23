@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
-    "com.unity.collab-proxy": "2.4.4",
+    "com.unity.collab-proxy": "2.5.1",
     "com.unity.feature.development": "1.0.2",
-    "com.unity.inputsystem": "1.9.0",
+    "com.unity.inputsystem": "1.11.0",
     "com.unity.purchasing": "4.12.2",
     "com.unity.remote-config": "4.1.1",
     "com.unity.services.authentication": "3.3.3",
