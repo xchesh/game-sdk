@@ -202,22 +202,24 @@
       "url": "https://packages.unity.com"
     },
     "gamesdk.core": {
-      "version": "file:../../GameSdk.Core/Assets/Package",
+      "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Core/Assets/Package",
       "depth": 0,
-      "source": "local",
+      "source": "git",
       "dependencies": {
         "gamesdk.sources.json": "1.0.0",
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
-      }
+      },
+      "hash": "eaec8395cac37dc55735d2ca00d22e4c13f5966d"
     },
     "gamesdk.sources.json": {
-      "version": "file:../../GameSdk.Sources.Json/Assets/Package",
+      "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Sources.Json/Assets/Package",
       "depth": 0,
-      "source": "local",
+      "source": "git",
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.2.1"
-      }
+      },
+      "hash": "eaec8395cac37dc55735d2ca00d22e4c13f5966d"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

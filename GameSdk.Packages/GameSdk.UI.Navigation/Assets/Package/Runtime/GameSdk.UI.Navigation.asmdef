@@ -1,0 +1,16 @@
+{
+    "name": "GameSdk.UI.Navigation",
+    "rootNamespace": "",
+    "references": [
+        "GUID:481386834acb44dd96951e450a61f758"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
