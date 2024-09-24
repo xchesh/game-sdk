@@ -388,6 +388,16 @@
       },
       "hash": "eaec8395cac37dc55735d2ca00d22e4c13f5966d"
     },
+    "gamesdk.ui.navigation": {
+      "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.UI.Navigation/Assets/Package",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "gamesdk.core": "1.0.0",
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "hash": "0667fbf107602b4cd234a413b2c7f2728660d798"
+    },
     "gamesdk.unitycontainer": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.UnityContainer/Assets/Package",
       "depth": 0,

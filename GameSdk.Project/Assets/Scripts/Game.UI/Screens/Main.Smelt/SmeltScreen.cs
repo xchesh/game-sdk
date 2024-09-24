@@ -1,5 +1,5 @@
 using System;
-using GameSdk.Sources.Navigation;
+using GameSdk.UI.Navigation;
 
 namespace Game.UI.Screens
 {
