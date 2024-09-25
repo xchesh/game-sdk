@@ -1,7 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 using GameSdk.Core.Loggers;
-using GameSdk.Services.InternetReachability;
+using GameSdk.Services.NetworkConnectivity;
 using UnityEngine;
 
 namespace GameSdk.Services.Authentication
@@ -12,7 +12,7 @@ namespace GameSdk.Services.Authentication
         private readonly ISystemLogger _systemLogger;
         private readonly AuthenticationConfig _config;
         private readonly IAuthenticationProvider _authenticationProvider;
-        private readonly IInternetReachabilityService _internetReachabilityService;
+        private readonly INetworkConnectivityService _internetReachabilityService;
 
         private UniTask _singInTask;
 
@@ -46,7 +46,7 @@ namespace GameSdk.Services.Authentication
             ISystemLogger systemLogger,
             AuthenticationConfig config,
             IAuthenticationProvider authenticationProvider,
-            IInternetReachabilityService internetReachabilityService)
+            INetworkConnectivityService internetReachabilityService)
         {
             _config = config;
             _systemLogger = systemLogger;
@@ -81,7 +81,7 @@ namespace GameSdk.Services.Authentication
 
         private async UniTask SignInProcess()
         {
-            if (_internetReachabilityService.IsInternetReachable is false)
+            if (_internetReachabilityService.HasNetworkConnection is false)
             {
                 _systemLogger.Log(LogType.Error, IAuthenticationService.TAG, "SignIn failed. No internet connection.");
 

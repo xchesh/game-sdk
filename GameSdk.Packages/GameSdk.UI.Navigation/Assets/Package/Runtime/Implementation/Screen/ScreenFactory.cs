@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UIElements;
 
 namespace GameSdk.UI.Navigation
@@ -15,25 +16,16 @@ namespace GameSdk.UI.Navigation
             _screens = screens;
         }
 
+
         public IScreen Create(System.Type type, INavigation navigation, VisualElement parent)
         {
-            var screenConfig = _navigationConfig.GetScreenConfig(type);
+            FindScreenAndConfig(type, out var screen, out var screenConfig);
 
-            if (screenConfig == null)
-            {
-                throw new System.ArgumentException($"Screen config for {type.Name} not found");
-            }
-
-            var screen = _screens.FirstOrDefault(s => s.GetType() == screenConfig.Type);
-
-            if (screen == null)
-            {
-                throw new System.ArgumentException($"Screen {screenConfig.Type.Name} not found");
-            }
+            var visualTreeAsset = Addressables.LoadAssetAsync<VisualTreeAsset>(screenConfig.Asset).Result;
 
             screen.SetNavigation(navigation);
             screen.SetConfig(screenConfig);
-            screen.SetVisualElement(screenConfig.Asset.Instantiate());
+            screen.SetVisualElement(visualTreeAsset.Instantiate());
 
             parent.Add(screen.VisualElement);
 
@@ -55,6 +47,25 @@ namespace GameSdk.UI.Navigation
 
             screen.Dispose();
 
+        }
+
+        private void FindScreenAndConfig(System.Type type, out IScreen screen, out IScreenConfig screenConfig)
+        {
+            screenConfig = _navigationConfig.GetScreenConfig(type);
+
+            if (screenConfig == null)
+            {
+                throw new System.ArgumentException($"Screen config for {type.Name} not found");
+            }
+
+            var screenConfigType = screenConfig.Type;
+
+            screen = _screens.FirstOrDefault(s => s.GetType() == screenConfigType);
+
+            if (screen == null)
+            {
+                throw new System.ArgumentException($"Screen {screenConfigType.Name} not found");
+            }
         }
     }
 }

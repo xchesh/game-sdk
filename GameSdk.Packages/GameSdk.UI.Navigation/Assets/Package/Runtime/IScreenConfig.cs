@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UIElements;
 
 namespace GameSdk.UI.Navigation
@@ -7,6 +8,6 @@ namespace GameSdk.UI.Navigation
     {
         Type Type { get; }
         bool IsLazyLoad { get; }
-        VisualTreeAsset Asset { get; }
+        AssetReferenceT<VisualTreeAsset> Asset { get; }
     }
 }

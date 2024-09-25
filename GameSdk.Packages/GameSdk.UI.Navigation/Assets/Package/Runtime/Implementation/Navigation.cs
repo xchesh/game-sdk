@@ -10,7 +10,6 @@ namespace GameSdk.UI.Navigation
         private readonly IDictionary<System.Type, IScreen> _screens;
 
         public IScreen Current { get; private set; }
-        public INavigation Parent { get; private set; }
         public INavigationConfig Config { get; private set; }
         public NavigationComponent Component { get; private set; }
 
@@ -22,9 +21,8 @@ namespace GameSdk.UI.Navigation
             _screenFactory = navigationScreenFactory;
         }
 
-        public void Initialize(INavigationConfig navigationConfig, VisualElement visualElement, INavigation parent = null)
+        public void Initialize(INavigationConfig navigationConfig, VisualElement visualElement)
         {
-            Parent = parent;
             Config = navigationConfig;
             Component = visualElement as NavigationComponent;
 
@@ -50,11 +48,9 @@ namespace GameSdk.UI.Navigation
 
         public void Pop()
         {
-            // When the stack is empty, try to pop the parent stack
+            // Return if the stack is empty
             if (_stack.Count < 1)
             {
-                Parent?.Pop();
-
                 return;
             }
 
@@ -68,17 +64,13 @@ namespace GameSdk.UI.Navigation
 
                 return;
             }
-
-            // When the stack is empty, try to pop the parent stack
-            Parent?.Pop();
         }
 
         public T PopTo<T>() where T : IScreen
         {
             var type = typeof(T);
-            var count = Parent == null ? 1 : 0;
 
-            while (_stack.Count > count)
+            while (_stack.Count > 1)
             {
                 // Peek the last screen from stack and check if it's the current type
                 var screen = _stack.Peek();
@@ -92,12 +84,6 @@ namespace GameSdk.UI.Navigation
                 // Hide the screen and remove it from stack
                 // if it's not the current type
                 HideScreen(_stack.Pop());
-            }
-
-            // When the stack is empty, try to pop the parent stack
-            if (_stack.Count < 1 && Parent != null)
-            {
-                return Parent.PopTo<T>();
             }
 
             // Show the last screen from stack as the current screen

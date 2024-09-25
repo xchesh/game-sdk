@@ -2,6 +2,7 @@ using System;
 using GameSdk.Core.Essentials;
 using GameSdk.Core.Toolbox;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UIElements;
 
 namespace GameSdk.UI.Navigation
@@ -12,11 +13,11 @@ namespace GameSdk.UI.Navigation
         [SerializeField, SerializedTypeDropdown(typeof(IScreen))]
         private SerializedType _type;
 
-        [SerializeField] private VisualTreeAsset _asset;
+        [SerializeField] private AssetReferenceT<VisualTreeAsset> _asset;
         [SerializeField] private bool _isLazyLoad;
 
         public Type Type => _type.Value;
         public bool IsLazyLoad => _isLazyLoad;
-        public VisualTreeAsset Asset => _asset;
+        public AssetReferenceT<VisualTreeAsset> Asset => _asset;
     }
 }

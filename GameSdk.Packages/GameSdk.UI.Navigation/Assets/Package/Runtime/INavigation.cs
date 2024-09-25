@@ -8,7 +8,7 @@ namespace GameSdk.UI.Navigation
 
         IScreen Current { get; }
 
-        void Initialize(INavigationConfig navigationConfig, VisualElement visualElement, INavigation parent = null);
+        void Initialize(INavigationConfig navigationConfig, VisualElement visualElement);
 
         void RegisterEventListener(INavigationEventListener eventListeners);
         void UnregisterEventListener(INavigationEventListener eventListeners);

@@ -1,5 +1,5 @@
 {
-    "name": "GameSdk.Services.InternetReachability",
+    "name": "GameSdk.Services.NetworkConnectivity",
     "rootNamespace": "",
     "references": [
         "GUID:f51ebe6a0ceec4240a699833d6309b23",
