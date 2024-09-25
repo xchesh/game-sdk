@@ -1,6 +1,6 @@
 {
     "name": "gamesdk.ui.navigation",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "displayName": "GameSdk.UI.Navigation",
     "description": "Navigation module for GameSdk",
     "unity": "6000.0",
