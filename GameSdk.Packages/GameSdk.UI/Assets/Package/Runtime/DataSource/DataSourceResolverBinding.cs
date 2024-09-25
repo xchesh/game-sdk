@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Scripting;
 using UnityEngine.UIElements;
 
-[UxmlObject][Preserve]
+[UxmlObject][UnityEngine.Scripting.Preserve]
 public partial class DataSourceResolverBinding : CustomBinding
 {
     [UxmlAttribute]

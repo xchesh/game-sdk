@@ -3,7 +3,7 @@ using VContainer;
 using VContainer.Unity;
 using UnityEngine.Scripting;
 
-[Preserve]
+[UnityEngine.Scripting.Preserve]
 public class DataSourceResolver : IDataSourceResolver
 {
     private readonly LifetimeScope _scope;

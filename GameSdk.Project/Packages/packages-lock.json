@@ -355,7 +355,7 @@
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "eaec8395cac37dc55735d2ca00d22e4c13f5966d"
+      "hash": "13d121e3216e0de43731f2923d1389c6e15ca45d"
     },
     "gamesdk.services": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Services/Assets/Package",
@@ -367,7 +367,7 @@
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "eaec8395cac37dc55735d2ca00d22e4c13f5966d"
+      "hash": "13d121e3216e0de43731f2923d1389c6e15ca45d"
     },
     "gamesdk.sources.json": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Sources.Json/Assets/Package",
@@ -386,7 +386,7 @@
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "eaec8395cac37dc55735d2ca00d22e4c13f5966d"
+      "hash": "13d121e3216e0de43731f2923d1389c6e15ca45d"
     },
     "gamesdk.ui.navigation": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.UI.Navigation/Assets/Package",
@@ -396,7 +396,7 @@
         "gamesdk.core": "1.0.0",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "0667fbf107602b4cd234a413b2c7f2728660d798"
+      "hash": "13d121e3216e0de43731f2923d1389c6e15ca45d"
     },
     "gamesdk.unitycontainer": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.UnityContainer/Assets/Package",

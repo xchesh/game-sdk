@@ -1,7 +1,7 @@
 using UnityEngine.Scripting;
 using Zenject;
 
-[Preserve]
+[UnityEngine.Scripting.Preserve]
 public class DataSourceResolver : IDataSourceResolver
 {
     private readonly DiContainer _diContainer;

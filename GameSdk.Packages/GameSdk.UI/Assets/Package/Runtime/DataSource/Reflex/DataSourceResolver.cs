@@ -1,7 +1,7 @@
 using Reflex.Core;
 using UnityEngine.Scripting;
 
-[Preserve]
+[UnityEngine.Scripting.Preserve]
 public class DataSourceResolver : IDataSourceResolver
 {
     private readonly Container _container;

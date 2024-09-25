@@ -3,7 +3,7 @@ using GameSdk.Core.Loggers;
 using GameSdk.Services.Authentication;
 using GameSdk.Services.GraphicQuality;
 using GameSdk.Services.InApp;
-using GameSdk.Services.InternetReachability;
+using GameSdk.Services.NetworkConnectivity;
 using GameSdk.Services.RemoteConfig;
 using GameSdk.UnityContainer;
 using UnityEngine;
@@ -14,7 +14,7 @@ public class Bootstrap : IBootstrap
     private readonly ISystemLogger _systemLogger;
     private readonly IAuthenticationService _authenticationService;
     private readonly IInAppService _inAppService;
-    private readonly IInternetReachabilityService _internetReachabilityService;
+    private readonly INetworkConnectivityService _networkConnectivityService;
     private readonly IGraphicQualityService _graphicQualityService;
     private readonly IRemoteConfigService _remoteConfigService;
 
@@ -22,14 +22,14 @@ public class Bootstrap : IBootstrap
         ISystemLogger systemLogger,
         IAuthenticationService authenticationService,
         IInAppService inAppService,
-        IInternetReachabilityService internetReachabilityService,
+        INetworkConnectivityService networkConnectivityService,
         IGraphicQualityService graphicQualityService,
         IRemoteConfigService remoteConfigService)
     {
         _systemLogger = systemLogger;
         _authenticationService = authenticationService;
         _inAppService = inAppService;
-        _internetReachabilityService = internetReachabilityService;
+        _networkConnectivityService = networkConnectivityService;
         _graphicQualityService = graphicQualityService;
         _remoteConfigService = remoteConfigService;
     }
@@ -44,7 +44,7 @@ public class Bootstrap : IBootstrap
         var sw = System.Diagnostics.Stopwatch.StartNew();
         _systemLogger.Log(LogType.Log, "Bootstrap", "Start initialization...");
 
-        _internetReachabilityService.Initialize();
+        _networkConnectivityService.Initialize();
 
         await _authenticationService.Initialize();
         await _remoteConfigService.Initialize();

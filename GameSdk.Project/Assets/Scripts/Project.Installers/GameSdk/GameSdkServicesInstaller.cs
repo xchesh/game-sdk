@@ -2,7 +2,7 @@
 using GameSdk.Services.Authentication;
 using GameSdk.Services.GraphicQuality;
 using GameSdk.Services.InApp;
-using GameSdk.Services.InternetReachability;
+using GameSdk.Services.NetworkConnectivity;
 using GameSdk.Services.RemoteConfig;
 using GameSdk.UnityContainer;
 using UnityEngine;
@@ -12,7 +12,7 @@ namespace Project.Installers
     public class GameSdkServicesInstaller : IUnityInstaller
     {
         [SerializeField] private AuthenticationConfig _authenticationConfig;
-        [SerializeField] private InternetReachabilityConfig _internetReachabilityConfig;
+        [SerializeField] private NetworkConnectivityConfig _networkConnectivityConfig;
         [SerializeField] private GraphicQualityConfig _graphicQualityConfig;
 
         public override void InstallBindings(IUnityContainer container)
@@ -22,10 +22,10 @@ namespace Project.Installers
             container.RegisterInstance(_authenticationConfig).As<AuthenticationConfig>();
             container.Register<AuthenticationService>().As<IAuthenticationService>();
 
-            // Internet Reachability
-            UnityEngine.Assertions.Assert.IsNotNull(_internetReachabilityConfig, "InternetReachabilityConfig is not set");
-            container.RegisterInstance(_internetReachabilityConfig).As<InternetReachabilityConfig>();
-            container.Register<InternetReachabilityService>().As<IInternetReachabilityService>();
+            // Network Connectivity
+            UnityEngine.Assertions.Assert.IsNotNull(_networkConnectivityConfig, "NetworkConnectivityConfig is not set");
+            container.RegisterInstance(_networkConnectivityConfig).As<NetworkConnectivityConfig>();
+            container.Register<NetworkConnectivityService>().As<INetworkConnectivityService>();
 
             // In-App
             container.Register<InAppService>().As<IInAppService>();

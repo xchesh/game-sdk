@@ -1,7 +1,7 @@
 using Unity.Properties;
 using UnityEngine.Scripting;
 
-[Preserve]
+[UnityEngine.Scripting.Preserve]
 public class DataSource
 {
     [CreateProperty]
