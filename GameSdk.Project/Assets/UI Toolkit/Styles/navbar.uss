@@ -1,0 +1,64 @@
+:root {
+    --navbar-base-size: 215px;
+    --navbar-base-font-size: var(--general-font-size);
+    --navbar-base-indent-large: 45px;
+    --navbar-base-indent-medium: 30px;
+    --navbar-base-indent-small: 15px;
+
+    --navbar-background-color: var(--general-background-color);
+    --navbar-button-text-color: var(--general-font-color);
+    --navbar-buttons-group-border-radius: 70px;
+    --navbar-buttons-group-background: rgba(200, 200, 200, 0.1);
+    --navbar-buttons-group-padding: var(--navbar-base-indent-small);
+    --navbar-button-margin: var(--navbar-base-indent-small);
+}
+
+.navbar {
+    font-size: var(--navbar-base-font-size);
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    height: var(--navbar-base-size);
+    min-height: var(--navbar-base-size);
+    max-height: var(--navbar-base-size);
+    padding-left: var(--navbar-base-indent-large);
+    padding-right: var(--navbar-base-indent-large);
+    padding-top: var(--navbar-base-indent-small);
+    padding-bottom: var(--navbar-base-indent-medium);
+    background-color: var(--navbar-background-color);
+}
+
+.navbar-buttons-group {
+    flex-grow: 3;
+    flex-shrink: 1;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    background-color: var(--navbar-buttons-group-background);
+    border-radius: var(--navbar-buttons-group-border-radius);
+    margin-top: var(--navbar-button-margin);
+    margin-bottom: var(--navbar-button-margin);
+    margin-right: var(--navbar-button-margin);
+    padding-left: var(--navbar-buttons-group-padding);
+    padding-right: var(--navbar-buttons-group-padding);
+}
+
+.navbar-button {
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-size: 100%;
+    border-width: 0;
+    background-color: transparent;
+    color: var(--navbar-button-text-color);
+    max-width: 25%;
+    white-space: normal;
+    -unity-text-align: middle-center;
+}
+
+.navbar-buttons-group .navbar-button {
+    max-width: 30%;
+}
+
+.navbar-button__active {
+    background-color: rgba(255, 255, 255, 0.1);
+}

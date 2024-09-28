@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using GameSdk.UnityContainer.VContainer;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -18,8 +19,15 @@ namespace Project.VContainers
 
             builder.RegisterBuildCallback(container =>
             {
-                _document.rootVisualElement.dataSource = container.Resolve<IDataSourceResolver>();
+                SetDataSource(container.Resolve<IDataSourceResolver>()).Forget();
             });
+        }
+
+        private async UniTaskVoid SetDataSource(IDataSourceResolver resolver)
+        {
+            await UniTask.WaitUntil(() => _document.rootVisualElement != null);
+
+            _document.rootVisualElement.dataSource = resolver;
         }
     }
 }

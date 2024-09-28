@@ -1,0 +1,31 @@
+:root {
+    --main-background-color: transparent;
+}
+
+.main {
+    flex: 1;
+}
+
+.main-content {
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: var(--main-background-color);
+}
+
+.main-screens {
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-background-color);
+    position: absolute;
+}
+
+.main-screens .navigation-screen {
+    flex-direction: column-reverse;
+    top: 100%;
+}
+
+.main-screens .navigation-screen__active {
+    top: 0;
+}
+
+.main-footer {}

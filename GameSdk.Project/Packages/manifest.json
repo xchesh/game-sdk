@@ -23,7 +23,6 @@
     "gamesdk.services": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Services/Assets/Package",
     "gamesdk.sources.json": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Sources.Json/Assets/Package",
     "gamesdk.ui": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.UI/Assets/Package",
-    "gamesdk.ui.navigation": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.UI.Navigation/Assets/Package",
     "gamesdk.unitycontainer": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.UnityContainer/Assets/Package",
     "jp.hadashikick.vcontainer": "1.16.3",
     "com.unity.modules.androidjni": "1.0.0",

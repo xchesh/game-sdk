@@ -355,7 +355,7 @@
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "13d121e3216e0de43731f2923d1389c6e15ca45d"
+      "hash": "6ccbe613cbc43b3a14f5b416bbf1e7850d42a627"
     },
     "gamesdk.services": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Services/Assets/Package",
@@ -367,7 +367,7 @@
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "13d121e3216e0de43731f2923d1389c6e15ca45d"
+      "hash": "6ccbe613cbc43b3a14f5b416bbf1e7850d42a627"
     },
     "gamesdk.sources.json": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Sources.Json/Assets/Package",
@@ -376,7 +376,7 @@
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "eaec8395cac37dc55735d2ca00d22e4c13f5966d"
+      "hash": "6ccbe613cbc43b3a14f5b416bbf1e7850d42a627"
     },
     "gamesdk.ui": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.UI/Assets/Package",
@@ -386,17 +386,7 @@
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "13d121e3216e0de43731f2923d1389c6e15ca45d"
-    },
-    "gamesdk.ui.navigation": {
-      "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.UI.Navigation/Assets/Package",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "gamesdk.core": "1.0.0",
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      },
-      "hash": "13d121e3216e0de43731f2923d1389c6e15ca45d"
+      "hash": "6ccbe613cbc43b3a14f5b416bbf1e7850d42a627"
     },
     "gamesdk.unitycontainer": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.UnityContainer/Assets/Package",
@@ -405,7 +395,7 @@
       "dependencies": {
         "gamesdk.core": "1.0.0"
       },
-      "hash": "eaec8395cac37dc55735d2ca00d22e4c13f5966d"
+      "hash": "6ccbe613cbc43b3a14f5b416bbf1e7850d42a627"
     },
     "jp.hadashikick.vcontainer": {
       "version": "1.16.3",

@@ -1,0 +1,9 @@
+:root {
+    flex: 1;
+    font-size: var(--general-font-size);
+}
+
+ScreenElement {
+    flex: 1;
+    margin-bottom: -1px;
+}
