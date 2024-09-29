@@ -1,0 +1,16 @@
+{
+    "name": "GameSdk.UI.Components",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6bf654fe8d5269a458a49dd3b37aa0a0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

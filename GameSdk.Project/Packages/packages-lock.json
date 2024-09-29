@@ -386,7 +386,7 @@
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "6ccbe613cbc43b3a14f5b416bbf1e7850d42a627"
+      "hash": "1af62cd7f5ebd24526e6a72a55aeff6f9e2213f3"
     },
     "gamesdk.unitycontainer": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.UnityContainer/Assets/Package",
