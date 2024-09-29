@@ -3,6 +3,9 @@
     <Style src="project://database/Assets/UI%20Toolkit/Styles/screen.uss?fileID=7433441132597879392&amp;guid=1603006251beff841a69d0a977f15131&amp;type=3#screen" />
     <Style src="project://database/Assets/UI%20Toolkit/Elements/Screens/SettingsScreen/SettingsScreen.uss?fileID=7433441132597879392&amp;guid=547527f6e7d057f4eb7861ccd3568bdf&amp;type=3#SettingsScreen" />
     <Screens.SettingsScreen name="Settings" class="settings">
-        <engine:Label text="Settings" />
+        <engine:VisualElement name="SettingsBody" class="settings-body">
+            <engine:Label text="Settings screen" />
+            <engine:Button text="Close" name="Close" />
+        </engine:VisualElement>
     </Screens.SettingsScreen>
 </engine:UXML>

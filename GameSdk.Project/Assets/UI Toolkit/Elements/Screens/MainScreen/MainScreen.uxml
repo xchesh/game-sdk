@@ -8,13 +8,29 @@
     <Style src="project://database/Assets/UI%20Toolkit/Styles/navbar.uss?fileID=7433441132597879392&amp;guid=e912c4deba74233428773e5a03e122cc&amp;type=3#navbar" />
     <Style src="project://database/Assets/UI%20Toolkit/Elements/Screens/MainScreen/MainScreen.uss?fileID=7433441132597879392&amp;guid=05694167d5dda0b47a4d693fdfe9eba6&amp;type=3#MainScreen" />
     <Screens.MainScreen name="Main" class="main">
-        <engine:VisualElement name="Content" class="main-content">
-            <engine:VisualElement name="Screens" class="main-screens">
-                <engine:Instance template="TaskScreen" name="Task" class="navigation-screen navigation-screen__active" />
-                <engine:Instance template="BuildScreen" name="Build" class="navigation-screen" />
-                <engine:Instance template="TradeScreen" name="Trade" class="navigation-screen" />
-                <engine:Instance template="SmeltScreen" name="Smelt" class="navigation-screen" />
-                <engine:Instance template="CraftScreen" name="Craft" class="navigation-screen" />
+        <engine:VisualElement name="Body" class="main-body">
+            <engine:VisualElement name="Header" class="main-header main-sides">
+                <engine:VisualElement name="Header-left" class="main-side-left">
+                    <engine:Label text="Left side" />
+                </engine:VisualElement>
+                <engine:VisualElement name="Header-Right" class="main-side-right">
+                    <engine:Button name="Settings" text="Settings" class="main-settings" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="Content" class="main-content main-sides">
+                <engine:VisualElement name="Header-left" class="main-side-left">
+                    <engine:Label text="Left side" />
+                </engine:VisualElement>
+                <engine:VisualElement name="Header-Right" class="main-side-right">
+                    <engine:Label text="Right side" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="Screens" picking-mode="Ignore" class="main-screens">
+                <engine:Instance template="TaskScreen" name="Task" picking-mode="Ignore" class="navigation-screen navigation-screen__active" />
+                <engine:Instance template="BuildScreen" name="Build" picking-mode="Ignore" class="navigation-screen" />
+                <engine:Instance template="TradeScreen" name="Trade" picking-mode="Ignore" class="navigation-screen" />
+                <engine:Instance template="SmeltScreen" name="Smelt" picking-mode="Ignore" class="navigation-screen" />
+                <engine:Instance template="CraftScreen" name="Craft" picking-mode="Ignore" class="navigation-screen" />
             </engine:VisualElement>
         </engine:VisualElement>
         <GameSdk.UI.Navbar name="Navbar" class="navbar main-footer">

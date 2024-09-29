@@ -3,15 +3,8 @@
     width: 100%;
     height: 100%;
     flex: 1;
-    margin: 0;
-    padding: 0;
-    border-width: 0;
     display: flex;
     flex-direction: column;
-    /* Font and color */
-    font-size: var(--general-font-size);
-    color: var(--general-font-color);
-    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/NotoSans-Regular.ttf?fileID=12800000&guid=09b7560f9bb68694d852fc14aa351467&type=3#NotoSans-Regular");
 }
 
 #Navigation {

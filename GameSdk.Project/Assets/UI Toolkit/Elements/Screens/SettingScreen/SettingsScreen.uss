@@ -1,8 +1,0 @@
-:root {
-    --main-background-color: transparent;
-}
-
-.settings {
-    flex: 1;
-}
-
