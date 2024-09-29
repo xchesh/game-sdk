@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: db622a6d0e0fa4b68852ef1a7fc60dba
+guid: ea1502cb33ab4d4ca1fedbdde163c980
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -14,5 +14,5 @@ AssetOrigin:
   productId: 252960
   packageName: "PrimeTween \xB7 High-Performance Animations and Sequences"
   packageVersion: 1.1.22
-  assetPath: Assets/Plugins/PrimeTween/Demo/Scripts/DirectionalLightController.cs
+  assetPath: Assets/Plugins/PrimeTween/Demo/Scripts/InputController.cs
   uploadId: 692274
