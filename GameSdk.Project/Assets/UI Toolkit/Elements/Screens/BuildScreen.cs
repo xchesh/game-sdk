@@ -1,10 +1,10 @@
 using UnityEngine.UIElements;
-using Navigation;
+using GameSdk.UI;
 
 namespace Screens
 {
     [UxmlElement("BuildScreen")]
-    public partial class BuildScreen : ScreenElement
+    public partial class BuildScreen : Screen
     {
     }
 }

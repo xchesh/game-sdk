@@ -17,14 +17,14 @@
                 <engine:Instance template="Screen.Craft" name="Craft" class="navigation-screen" />
             </engine:VisualElement>
         </engine:VisualElement>
-        <Navbar.Navbar name="Navbar" class="navbar main-footer">
-            <Navbar.NavbarButton text="Task" name="Button_Tasks" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.TaskScreen, Assembly-CSharp" class="navbar-button navbar-button__active" />
-            <Navbar.NavbarButton text="Build" name="Button_Building" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" focusable="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.BuildScreen, Assembly-CSharp" class="navbar-button" />
+        <GameSdk.UI.Navbar name="Navbar" class="navbar main-footer">
+            <GameSdk.UI.NavbarButton text="Task" name="Button_Tasks" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.TaskScreen, Assembly-CSharp" class="navbar-button navbar-button__active" />
+            <GameSdk.UI.NavbarButton text="Build" name="Button_Building" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" focusable="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.BuildScreen, Assembly-CSharp" class="navbar-button" />
             <engine:VisualElement name="Navbar_Group" class="navbar-buttons-group">
-                <Navbar.NavbarButton text="Trade" name="Button_Trade" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.TradeScreen, Assembly-CSharp" class="navbar-button" />
-                <Navbar.NavbarButton text="Craft" name="Button_Craft" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.CraftScreen, Assembly-CSharp" class="navbar-button" />
-                <Navbar.NavbarButton text="Smelt" name="Button_Smelt" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" target-screen="Screens.SmeltScreen, Assembly-CSharp" class="navbar-button" />
+                <GameSdk.UI.NavbarButton text="Trade" name="Button_Trade" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.TradeScreen, Assembly-CSharp" class="navbar-button" />
+                <GameSdk.UI.NavbarButton text="Craft" name="Button_Craft" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.CraftScreen, Assembly-CSharp" class="navbar-button" />
+                <GameSdk.UI.NavbarButton text="Smelt" name="Button_Smelt" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" target-screen="Screens.SmeltScreen, Assembly-CSharp" class="navbar-button" />
             </engine:VisualElement>
-        </Navbar.Navbar>
+        </GameSdk.UI.Navbar>
     </Screens.MainScreen>
 </engine:UXML>

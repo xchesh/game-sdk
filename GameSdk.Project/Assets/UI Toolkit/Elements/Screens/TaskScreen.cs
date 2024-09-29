@@ -1,10 +1,10 @@
 using UnityEngine.UIElements;
-using Navigation;
+using GameSdk.UI;
 
 namespace Screens
 {
     [UxmlElement("TaskScreen")]
-    public partial class TaskScreen : ScreenElement
+    public partial class TaskScreen : Screen
     {
     }
 }

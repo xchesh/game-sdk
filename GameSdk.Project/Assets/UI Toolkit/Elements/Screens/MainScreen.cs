@@ -1,10 +1,10 @@
 using UnityEngine.UIElements;
-using Navigation;
+using GameSdk.UI;
 
 namespace Screens
 {
     [UxmlElement("MainScreen")]
-    public partial class MainScreen : ScreenElement
+    public partial class MainScreen : Screen
     {
     }
 }

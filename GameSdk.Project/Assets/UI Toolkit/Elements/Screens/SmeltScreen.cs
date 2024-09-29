@@ -1,10 +1,10 @@
 using UnityEngine.UIElements;
-using Navigation;
+using GameSdk.UI;
 
 namespace Screens
 {
     [UxmlElement("SmeltScreen")]
-    public partial class SmeltScreen : ScreenElement
+    public partial class SmeltScreen : Screen
     {
     }
 }

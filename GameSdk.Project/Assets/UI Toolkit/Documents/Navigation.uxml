@@ -3,8 +3,8 @@
     <engine:Template name="Screen.Settings" src="project://database/Assets/UI%20Toolkit/Documents/Screens/Screen.Settings.uxml?fileID=9197481963319205126&amp;guid=a8f81f5767e9be842b5cb5ee7e2209b4&amp;type=3#Screen.Settings" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/variables.uss?fileID=7433441132597879392&amp;guid=97cfbb29708aff743a3244e050432dc5&amp;type=3#variables" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/navigation.uss?fileID=7433441132597879392&amp;guid=1f398fc183500c249aa6b1740b713f5d&amp;type=3#navigation" />
-    <Navigation.Navigation name="Navigation" default-screen="Screens.TaskScreen, Assembly-CSharp" class="navigation">
+    <GameSdk.UI.Navigation name="Navigation" default-screen="Screens.TaskScreen, Assembly-CSharp" class="navigation">
         <engine:Instance template="Screen.Main" name="Main" class="navigation-screen navigation-screen__active" />
         <engine:Instance template="Screen.Settings" name="Settings" class="navigation-screen" />
-    </Navigation.Navigation>
+    </GameSdk.UI.Navigation>
 </engine:UXML>

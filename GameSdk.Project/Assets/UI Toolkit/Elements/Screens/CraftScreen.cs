@@ -1,10 +1,10 @@
 using UnityEngine.UIElements;
-using Navigation;
+using GameSdk.UI;
 
 namespace Screens
 {
     [UxmlElement("CraftScreen")]
-    public partial class CraftScreen : ScreenElement
+    public partial class CraftScreen : Screen
     {
     }
 }

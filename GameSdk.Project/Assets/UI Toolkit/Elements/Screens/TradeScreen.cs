@@ -1,10 +1,10 @@
 using UnityEngine.UIElements;
-using Navigation;
+using GameSdk.UI;
 
 namespace Screens
 {
     [UxmlElement("TradeScreen")]
-    public partial class TradeScreen : ScreenElement
+    public partial class TradeScreen : Screen
     {
     }
 }
