@@ -20,11 +20,13 @@
 }
 
 .main-screens .navigation-screen {
+    display: none;
     flex-direction: column-reverse;
     top: 100%;
 }
 
 .main-screens .navigation-screen__active {
+    display: flex;
     top: 0;
 }
 
