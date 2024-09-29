@@ -66,13 +66,6 @@ namespace GameSdk.UnityContainer.Reflex
 
         protected override void Add(params Type[] contracts)
         {
-            if (_scope == UnityContainerScope.Transient)
-            {
-                _builder.AddTransient(_instance, contracts);
-
-                return;
-            }
-
             _builder.AddSingleton(_instance, contracts);
         }
     }
