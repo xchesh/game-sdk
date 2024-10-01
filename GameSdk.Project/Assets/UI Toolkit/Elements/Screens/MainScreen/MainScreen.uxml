@@ -34,12 +34,32 @@
             </engine:VisualElement>
         </engine:VisualElement>
         <GameSdk.UI.Navbar name="Navbar" class="navbar main-footer">
-            <GameSdk.UI.NavbarButton text="Task" name="Button_Tasks" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.TaskScreen, Assembly-CSharp" class="navbar-button navbar-button__active" />
-            <GameSdk.UI.NavbarButton text="Build" name="Button_Building" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" focusable="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.BuildScreen, Assembly-CSharp" class="navbar-button" />
+            <GameSdk.UI.NavbarButton text="Task" name="Button_Tasks" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.TaskScreen, Assembly-CSharp" class="navbar-button navbar-button__active">
+                <Bindings>
+                    <UnityEngine.Localization.LocalizedString property="text" table="GUID:834c544b8de6ece4795b4a7470f7d603" entry="Id(12992811008)" />
+                </Bindings>
+            </GameSdk.UI.NavbarButton>
+            <GameSdk.UI.NavbarButton text="Build" name="Button_Building" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" focusable="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.BuildScreen, Assembly-CSharp" class="navbar-button">
+                <Bindings>
+                    <UnityEngine.Localization.LocalizedString property="text" table="GUID:834c544b8de6ece4795b4a7470f7d603" entry="Id(346943295488)" />
+                </Bindings>
+            </GameSdk.UI.NavbarButton>
             <engine:VisualElement name="Navbar_Group" class="navbar-buttons-group">
-                <GameSdk.UI.NavbarButton text="Trade" name="Button_Trade" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.TradeScreen, Assembly-CSharp" class="navbar-button" />
-                <GameSdk.UI.NavbarButton text="Craft" name="Button_Craft" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.CraftScreen, Assembly-CSharp" class="navbar-button" />
-                <GameSdk.UI.NavbarButton text="Smelt" name="Button_Smelt" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" target-screen="Screens.SmeltScreen, Assembly-CSharp" class="navbar-button" />
+                <GameSdk.UI.NavbarButton text="Trade" name="Button_Trade" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.TradeScreen, Assembly-CSharp" class="navbar-button">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:834c544b8de6ece4795b4a7470f7d603" entry="Id(476744421376)" />
+                    </Bindings>
+                </GameSdk.UI.NavbarButton>
+                <GameSdk.UI.NavbarButton text="Craft" name="Button_Craft" focusable="false" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" target-screen="Screens.CraftScreen, Assembly-CSharp" class="navbar-button">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:834c544b8de6ece4795b4a7470f7d603" entry="Id(511116742656)" />
+                    </Bindings>
+                </GameSdk.UI.NavbarButton>
+                <GameSdk.UI.NavbarButton text="Smelt" name="Button_Smelt" enable-rich-text="false" emoji-fallback-support="false" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" target-screen="Screens.SmeltScreen, Assembly-CSharp" class="navbar-button">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:834c544b8de6ece4795b4a7470f7d603" entry="Id(534781005824)" />
+                    </Bindings>
+                </GameSdk.UI.NavbarButton>
             </engine:VisualElement>
         </GameSdk.UI.Navbar>
     </Screens.MainScreen>
