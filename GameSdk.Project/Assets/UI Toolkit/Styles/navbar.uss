@@ -21,8 +21,8 @@
     height: var(--navbar-base-size);
     min-height: var(--navbar-base-size);
     max-height: var(--navbar-base-size);
-    padding-left: var(--navbar-base-indent-large);
-    padding-right: var(--navbar-base-indent-large);
+    padding-left: var(--navbar-base-indent-medium);
+    padding-right: var(--navbar-base-indent-small);
     padding-top: var(--navbar-base-indent-small);
     padding-bottom: var(--navbar-base-indent-medium);
     background-color: var(--navbar-background-color);
@@ -41,18 +41,21 @@
     margin-right: var(--navbar-button-margin);
     padding-left: var(--navbar-buttons-group-padding);
     padding-right: var(--navbar-buttons-group-padding);
+    max-width: 62%;
 }
 
 .navbar-button {
     flex-grow: 1;
     flex-shrink: 1;
-    font-size: 100%;
+    font-size: 77%;
     border-width: 0;
     background-color: transparent;
     color: var(--navbar-button-text-color);
-    max-width: 25%;
+    max-width: 30%;
     white-space: normal;
     -unity-text-align: middle-center;
+    white-space: pre;
+    text-overflow: ellipsis;
 }
 
 .navbar-buttons-group .navbar-button {
@@ -60,5 +63,5 @@
 }
 
 .navbar-button__active {
-    background-color: rgba(255, 255, 255, 0.1);
+    /* background-color: rgba(255, 255, 255, 0.1); */
 }
