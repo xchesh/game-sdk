@@ -35,7 +35,7 @@ namespace GameSdk.Sources.Feedbacks
 
         private List<string> GetAnimatorTriggers(SerializedProperty property, string fieldName)
         {
-            if (property.serializedObject.FindProperty(fieldName).objectReferenceValue is not UnityEngine.Animator animator)
+            if (property.serializedObject.FindProperty(fieldName)?.objectReferenceValue is not UnityEngine.Animator animator)
             {
                 return new List<string>();
             }

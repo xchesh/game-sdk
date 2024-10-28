@@ -1,6 +1,6 @@
 {
     "name": "gamesdk.sources.feedbacks",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "displayName": "GameSdk.Sources.Feedbacks",
     "description": "Feedbacks package for Unity",
     "unity": "6000.0",

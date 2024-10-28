@@ -8,11 +8,11 @@ namespace GameSdk.Sources.Feedbacks
 {
     public class FeedbackPlayer : MonoBehaviour
     {
-        [SerializeReference, SerializeReferenceDropdown(typeof(IFeedbackData))]
-        private IFeedbackData[] _feedbacks = Array.Empty<IFeedbackData>();
-
         [SerializeField]
         private FeedbackPlaybackType _playbackType = FeedbackPlaybackType.PARALLEL;
+
+        [SerializeReference, SerializeReferenceDropdown(typeof(IFeedbackData))]
+        private IFeedbackData[] _feedbacks = Array.Empty<IFeedbackData>();
 
         public async UniTask PlayFeedbacks(CancellationToken cancellationToken = default, params object[] parameters)
         {
