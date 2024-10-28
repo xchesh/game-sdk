@@ -1,0 +1,11 @@
+{
+    "name": "gamesdk.sources.feedbacks",
+    "version": "1.0.0",
+    "displayName": "GameSdk.Sources.Feedbacks",
+    "description": "Feedbacks package for Unity",
+    "unity": "6000.0",
+    "dependencies": {
+      "gamesdk.core": "1.0.0",
+      "com.cysharp.unitask" : "2.5.1"
+    }
+  }

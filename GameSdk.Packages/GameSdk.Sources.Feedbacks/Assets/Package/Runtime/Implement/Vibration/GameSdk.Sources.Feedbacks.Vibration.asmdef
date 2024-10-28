@@ -1,0 +1,18 @@
+{
+    "name": "GameSdk.Sources.Feedbacks.Vibration",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:57a0b9bc628ab4740af4b6f1f0b2e134",
+        "GUID:8487d4893517510468391eb8b74b3a16"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
