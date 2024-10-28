@@ -114,7 +114,6 @@ namespace GameSdk.Core.Toolbox
             }
 
             return _cachedTypes[type]
-                .Where(t => types.Length == 0 || types.Any(type => type.IsAssignableFrom(t)))
                 .Select(t => new SerializeReferenceDropdownData(t, $"{t.Name} : {type.Name}", group ? t.Namespace : null))
                 .Prepend(new SerializeReferenceDropdownData(null, "<null>"))
                 .ToList();

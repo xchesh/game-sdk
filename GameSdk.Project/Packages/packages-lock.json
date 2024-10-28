@@ -369,6 +369,16 @@
       },
       "hash": "6ccbe613cbc43b3a14f5b416bbf1e7850d42a627"
     },
+    "gamesdk.sources.feedbacks": {
+      "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Sources.Feedbacks/Assets/Package",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "gamesdk.core": "1.0.0",
+        "com.cysharp.unitask": "2.5.1"
+      },
+      "hash": "08de9ff15720eeed882f6d8b10f5b1217c23b97f"
+    },
     "gamesdk.sources.json": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Sources.Json/Assets/Package",
       "depth": 0,

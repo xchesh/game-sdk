@@ -8,7 +8,7 @@ namespace GameSdk.Sources.Feedbacks
     public class AnimatorFeedbackData : IFeedbackData
     {
         [SerializeField]
-        private UnityEngine.Animator _animator;
+        private Animator _animator;
 
         [SerializeField, AnimatorTriggerDropdown("_animator")]
         private string _triggerName;
@@ -16,7 +16,7 @@ namespace GameSdk.Sources.Feedbacks
         [SerializeField]
         private float _duration = 1f;
 
-        public UnityEngine.Animator Animator => _animator;
+        public Animator Animator => _animator;
         public string TriggerName => _triggerName;
         public float Duration => _duration;
 
