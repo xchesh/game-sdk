@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace GameSdk.Sources.Feedbacks
     {
         public const string TAG = "Feedbacks";
 
-        private static readonly IReadOnlyDictionary<System.Type, IFeedbackStrategy> strategies = FeedbackStrategyCache.Strategies;
+        private static readonly IDictionary<Type, IFeedbackStrategy> strategies = new Dictionary<Type, IFeedbackStrategy>();
 
         public static async UniTask PlayFeedback<T>(T data, FeedbackPlaybackType playbackType = FeedbackPlaybackType.PARALLEL, CancellationToken cancellationToken = default, params object[] parameters) where T : IFeedbackData
         {
@@ -32,6 +33,16 @@ namespace GameSdk.Sources.Feedbacks
             {
                 await PlayFeedbackSequentially(feedbacks, cancellationToken, parameters);
             }
+        }
+
+        public static void RegisterStrategy<T>(T strategy) where T : IFeedbackStrategy
+        {
+            strategies.TryAdd(strategy.DataType, strategy);
+        }
+
+        public static void UnregisterStrategy<T>(T strategy) where T : IFeedbackStrategy
+        {
+            strategies.Remove(strategy.DataType);
         }
 
         private static async UniTask PlayFeedbackInParallel(IEnumerable<IFeedbackData> feedbacks, CancellationToken cancellationToken, params object[] parameters)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using GameSdk.Core.Loggers;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,9 +11,10 @@ namespace GameSdk.Sources.Feedbacks
     {
         public async UniTask Execute(TransitionClassFeedbackData data, CancellationToken cancellationToken, params object[] parameters)
         {
-            if (parameters.Length == 0 || !(parameters[0] is VisualElement visualElement))
+            if (parameters.Length == 0 || parameters[0] is not VisualElement visualElement)
             {
-                Debug.LogWarning("VisualElement must be provided as the first parameter.");
+                SystemLog.LogWarning(FeedbackManager.TAG, "VisualElement must be provided as the first parameter.");
+
                 return;
             }
 

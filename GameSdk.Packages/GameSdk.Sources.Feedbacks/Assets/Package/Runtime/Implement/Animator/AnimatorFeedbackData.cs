@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Scripting;
 
 namespace GameSdk.Sources.Feedbacks
 {
@@ -19,11 +20,13 @@ namespace GameSdk.Sources.Feedbacks
         public string TriggerName => _triggerName;
         public float Duration => _duration;
 
+        [RequiredMember]
         public AnimatorFeedbackData()
         {
         }
 
-        public AnimatorFeedbackData(UnityEngine.Animator animator, string triggerName, float duration)
+        [RequiredMember]
+        public AnimatorFeedbackData(Animator animator, string triggerName, float duration)
         {
             _animator = animator;
             _triggerName = triggerName;

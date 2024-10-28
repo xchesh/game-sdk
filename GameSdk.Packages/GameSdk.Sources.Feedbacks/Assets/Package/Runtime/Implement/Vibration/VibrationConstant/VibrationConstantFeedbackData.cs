@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Scripting;
 
 namespace GameSdk.Sources.Feedbacks
 {
@@ -13,10 +14,12 @@ namespace GameSdk.Sources.Feedbacks
         public float Frequency => _frequency;
         public float Duration => _duration;
 
+        [RequiredMember]
         public VibrationConstantFeedbackData()
         {
         }
 
+        [RequiredMember]
         public VibrationConstantFeedbackData(float amplitude, float frequency, float duration)
         {
             _amplitude = amplitude;

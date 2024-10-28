@@ -1,6 +1,7 @@
 ﻿using System;
 using Lofelt.NiceVibrations;
 using UnityEngine;
+using UnityEngine.Scripting;
 
 namespace GameSdk.Sources.Feedbacks
 {
@@ -11,10 +12,12 @@ namespace GameSdk.Sources.Feedbacks
 
         public HapticPatterns.PresetType VibrationType => _vibrationType;
 
+        [RequiredMember]
         public VibrationPresetFeedbackData()
         {
         }
 
+        [RequiredMember]
         public VibrationPresetFeedbackData(HapticPatterns.PresetType vibrationType)
         {
             _vibrationType = vibrationType;

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Scripting;
 
 namespace GameSdk.Sources.Feedbacks
 {
@@ -9,10 +10,12 @@ namespace GameSdk.Sources.Feedbacks
 
         public string TransitionClass => _transitionClass;
 
+        [RequiredMember]
         public TransitionClassFeedbackData()
         {
         }
 
+        [RequiredMember]
         public TransitionClassFeedbackData(string transitionClass)
         {
             _transitionClass = transitionClass;

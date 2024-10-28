@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using GameSdk.Core.Loggers;
 using UnityEngine;
 
 namespace GameSdk.Sources.Feedbacks
@@ -13,7 +14,7 @@ namespace GameSdk.Sources.Feedbacks
 
             if (camera is null)
             {
-                Debug.LogWarning("Camera not provided and Camera.main is null");
+                SystemLog.LogWarning(FeedbackManager.TAG, "Camera not provided and Camera.main is null");
 
                 return;
             }
