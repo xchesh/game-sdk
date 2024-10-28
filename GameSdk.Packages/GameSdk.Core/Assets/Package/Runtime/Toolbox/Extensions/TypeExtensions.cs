@@ -13,7 +13,10 @@ namespace GameSdk.Core.Toolbox
 
         public static IEnumerable<Type> GetAssignableTypes(this Type type)
         {
-            return GetAllTypes().Where(p => type.IsAssignableFrom(p) && !p.IsInterface && !p.IsAbstract);
+            var allTypes = GetAllTypes();
+            var result = allTypes.Where(p => type.IsAssignableFrom(p) && !p.IsInterface && !p.IsAbstract);
+
+            return result;
         }
 
         public static bool IsNullable(this Type type)

@@ -13,6 +13,9 @@ public class Demo : MonoBehaviour
     [SerializeField, SerializedTypeDropdown(typeof(IPriceData))] private SerializedType _serializedType3;
     [SerializeField] private Prices _serializedType4;
     [SerializeField] private Prices _serializedType5;
+
+    [SerializeReference, SerializeReferenceDropdown(typeof(IPriceData))]
+    private IPriceData[] _priceDataArray;
 }
 
 public enum Prices

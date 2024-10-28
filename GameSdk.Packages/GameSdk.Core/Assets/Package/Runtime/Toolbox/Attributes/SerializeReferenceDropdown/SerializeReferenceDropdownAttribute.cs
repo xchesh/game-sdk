@@ -9,12 +9,6 @@ namespace GameSdk.Core.Toolbox
         public Type[] Types { get; }
         public bool GroupByNamespace { get; }
 
-        public SerializeReferenceDropdownAttribute()
-        {
-            GroupByNamespace = false;
-            Types = Array.Empty<Type>();
-        }
-
         public SerializeReferenceDropdownAttribute(params Type[] types)
         {
             GroupByNamespace = false;

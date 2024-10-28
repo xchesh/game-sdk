@@ -59,7 +59,7 @@ namespace GameSdk.Core.Toolbox
                 return new Label() { name = "unity-invalid-type-label" };
             }
 
-            var values = GetDropdownValues(fieldInfo.FieldType, dropdownAttr.GroupByNamespace, dropdownAttr.Types);
+            var values = GetDropdownValues(dropdownAttr.GroupByNamespace, dropdownAttr.Types);
 
             var choices = values.Select(v => v.DisplayName).ToList();
             var typeName = GetTypeName(property.managedReferenceFullTypename);
@@ -106,17 +106,22 @@ namespace GameSdk.Core.Toolbox
             return typeName;
         }
 
-        protected virtual List<SerializeReferenceDropdownData> GetDropdownValues(Type type, bool group, Type[] types)
+        protected virtual List<SerializeReferenceDropdownData> GetDropdownValues(bool group, Type[] types)
+        {
+            return types.SelectMany(GetAllAssignableTypes)
+                .Select(t => new SerializeReferenceDropdownData(t, $"{t.FullName}", group ? t.Namespace : null))
+                .Prepend(new SerializeReferenceDropdownData(null, "<null>"))
+                .ToList();
+        }
+
+        private IEnumerable<Type> GetAllAssignableTypes(Type type)
         {
             if (_cachedTypes.ContainsKey(type) is false)
             {
                 _cachedTypes.Add(type, type.GetAssignableTypes());
             }
 
-            return _cachedTypes[type]
-                .Select(t => new SerializeReferenceDropdownData(t, $"{t.Name} : {type.Name}", group ? t.Namespace : null))
-                .Prepend(new SerializeReferenceDropdownData(null, "<null>"))
-                .ToList();
+            return _cachedTypes[type];
         }
 
         [UnityEditor.Callbacks.DidReloadScripts]

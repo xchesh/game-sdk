@@ -12,7 +12,7 @@ namespace GameSdk.Sources.Feedbacks
         private IFeedbackData[] _feedbacks = Array.Empty<IFeedbackData>();
 
         [SerializeField]
-        private FeedbackPlaybackType _playbackType = FeedbackPlaybackType.SEQUENCE;
+        private FeedbackPlaybackType _playbackType = FeedbackPlaybackType.PARALLEL;
 
         public async UniTask PlayFeedbacks(CancellationToken cancellationToken = default, params object[] parameters)
         {

@@ -1,6 +1,6 @@
 {
     "name": "gamesdk.core",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "displayName": "GameSdk.Core",
     "description": "Game SDK core package with common utilities and systems",
     "unity": "6000.0",

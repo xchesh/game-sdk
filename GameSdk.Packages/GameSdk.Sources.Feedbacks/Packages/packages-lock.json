@@ -209,7 +209,7 @@
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "f54150c7b01d9ac712b6a165b2dcf0e0ce6c16de"
+      "hash": "fc957d5c820fd16e78800afb5025dba262de0ed9"
     },
     "gamesdk.sources.json": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Sources.Json/Assets/Package",
