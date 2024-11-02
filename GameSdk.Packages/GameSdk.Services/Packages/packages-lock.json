@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "9057452c86079e4265228480b1439442894d5078"
+      "hash": "f9fd769be7c634610f2a61aa914a1a55f34740e1"
     },
     "com.unity.collab-proxy": {
       "version": "2.5.2",
@@ -23,7 +23,7 @@
     },
     "com.unity.ext.nunit": {
       "version": "2.0.5",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -42,8 +42,8 @@
       }
     },
     "com.unity.ide.rider": {
-      "version": "3.0.31",
-      "depth": 1,
+      "version": "3.0.34",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.ext.nunit": "1.0.6"
@@ -60,7 +60,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "1.11.1",
+      "version": "1.11.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -131,6 +131,16 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.services.cloudsave": {
+      "version": "3.2.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.services.core": "1.12.5",
+        "com.unity.services.authentication": "3.3.1"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.services.core": {
       "version": "1.13.0",
       "depth": 1,
@@ -191,16 +201,6 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
-    "com.unity.visualscripting": {
-      "version": "1.9.4",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
     "gamesdk.core": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Core/Assets/Package",
       "depth": 0,
@@ -210,7 +210,7 @@
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "a9c7286310c24ac61ea59d37a943052aa62efc28"
+      "hash": "12dec1b82d664d8c4fe5d716a1cce05c57f52b16"
     },
     "gamesdk.sources.json": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Sources.Json/Assets/Package",
@@ -219,7 +219,7 @@
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "eaec8395cac37dc55735d2ca00d22e4c13f5966d"
+      "hash": "12dec1b82d664d8c4fe5d716a1cce05c57f52b16"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

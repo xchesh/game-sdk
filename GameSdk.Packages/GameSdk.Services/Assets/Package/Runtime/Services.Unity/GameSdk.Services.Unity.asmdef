@@ -2,14 +2,16 @@
     "name": "GameSdk.Services.Unity",
     "rootNamespace": "",
     "references": [
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:30e7a851ec87b44ad956804ca8ebf15c",
-        "GUID:9d6c7830d9ab746a7a12f144bdeeee7c",
-        "GUID:fe25561d224ed4743af4c60938a59d0b",
-        "GUID:5540e30183c82e84b954c033c388e06c",
-        "GUID:481386834acb44dd96951e450a61f758",
-        "GUID:a8dc4efb88ff9d08f852057e22662c16",
-        "GUID:bf3106ee75b1476e8e5f476ea1686c8b"
+        "UniTask",
+        "Unity.RemoteConfig.Editor.Core",
+        "Unity.Services.RemoteConfig",
+        "Unity.Services.Core",
+        "Unity.Services.Authentication",
+        "Unity.Services.CloudSave",
+        "GameSdk.Core",
+        "GameSdk.Services.Authentication",
+        "GameSdk.Services.RemoteConfig",
+        "GameSdk.Services.PlayerState"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -35,6 +37,11 @@
             "name": "com.unity.remote-config",
             "expression": "4.0.0",
             "define": "UNITY_SERVICES_REMOTE_CONFIG"
+        },
+        {
+            "name": "com.unity.services.cloudsave",
+            "expression": "3.2.0",
+            "define": "UNITY_SERVICES_CLOUD_SAVE"
         }
     ],
     "noEngineReferences": false
