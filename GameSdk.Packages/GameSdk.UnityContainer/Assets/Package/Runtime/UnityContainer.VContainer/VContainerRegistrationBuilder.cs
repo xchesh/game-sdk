@@ -26,5 +26,12 @@ namespace GameSdk.UnityContainer.VContainer
 
         public void AsSelf()
             => RegistrationBuilder.AsSelf();
+
+        public IUnityContainerRegistrationBuilder WithParameter(string name, object value)
+        {
+            RegistrationBuilder.WithParameter(name, value);
+
+            return this;
+        }
     }
 }

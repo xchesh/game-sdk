@@ -1,6 +1,6 @@
-
 using System;
 using Reflex.Core;
+using UnityEngine;
 
 namespace GameSdk.UnityContainer.Reflex
 {
@@ -38,6 +38,13 @@ namespace GameSdk.UnityContainer.Reflex
         public void AsSelf()
         {
             Add(typeof(TConcrete));
+        }
+
+        public IUnityContainerRegistrationBuilder WithParameter(string name, object value)
+        {
+            Debug.LogWarning("WithParameter is not supported by Reflex container");
+
+            return this;
         }
 
         protected virtual void Add(params Type[] contracts)

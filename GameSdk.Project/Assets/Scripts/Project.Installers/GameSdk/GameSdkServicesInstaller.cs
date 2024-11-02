@@ -3,6 +3,7 @@ using GameSdk.Services.Authentication;
 using GameSdk.Services.GraphicQuality;
 using GameSdk.Services.InApp;
 using GameSdk.Services.NetworkConnectivity;
+using GameSdk.Services.PlayerState;
 using GameSdk.Services.RemoteConfig;
 using GameSdk.UnityContainer;
 using UnityEngine;
@@ -38,6 +39,10 @@ namespace Project.Installers
             UnityEngine.Assertions.Assert.IsNotNull(_graphicQualityConfig, "GraphicQualityConfig is not set");
             container.RegisterInstance(_graphicQualityConfig).As<IGraphicQualityConfig>();
             container.Register<GraphicQualityService>().As<IGraphicQualityService>();
+
+            // Player State
+            container.Register<PlayerStatesService>().As<IPlayerStatesService>();
+            container.Register<PlayerPrefsPlayerStatesProvider>().As<IPlayerStatesProvider>();
 
             // Graphic Quality Conditions
             container.Register<DeviceIdCondition>().As<ICondition>();

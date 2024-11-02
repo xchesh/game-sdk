@@ -10,5 +10,7 @@ namespace GameSdk.UnityContainer
         void As(params Type[] contracts);
 
         void AsSelf();
+
+        IUnityContainerRegistrationBuilder WithParameter(string name, object value);
     }
 }
