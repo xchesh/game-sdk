@@ -40,11 +40,16 @@ namespace GameSdk.UnityContainer.Reflex
             Add(typeof(TConcrete));
         }
 
-        public IUnityContainerRegistrationBuilder WithParameter(string name, object value)
+        public IUnityContainerRegistrationBuilder WithParameter(Type type, object value)
         {
             Debug.LogWarning("WithParameter is not supported by Reflex container");
 
             return this;
+        }
+
+        public IUnityContainerRegistrationBuilder WithParameter<T>(T value)
+        {
+            return WithParameter(typeof(T), value);
         }
 
         protected virtual void Add(params Type[] contracts)

@@ -11,6 +11,7 @@ namespace GameSdk.UnityContainer
 
         void AsSelf();
 
-        IUnityContainerRegistrationBuilder WithParameter(string name, object value);
+        IUnityContainerRegistrationBuilder WithParameter(Type type, object value);
+        IUnityContainerRegistrationBuilder WithParameter<T>(T value);
     }
 }
