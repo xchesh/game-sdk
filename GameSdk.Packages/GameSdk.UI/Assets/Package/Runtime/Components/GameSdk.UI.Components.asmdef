@@ -1,6 +1,6 @@
 {
     "name": "GameSdk.UI.Components",
-    "rootNamespace": "",
+    "rootNamespace": "GameSdk.UI",
     "references": [
         "GUID:6bf654fe8d5269a458a49dd3b37aa0a0"
     ],
