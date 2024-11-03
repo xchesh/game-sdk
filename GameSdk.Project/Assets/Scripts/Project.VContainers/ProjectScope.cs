@@ -14,20 +14,16 @@ namespace Project.VContainers
         {
             builder.RegisterInstance(_document).As<UIDocument>();
 
-            builder.Register<DataSource>(Lifetime.Singleton);
             builder.Register<DataSourceResolver>(Lifetime.Singleton).As<IDataSourceResolver>();
 
-            builder.RegisterBuildCallback(container =>
-            {
-                SetDataSource(container.Resolve<IDataSourceResolver>()).Forget();
-            });
+            builder.RegisterBuildCallback(container => { SetDataSource(container.Resolve<IDataSourceResolver>()).Forget(); });
         }
 
-        private async UniTaskVoid SetDataSource(IDataSourceResolver resolver)
+        private async UniTaskVoid SetDataSource(IDataSourceResolver dataSourceResolver)
         {
-            await UniTask.WaitUntil(() => _document.rootVisualElement != null);
+            await UniTask.WaitUntil(() => _document.runtimePanel != null);
 
-            _document.rootVisualElement.dataSource = resolver;
+            _document.runtimePanel.visualTree.dataSource = dataSourceResolver;
         }
     }
 }
