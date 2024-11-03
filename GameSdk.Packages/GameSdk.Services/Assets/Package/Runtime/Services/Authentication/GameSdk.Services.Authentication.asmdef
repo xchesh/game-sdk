@@ -1,10 +1,10 @@
 {
     "name": "GameSdk.Services.Authentication",
-    "rootNamespace": "",
+    "rootNamespace": "GameSdk.Services.Authentication",
     "references": [
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:481386834acb44dd96951e450a61f758",
-        "GUID:0d2d0774100549cfbfb98ce4307fba39"
+        "UniTask",
+        "GameSdk.Core",
+        "GameSdk.Services.NetworkConnectivity"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

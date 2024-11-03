@@ -4,7 +4,7 @@ using UnityEngine.Scripting;
 
 namespace GameSdk.Services.PlayerState
 {
-    public class PlayerPrefsPlayerStatesProvider : IPlayerStatesProvider
+    public class PlayerPrefsPlayerStateProvider : IPlayerStatesProvider
     {
         private const string PREFIX = "PlayerState.";
 
@@ -12,7 +12,7 @@ namespace GameSdk.Services.PlayerState
         public bool IsEnabled { get; private set; }
 
         [RequiredMember]
-        public PlayerPrefsPlayerStatesProvider(PlayerStateProviderType type, bool isEnabled)
+        public PlayerPrefsPlayerStateProvider(PlayerStateProviderType type, bool isEnabled)
         {
             Type = type;
             IsEnabled = isEnabled;

@@ -1,5 +1,6 @@
 ﻿using GameSdk.Services.Unity;
 using GameSdk.Services.Authentication;
+using GameSdk.Services.PlayerState;
 using GameSdk.Services.RemoteConfig;
 
 using GameSdk.UnityContainer;
@@ -12,6 +13,7 @@ namespace Project.Installers
         {
             container.Register<UnityAuthenticationProvider>().As<IAuthenticationProvider>();
             container.Register<UnityRemoteConfigProvider>().As<IRemoteConfigProvider>();
+            container.Register<UnityCloudSavePlayerStateProvider>().As<IPlayerStatesProvider>().WithParameter(PlayerStateProviderType.CLOUD).WithParameter(false);
         }
     }
 }
