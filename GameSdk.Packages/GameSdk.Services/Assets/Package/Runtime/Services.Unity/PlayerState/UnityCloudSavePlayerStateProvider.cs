@@ -14,7 +14,7 @@ using DeleteOptions = Unity.Services.CloudSave.Models.Data.Player.DeleteOptions;
 
 namespace GameSdk.Services.Unity
 {
-    public class UnityCloudSaveProvider : IPlayerStatesProvider
+    public class UnityCloudSavePlayerStateProvider : IPlayerStatesProvider
     {
         public PlayerStateProviderType Type { get; }
         public bool IsEnabled { get; private set; }
@@ -22,7 +22,7 @@ namespace GameSdk.Services.Unity
         private Dictionary<string, Item> _cachedData = new();
 
         [RequiredMember]
-        public UnityCloudSaveProvider(PlayerStateProviderType type, bool isEnabled)
+        public UnityCloudSavePlayerStateProvider(PlayerStateProviderType type, bool isEnabled)
         {
             Type = type;
             IsEnabled = isEnabled;
