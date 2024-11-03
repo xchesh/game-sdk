@@ -381,7 +381,7 @@
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "d4f5adc8de159040451f6ff9b2c9574c069a11ab"
+      "hash": "8ee5b03736a9866f5f435ecc1a979d270f978570"
     },
     "gamesdk.sources.feedbacks": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Sources.Feedbacks/Assets/Package",
@@ -419,7 +419,7 @@
       "dependencies": {
         "gamesdk.core": "1.0.0"
       },
-      "hash": "3cc5fa2be377933500c9e02fb8f45a3f074d5d5e"
+      "hash": "244fc6c2e87f0f661a0f53c64ac20c59819253d6"
     },
     "jp.hadashikick.vcontainer": {
       "version": "1.16.4",
