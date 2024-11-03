@@ -4,57 +4,67 @@ using UnityEngine;
 
 namespace GameSdk.UnityContainer.Reflex
 {
-    public class ReflexRegistrationBuilder<TConcrete> : IUnityContainerRegistrationBuilder
+    public class ReflexUnityContainerBuilder<TConcrete> : IUnityContainerBuilder, IUnityContainerBuilderWithParameter
     {
         protected readonly ContainerBuilder _builder;
         protected readonly UnityContainerScope _scope;
 
-        public ReflexRegistrationBuilder(ContainerBuilder builder, UnityContainerScope scope)
+        public ReflexUnityContainerBuilder(ContainerBuilder builder, UnityContainerScope scope)
         {
             _builder = builder;
             _scope = scope;
         }
 
-        public void As<TContract1>()
+        public IUnityContainerBuilderWithParameter As<TContract1>()
         {
             Add(typeof(TContract1));
+
+            return this;
         }
 
-        public void As<TContract1, TContract2>()
+        public IUnityContainerBuilderWithParameter As<TContract1, TContract2>()
         {
             Add(typeof(TContract1), typeof(TContract2));
+
+            return this;
         }
 
-        public void As<TContract1, TContract2, TContract3>()
+        public IUnityContainerBuilderWithParameter As<TContract1, TContract2, TContract3>()
         {
             Add(typeof(TContract1), typeof(TContract2), typeof(TContract3));
+
+            return this;
         }
 
-        public void As(params Type[] contracts)
+        public IUnityContainerBuilderWithParameter As(params Type[] contracts)
         {
             Add(contracts);
+
+            return this;
         }
 
-        public void AsSelf()
+        public IUnityContainerBuilderWithParameter AsSelf()
         {
             Add(typeof(TConcrete));
+
+            return this;
         }
 
-        public IUnityContainerRegistrationBuilder WithParameter(Type type, object value)
+        public IUnityContainerBuilderWithParameter WithParameter(Type type, object value)
         {
             Debug.LogWarning("WithParameter is not supported by Reflex container");
 
             return this;
         }
 
-        public IUnityContainerRegistrationBuilder WithParameter<T>(T value)
+        public IUnityContainerBuilderWithParameter WithParameter<T>(T value)
         {
             return WithParameter(typeof(T), value);
         }
 
         protected virtual void Add(params Type[] contracts)
         {
-            Type concrete = typeof(TConcrete);
+            var concrete = typeof(TConcrete);
 
             if (_scope == UnityContainerScope.Transient)
             {
@@ -67,11 +77,11 @@ namespace GameSdk.UnityContainer.Reflex
         }
     }
 
-    public class ReflexRegistrationBuilderInstance<TConcrete> : ReflexRegistrationBuilder<TConcrete>
+    public class ReflexUnityContainerBuilderInstance<TConcrete> : ReflexUnityContainerBuilder<TConcrete>
     {
         private readonly TConcrete _instance;
 
-        public ReflexRegistrationBuilderInstance(TConcrete instance, ContainerBuilder builder, UnityContainerScope scope) : base(builder, scope)
+        public ReflexUnityContainerBuilderInstance(TConcrete instance, ContainerBuilder builder, UnityContainerScope scope) : base(builder, scope)
         {
             _instance = instance;
         }

@@ -1,6 +1,6 @@
 {
     "name": "GameSdk.UnityContainer",
-    "rootNamespace": "",
+    "rootNamespace": "GameSdk.UnityContainer",
     "references": [
         "GUID:481386834acb44dd96951e450a61f758"
     ],

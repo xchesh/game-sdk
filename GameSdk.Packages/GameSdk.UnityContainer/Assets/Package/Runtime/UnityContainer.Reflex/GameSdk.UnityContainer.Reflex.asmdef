@@ -1,6 +1,6 @@
 {
     "name": "GameSdk.UnityContainer.Reflex",
-    "rootNamespace": "",
+    "rootNamespace": "GameSdk.UnityContainer.Reflex",
     "references": [
         "GUID:1530a967b84cfb44dbdd5e8a1989764f",
         "GUID:481386834acb44dd96951e450a61f758",

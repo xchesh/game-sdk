@@ -13,19 +13,19 @@ namespace GameSdk.UnityContainer.Reflex
             _builder = builder;
         }
 
-        public IUnityContainerRegistrationBuilder Register<TConcrete>(UnityContainerScope scope = UnityContainerScope.Singleton)
+        public IUnityContainerBuilder Register<TConcrete>(UnityContainerScope scope = UnityContainerScope.Singleton)
         {
-            return new ReflexRegistrationBuilder<TConcrete>(_builder, scope);
+            return new ReflexUnityContainerBuilder<TConcrete>(_builder, scope);
         }
 
-        public IUnityContainerRegistrationBuilder RegisterComponentInNewPrefab<TConcrete>(TConcrete prefab, Transform parent = null, UnityContainerScope scope = UnityContainerScope.Singleton) where TConcrete : Component
+        public IUnityContainerBuilder RegisterComponentInNewPrefab<TConcrete>(TConcrete prefab, Transform parent = null, UnityContainerScope scope = UnityContainerScope.Singleton) where TConcrete : Component
         {
             var instance = Object.Instantiate(prefab, parent);
 
-            return new ReflexRegistrationBuilderInstance<TConcrete>(instance, _builder, scope);
+            return new ReflexUnityContainerBuilderInstance<TConcrete>(instance, _builder, scope);
         }
 
-        public IUnityContainerRegistrationBuilder RegisterComponentOnNewGameObject<TConcrete>(string name = null, Transform parent = null, UnityContainerScope scope = UnityContainerScope.Singleton) where TConcrete : Component
+        public IUnityContainerBuilder RegisterComponentOnNewGameObject<TConcrete>(string name = null, Transform parent = null, UnityContainerScope scope = UnityContainerScope.Singleton) where TConcrete : Component
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -41,17 +41,17 @@ namespace GameSdk.UnityContainer.Reflex
 
             var instance = gameObject.AddComponent<TConcrete>();
 
-            return new ReflexRegistrationBuilderInstance<TConcrete>(instance, _builder, scope);
+            return new ReflexUnityContainerBuilderInstance<TConcrete>(instance, _builder, scope);
         }
 
-        public IUnityContainerRegistrationBuilder RegisterInstance<TConcrete>(TConcrete instance)
+        public IUnityContainerBuilder RegisterInstance<TConcrete>(TConcrete instance)
         {
-            return new ReflexRegistrationBuilderInstance<TConcrete>(instance, _builder, UnityContainerScope.Singleton);
+            return new ReflexUnityContainerBuilderInstance<TConcrete>(instance, _builder, UnityContainerScope.Singleton);
         }
 
-        public IUnityContainerRegistrationBuilder RegisterInstance(object instance)
+        public IUnityContainerBuilder RegisterInstance(object instance)
         {
-            return new ReflexRegistrationBuilderInstance<object>(instance, _builder, UnityContainerScope.Singleton);
+            return new ReflexUnityContainerBuilderInstance<object>(instance, _builder, UnityContainerScope.Singleton);
         }
     }
 }

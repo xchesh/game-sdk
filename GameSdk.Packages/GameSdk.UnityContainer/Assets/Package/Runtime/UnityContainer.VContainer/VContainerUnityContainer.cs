@@ -14,35 +14,35 @@ namespace GameSdk.UnityContainer.VContainer
             Builder = builder;
         }
 
-        public IUnityContainerRegistrationBuilder Register<TConcrete>(
+        public IUnityContainerBuilder Register<TConcrete>(
             UnityContainerScope scope = UnityContainerScope.Singleton)
         {
-            return new VContainerRegistrationBuilder(Builder.Register<TConcrete>(GetLifetime(scope)));
+            return new VContainerUnityContainerBuilder(Builder.Register<TConcrete>(GetLifetime(scope)));
         }
 
-        public IUnityContainerRegistrationBuilder RegisterInstance<TConcrete>(TConcrete instance)
+        public IUnityContainerBuilder RegisterInstance<TConcrete>(TConcrete instance)
         {
-            return new VContainerRegistrationBuilder(Builder.RegisterInstance(instance));
+            return new VContainerUnityContainerBuilder(Builder.RegisterInstance(instance));
         }
 
-        public IUnityContainerRegistrationBuilder RegisterInstance(object instance)
+        public IUnityContainerBuilder RegisterInstance(object instance)
         {
-            return new VContainerRegistrationBuilder(Builder.RegisterInstance(instance));
+            return new VContainerUnityContainerBuilder(Builder.RegisterInstance(instance));
         }
 
-        public IUnityContainerRegistrationBuilder RegisterComponentInNewPrefab<TConcrete>(TConcrete prefab,
+        public IUnityContainerBuilder RegisterComponentInNewPrefab<TConcrete>(TConcrete prefab,
             Transform parent = null, UnityContainerScope scope = UnityContainerScope.Singleton)
             where TConcrete : UnityEngine.Component
         {
-            return new VContainerRegistrationBuilder(Builder
+            return new VContainerUnityContainerBuilder(Builder
                 .RegisterComponentInNewPrefab<TConcrete>(prefab, GetLifetime(scope)).UnderTransform(parent));
         }
 
-        public IUnityContainerRegistrationBuilder RegisterComponentOnNewGameObject<TConcrete>(string name = null,
+        public IUnityContainerBuilder RegisterComponentOnNewGameObject<TConcrete>(string name = null,
             Transform parent = null, UnityContainerScope scope = UnityContainerScope.Singleton)
             where TConcrete : UnityEngine.Component
         {
-            return new VContainerRegistrationBuilder(Builder
+            return new VContainerUnityContainerBuilder(Builder
                 .RegisterComponentOnNewGameObject<TConcrete>(GetLifetime(scope), name).UnderTransform(parent));
         }
 
