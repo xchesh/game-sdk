@@ -4,16 +4,46 @@ using UnityEngine;
 using UnityEngine.Scripting;
 using UnityEngine.UIElements;
 
-[UxmlObject][Preserve]
+[UxmlObject] [Preserve]
 public partial class DataSourceResolverBinding : CustomBinding
 {
     [UxmlAttribute]
     public string type { get; set; }
 
+    private Type _type;
+    private Type Type => _type ??= Type.GetType(type);
+
     [RequiredMember]
     public DataSourceResolverBinding()
     {
         updateTrigger = BindingUpdateTrigger.WhenDirty;
+    }
+
+    [RequiredMember]
+    public DataSourceResolverBinding(Type bindingType)
+    {
+        _type = bindingType;
+        updateTrigger = BindingUpdateTrigger.WhenDirty;
+    }
+
+    private IDataSourceResolver FindDataSourceResolver(BindingContext context)
+    {
+        if (context.dataSource is IDataSourceResolver localResolver)
+        {
+            return localResolver;
+        }
+
+        if (context.targetElement.panel.visualTree.childCount > 0 && context.targetElement.panel.visualTree[0].dataSource is IDataSourceResolver childResolver)
+        {
+            return childResolver;
+        }
+
+        if (context.targetElement.panel.visualTree.dataSource is IDataSourceResolver rootResolver)
+        {
+            return rootResolver;
+        }
+
+        return null;
     }
 
     protected override BindingResult Update(in BindingContext context)
@@ -26,15 +56,16 @@ public partial class DataSourceResolverBinding : CustomBinding
             return new BindingResult(BindingStatus.Success);
         }
 #endif
-        // Check if the context has a DataSource. DataSource is a custom class that contains a Resolver property.
-        // Return success if it does not. This is to prevent the binding from running if the DataSource is not set.
-        if (context.dataSource is not DataSource dataSource)
+
+        var resolver = FindDataSourceResolver(context);
+
+        if (resolver == null)
         {
             return new BindingResult(BindingStatus.Success, "DataSourceResolverBinding: DataSource is not set.");
         }
 
         // Resolve the type from the string.
-        var resolvedType = Type.GetType(type);
+        var resolvedType = Type;
 
         if (resolvedType == null)
         {
@@ -42,7 +73,7 @@ public partial class DataSourceResolverBinding : CustomBinding
         }
 
         // Resolve the value from the DataSource.
-        var value = dataSource.Resolver.Resolve(resolvedType);
+        var value = resolver.Resolve(resolvedType);
 
         if (value == null)
         {
