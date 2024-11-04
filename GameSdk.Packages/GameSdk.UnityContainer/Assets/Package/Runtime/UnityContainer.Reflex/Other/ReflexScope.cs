@@ -1,8 +1,6 @@
 using UnityEngine;
 using Reflex.Core;
-using GameSdk.Core.Loggers;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace GameSdk.UnityContainer.Reflex
 {
@@ -23,15 +21,12 @@ namespace GameSdk.UnityContainer.Reflex
         {
             // Reflex has no scope nesting, so all kernel bindings are not duplicated
             var bootstraps = container.All<IBootstrap>();
-            var nonLazies = container.All<INonLazy>();
             var initializables = container.All<IInitializable>();
 
             foreach (var bootstrap in bootstraps)
             {
                 bootstrap.Boot();
             }
-
-            SystemLog.Log(LogType.Log, "UnityContainer", $"NonLazy: {nonLazies.Count()}");
 
             foreach (var initializable in initializables)
             {

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using NUnit.Framework;
 using Reflex.Core;
 using UnityEngine;
 
@@ -9,10 +11,29 @@ namespace GameSdk.UnityContainer.Reflex
         protected readonly ContainerBuilder _builder;
         protected readonly UnityContainerScope _scope;
 
+        protected readonly List<Type> _nonLazyTypes;
+        protected readonly List<Type> _contracts;
+
         public ReflexUnityContainerBuilder(ContainerBuilder builder, UnityContainerScope scope)
         {
             _builder = builder;
             _scope = scope;
+
+            _nonLazyTypes = new List<Type>();
+            _contracts = new List<Type>();
+
+            builder.OnContainerBuilt += OnContainerBuilt;
+        }
+
+        private void OnContainerBuilt(Container container)
+        {
+            foreach (var nonLazyType in _nonLazyTypes)
+            {
+                container.Resolve(nonLazyType);
+            }
+
+            _nonLazyTypes.Clear();
+            _contracts.Clear();
         }
 
         public IUnityContainerBuilderWithParameter As<TContract1>()
@@ -64,6 +85,8 @@ namespace GameSdk.UnityContainer.Reflex
 
         protected virtual void Add(params Type[] contracts)
         {
+            _contracts.AddRange(contracts);
+
             var concrete = typeof(TConcrete);
 
             if (_scope == UnityContainerScope.Transient)
@@ -74,6 +97,11 @@ namespace GameSdk.UnityContainer.Reflex
             }
 
             _builder.AddSingleton(concrete, contracts);
+        }
+
+        public void NonLazy()
+        {
+            _nonLazyTypes.AddRange(_contracts);
         }
     }
 
