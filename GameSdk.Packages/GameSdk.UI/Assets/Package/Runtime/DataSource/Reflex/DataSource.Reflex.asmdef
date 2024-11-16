@@ -2,8 +2,9 @@
     "name": "DataSource.Reflex",
     "rootNamespace": "",
     "references": [
+        "UniTask",
         "Reflex",
-        "GUID:5d5827aadb2636142a9f66344b472d7a"
+        "DataSource"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

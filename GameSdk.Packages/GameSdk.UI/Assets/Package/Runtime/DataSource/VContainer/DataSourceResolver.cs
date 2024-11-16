@@ -1,17 +1,28 @@
 using System;
+using Cysharp.Threading.Tasks;
 using VContainer;
 using VContainer.Unity;
 using UnityEngine.Scripting;
+using UnityEngine.UIElements;
 
 [UnityEngine.Scripting.Preserve]
 public class DataSourceResolver : IDataSourceResolver
 {
     private readonly LifetimeScope _scope;
+    private readonly UIDocument _uiDocument;
 
     [RequiredMember]
-    public DataSourceResolver(LifetimeScope scope)
+    public DataSourceResolver(LifetimeScope scope, UIDocument uiDocument)
     {
         _scope = scope;
+        _uiDocument = uiDocument;
+    }
+
+    public async UniTask Initialize()
+    {
+        await UniTask.WaitUntil(() => _uiDocument.runtimePanel != null);
+
+        _uiDocument.runtimePanel.visualTree.dataSource = this;
     }
 
     public T Resolve<T>()
