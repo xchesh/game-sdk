@@ -38,7 +38,10 @@ namespace GameSdk.UI
         {
             foreach (var screen in _screens)
             {
-                screen.Value.Attached -= OnScreenAttached;
+                if(screen.Value != null)
+                {
+                    screen.Value.Attached -= OnScreenAttached;
+                }
             }
 
             _screens = null;
