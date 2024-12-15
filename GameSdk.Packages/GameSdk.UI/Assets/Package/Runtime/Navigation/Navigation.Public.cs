@@ -51,6 +51,7 @@ namespace GameSdk.UI
             {
                 return CurrentScreen;
             }
+
             // Hide the current screen
             HideLastScreen();
             // Release the current history item
@@ -66,6 +67,12 @@ namespace GameSdk.UI
         private void ShowLastScreen()
         {
             var last = HistoryLast;
+
+            if (last?.Element == null)
+            {
+                return;
+            }
+
             // Set the data of the last screen
             last.Element.SetData(last.Data);
             // Show the last screen
@@ -75,6 +82,12 @@ namespace GameSdk.UI
         private void HideLastScreen()
         {
             var last = HistoryLast;
+
+            if (last?.Element == null)
+            {
+                return;
+            }
+
             // Reset the data of the last screen
             last.Element.SetData(null);
             // Hide the last screen
