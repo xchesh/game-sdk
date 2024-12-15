@@ -38,7 +38,7 @@ namespace GameSdk.UI
         {
             foreach (var screen in _screens)
             {
-                if(screen.Value != null)
+                if (screen.Value != null)
                 {
                     screen.Value.Attached -= OnScreenAttached;
                 }
@@ -94,14 +94,21 @@ namespace GameSdk.UI
 
         private void ShowScreen(Screen screen)
         {
-            var screenElement = GetScreenElement(screen);
-
-            screenElement.AddToClassList(ActiveButtonClass);
-            screenElement.BringToFront();
-
-            if (screen.Parent != null)
+            while (true)
             {
-                ShowScreen(screen.Parent);
+                var screenElement = GetScreenElement(screen);
+
+                screenElement.SetEnabled(true);
+                screenElement.AddToClassList(ActiveButtonClass);
+                screenElement.BringToFront();
+
+                if (screen.Parent != null)
+                {
+                    screen = screen.Parent;
+                    continue;
+                }
+
+                break;
             }
         }
 
@@ -115,6 +122,7 @@ namespace GameSdk.UI
             var screenElement = GetScreenElement(screen);
 
             screenElement.RemoveFromClassList(ActiveButtonClass);
+            screenElement.SetEnabled(false);
         }
     }
 }
