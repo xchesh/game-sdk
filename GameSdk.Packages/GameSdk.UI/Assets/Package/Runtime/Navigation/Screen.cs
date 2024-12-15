@@ -39,6 +39,11 @@ namespace GameSdk.UI
         protected virtual void OnDataChanged(object data)
         {
         }
+
+        protected internal virtual bool OnCancel()
+        {
+            return true;
+        }
     }
 
     public abstract partial class Screen<T> : Screen

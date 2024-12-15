@@ -64,6 +64,16 @@ namespace GameSdk.UI
             return CurrentScreen;
         }
 
+        public void Cancel()
+        {
+            if (CurrentScreen?.OnCancel() is false)
+            {
+                return;
+            }
+
+            Pop();
+        }
+
         private void ShowLastScreen()
         {
             var last = HistoryLast;
