@@ -12,7 +12,13 @@ namespace GameSdk.UI
         public Type DefaultScreen { get; set; }
 
         [UxmlAttribute]
-        public string ActiveButtonClass { get; set; } = "navigation-screen__active";
+        public bool AutoActivate { get; set; } = true;
+
+        [UxmlAttribute]
+        public string ScreenClass { get; set; } = "navigation-screen";
+
+        [UxmlAttribute]
+        public string ScreenClassActive { get; set; } = "navigation-screen__active";
 
         private Dictionary<Type, Screen> _screens = new();
 
@@ -51,13 +57,25 @@ namespace GameSdk.UI
         {
             _screens[screenElement.GetType()] = screenElement;
 
+            var screen = GetScreenElement(screenElement);
+
+            if (screen.ClassListContains(ScreenClass) is false)
+            {
+                screen.AddToClassList(ScreenClass);
+            }
+
             OnAfterScreenAttached();
         }
 
         private void OnAfterScreenAttached()
         {
-            if (_screens.Values.All(screen => screen != null))
+            if (AutoActivate && _screens.Values.All(screen => screen != null))
             {
+                if (_screens.ContainsKey(DefaultScreen) is false)
+                {
+                    UnityEngine.Debug.LogWarning("Default screen not found");
+                }
+
                 foreach (var screen in _screens)
                 {
                     HideScreen(screen.Value);
@@ -99,7 +117,7 @@ namespace GameSdk.UI
                 var screenElement = GetScreenElement(screen);
 
                 screenElement.SetEnabled(true);
-                screenElement.AddToClassList(ActiveButtonClass);
+                screenElement.AddToClassList(ScreenClassActive);
                 screenElement.BringToFront();
 
                 if (screen.Parent != null)
@@ -121,7 +139,7 @@ namespace GameSdk.UI
 
             var screenElement = GetScreenElement(screen);
 
-            screenElement.RemoveFromClassList(ActiveButtonClass);
+            screenElement.RemoveFromClassList(ScreenClassActive);
             screenElement.SetEnabled(false);
         }
     }
