@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace GameSdk.UI
 {
@@ -10,6 +11,11 @@ namespace GameSdk.UI
         public IEnumerable<Screen> Screens => _screens.Values;
 
         public event Action<Screen> ScreenChanged;
+
+        public T GetScreen<T>() where T : Screen
+        {
+            return (T)GetScreen(typeof(T));
+        }
 
         public Screen GetScreen(Type screenType)
         {
@@ -34,6 +40,8 @@ namespace GameSdk.UI
 
         public Screen Push(Screen screen, object data = null)
         {
+            // If history is not empty, blur the last screen
+            BlurLastScreen();
             // Push the new screen to the history
             _history.Push(CreateHistoryItem(screen, data));
             // Show the new screen
@@ -74,8 +82,36 @@ namespace GameSdk.UI
             Pop();
         }
 
+        public VisualElement GetScreenElement<T>() where T : Screen
+        {
+            return GetScreenElement(GetScreen<T>());
+        }
+
+        private void BlurLastScreen()
+        {
+            if (_history.Count < 1)
+            {
+                return;
+            }
+
+            var last = HistoryLast;
+
+            if (last?.Element == null)
+            {
+                return;
+            }
+
+            // Blur the last screen
+            BlurScreen(last.Element);
+        }
+
         private void ShowLastScreen()
         {
+            if (_history.Count < 1)
+            {
+                return;
+            }
+
             var last = HistoryLast;
 
             if (last?.Element == null)
@@ -91,6 +127,11 @@ namespace GameSdk.UI
 
         private void HideLastScreen()
         {
+            if (_history.Count < 1)
+            {
+                return;
+            }
+
             var last = HistoryLast;
 
             if (last?.Element == null)
