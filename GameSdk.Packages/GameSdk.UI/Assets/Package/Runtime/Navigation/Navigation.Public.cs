@@ -38,6 +38,19 @@ namespace GameSdk.UI
             return Push(screen, data);
         }
 
+        public Screen ReplaceTo(Screen oldScreen, Screen newScreen, object newScreenData = null)
+        {
+            while (CurrentScreen != oldScreen && _history.Count > 1)
+            {
+                // Hide the current screen
+                HideLastScreen();
+                // Release the current history item
+                ReleaseHistoryItem(_history.Pop());
+            }
+
+            return Replace(newScreen, newScreenData);
+        }
+
         public Screen Push(Screen screen, object data = null)
         {
             // If history is not empty, blur the last screen

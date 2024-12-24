@@ -2,7 +2,6 @@ namespace GameSdk.UI
 {
     public static class NavigationsExtensions
     {
-
         public static Screen Push(this Navigation navigation, System.Type type, object data = null)
         {
             var screen = navigation.GetScreen(type);
@@ -25,6 +24,11 @@ namespace GameSdk.UI
         public static T Replace<T>(this Navigation navigation, object data = null) where T : Screen
         {
             return navigation.Replace(typeof(T), data) as T;
+        }
+
+        public static TNew ReplaceTo<TOld, TNew>(this Navigation navigation, object data = null) where TNew : Screen where TOld : Screen
+        {
+            return navigation.ReplaceTo(navigation.GetScreen(typeof(TOld)), navigation.GetScreen(typeof(TNew)), data) as TNew;
         }
     }
 }
