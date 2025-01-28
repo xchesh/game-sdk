@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Scripting;
 using UnityEngine.UIElements;
 
 namespace GameSdk.UI
 {
-    [UxmlElement("Navigation")]
+    [Preserve, UxmlElement("Navigation")]
     public partial class Navigation : VisualElement
     {
         [UxmlAttribute, UxmlTypeReference(typeof(Screen))]
@@ -22,6 +23,7 @@ namespace GameSdk.UI
 
         private Dictionary<Type, Screen> _screens = new();
 
+        [Preserve]
         public Navigation()
         {
             RegisterCallback<AttachToPanelEvent>(OnAttachToPanelEvent);

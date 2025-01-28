@@ -1,9 +1,10 @@
 using System;
+using UnityEngine.Scripting;
 using UnityEngine.UIElements;
 
 namespace GameSdk.UI
 {
-    [UxmlElement("Screen")]
+    [Preserve, UxmlElement("Screen")]
     public abstract partial class Screen : VisualElement
     {
         public Screen Parent { get; protected set; }
@@ -11,6 +12,7 @@ namespace GameSdk.UI
 
         public event Action<AttachToPanelEvent, Screen> Attached;
 
+        [Preserve]
         public Screen()
         {
             RegisterCallback<AttachToPanelEvent>(OnAttachToPanel);
