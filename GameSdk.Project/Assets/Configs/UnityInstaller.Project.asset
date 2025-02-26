@@ -1,17 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8287463254100154061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65dbb83c6dc644ac92b463206f883a24, type: 3}
-  m_Name: GameSdkServicesUnityInstaller
-  m_EditorClassIdentifier: 
 --- !u!114 &-5142846099970348296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,8 +25,20 @@ MonoBehaviour:
   m_Name: GameSdkServicesInstaller
   m_EditorClassIdentifier: 
   _authenticationConfig: {fileID: 11400000, guid: db0b4f84eaeab02da899b85f9a94db45, type: 2}
-  _internetReachabilityConfig: {fileID: 11400000, guid: dbcad340231a2974085e76dc904cb257, type: 2}
+  _networkConnectivityConfig: {fileID: 0}
   _graphicQualityConfig: {fileID: 11400000, guid: f1854f11e958e8648bed42abbcbe751f, type: 2}
+--- !u!114 &-1430872910019321069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65dbb83c6dc644ac92b463206f883a24, type: 3}
+  m_Name: GameSdkServicesUnityInstaller
+  m_EditorClassIdentifier: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,8 +54,8 @@ MonoBehaviour:
   _installers:
   - {fileID: 4513655280362089622}
   - {fileID: -1963200498582077055}
-  - {fileID: -8287463254100154061}
   - {fileID: -5142846099970348296}
+  - {fileID: -1430872910019321069}
   _path: Assets/Scripts/Project.Installers
 --- !u!114 &4513655280362089622
 MonoBehaviour:

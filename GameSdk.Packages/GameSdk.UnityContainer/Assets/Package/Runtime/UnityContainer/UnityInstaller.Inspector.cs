@@ -11,6 +11,8 @@ namespace GameSdk.UnityContainer
     {
         [SerializeField, HideInInspector] private string _path = "Assets/Scripts/Project.Installers";
 
+        internal string Search { get; set; }
+
         [ContextMenu("Clear")]
         private void Clear()
         {
@@ -53,6 +55,27 @@ namespace GameSdk.UnityContainer
 
             EditorUtility.SetDirty(this);
             AssetDatabase.SaveAssetIfDirty(this);
+        }
+
+        internal List<int> GetInstallersIndexes()
+        {
+            if (string.IsNullOrEmpty(Search))
+            {
+                return Enumerable.Range(0, _installers.Count).ToList();
+            }
+
+            var result = new List<int>();
+
+            for (var i = 0; i < _installers.Count; i++)
+            {
+                var installer = _installers[i];
+                if (installer.GetType().Name.Contains(Search, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.Add(_installers.IndexOf(installer));
+                }
+            }
+
+            return result;
         }
 
         private void Reset()

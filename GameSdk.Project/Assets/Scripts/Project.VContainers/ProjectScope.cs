@@ -13,9 +13,7 @@ namespace Project.VContainers
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterInstance(_document).As<UIDocument>();
-
             builder.Register<DataSourceResolver>(Lifetime.Singleton).As<IDataSourceResolver>();
-
             builder.RegisterBuildCallback(container => { SetDataSource(container.Resolve<IDataSourceResolver>()).Forget(); });
         }
 

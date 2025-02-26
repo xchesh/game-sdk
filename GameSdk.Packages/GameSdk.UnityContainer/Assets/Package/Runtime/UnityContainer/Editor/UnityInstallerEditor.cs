@@ -32,6 +32,7 @@ namespace GameSdk.UnityContainer
             if (DrawInstallersPath(_pathProperty))
             {
                 DrawInstallersSelect(_listProperty);
+                DrawInstallersSearch();
                 DrawInstallersList(_listProperty);
             }
 
@@ -42,19 +43,16 @@ namespace GameSdk.UnityContainer
         {
             bool result = true;
 
-            EditorGUILayout.Space(5);
+            EditorGUILayout.Space();
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.PropertyField(property);
 
-            if (DrawButton(new GUIContent("Apply", "Find all installers from path and add to array"),
-                    new Color(0, 0.5f, 0.8f, 1f), 80f))
+            if (DrawButton(new GUIContent("Apply", "Find all installers from path and add to array"), new Color(0, 0.5f, 0.8f, 1f), 80f))
             {
                 result = false;
                 _self.Update();
             }
-
-            ;
 
             EditorGUILayout.EndHorizontal();
 
@@ -63,19 +61,27 @@ namespace GameSdk.UnityContainer
 
         private void DrawInstallersSelect(SerializedProperty property)
         {
-            EditorGUILayout.Space();
-
             var rect = EditorGUILayout.BeginHorizontal();
             EditorGUILayout.PrefixLabel(property.displayName);
 
-            if (EditorGUILayout.DropdownButton(new GUIContent("Select IUnityInstaller", "Select and add installers"),
-                    FocusType.Keyboard))
+            if (EditorGUILayout.DropdownButton(new GUIContent("Select IUnityInstaller", "Select and add installers"), FocusType.Keyboard))
             {
                 var dropdownItems = GetDropdownItems();
-                var dropdown = new UnityInstallersDropdown("IUnityInstaller", dropdownItems,
-                    new AdvancedDropdownState(), property);
-                int maxGroupSize = dropdownItems.GroupBy(i => i.Group).Max(g => g.Count());
-                int maxItems = Mathf.Max(maxGroupSize + 2, 7);
+                var dropdown = new UnityInstallersDropdown(
+                    "IUnityInstaller",
+                    dropdownItems,
+                    new AdvancedDropdownState(),
+                    property
+                );
+
+                var maxGroupSize = 5;
+
+                if (dropdownItems.Count > 0)
+                {
+                    maxGroupSize = dropdownItems.GroupBy(i => i.Group).Max(g => g.Count());
+                }
+
+                var maxItems = Mathf.Max(maxGroupSize + 2, 7);
 
                 dropdown.SetMinimumSize(rect.width, EditorGUIUtility.singleLineHeight * maxItems + 5);
                 dropdown.Show(rect);
@@ -84,20 +90,46 @@ namespace GameSdk.UnityContainer
             EditorGUILayout.EndHorizontal();
         }
 
+        private void DrawInstallersSearch()
+        {
+            EditorGUILayout.Space();
+
+            var search = EditorGUILayout.TextField("Search", _self.Search);
+
+            if (search != _self.Search)
+            {
+                _self.Search = search;
+            }
+        }
+
         private void DrawInstallersList(SerializedProperty property)
         {
             if (property.arraySize < 1)
             {
                 EditorGUILayout.HelpBox(
                     "Installers not found. Please select an installer or apply all installers from the specified path.",
-                    MessageType.None);
+                    MessageType.None
+                );
 
                 return;
             }
 
+            var availableIndexes = _self.GetInstallersIndexes();
+
+            if (availableIndexes.Count < 1)
+            {
+                EditorGUILayout.HelpBox("Installers not found. Change search or apply all installers from the specified path.", MessageType.None);
+            }
+
             for (int i = 0; i < property.arraySize; i++)
             {
+                bool available = availableIndexes.Contains(i);
                 bool breaking = false;
+
+                if (available is false)
+                {
+                    continue;
+                }
 
                 EditorGUILayout.BeginHorizontal();
                 // Disable for prevent changing
