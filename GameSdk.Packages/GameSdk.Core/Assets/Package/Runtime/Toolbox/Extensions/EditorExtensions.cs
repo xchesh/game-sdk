@@ -12,9 +12,22 @@ namespace GameSdk.Core.Toolbox
             var assets = UnityEditor.AssetDatabase.FindAssets(" t: " + typeof(T).Name);
 
             return assets.Select(UnityEditor.AssetDatabase.GUIDToAssetPath)
-                         .Select(UnityEditor.AssetDatabase.LoadAssetAtPath<T>);
+                .Select(UnityEditor.AssetDatabase.LoadAssetAtPath<T>);
 #endif
             return Enumerable.Empty<T>();
+        }
+
+        public static T GetAsset<T>() where T : Object
+        {
+#if UNITY_EDITOR
+            var assets = GetAssets<T>().ToArray();
+
+            if (assets.Count() > 1)
+            {
+                return assets.First();
+            }
+#endif
+            return default;
         }
     }
 }
