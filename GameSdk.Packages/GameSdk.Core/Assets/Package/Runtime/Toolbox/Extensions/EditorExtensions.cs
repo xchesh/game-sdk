@@ -22,7 +22,7 @@ namespace GameSdk.Core.Toolbox
 #if UNITY_EDITOR
             var assets = GetAssets<T>().ToArray();
 
-            if (assets.Count() > 1)
+            if (assets.Any())
             {
                 return assets.First();
             }
