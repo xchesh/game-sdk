@@ -121,7 +121,11 @@ namespace GameSdk.UnityContainer
 
             AssetDatabase.AddObjectToAsset(so, this);
 
-            _installers.Add(so as IUnityInstaller);
+            if (so is IUnityInstaller installer)
+            {
+                _installers.Add(installer);
+                installer.Reset();
+            }
 
             if (save)
             {

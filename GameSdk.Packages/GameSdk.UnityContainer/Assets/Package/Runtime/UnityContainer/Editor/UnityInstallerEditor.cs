@@ -48,7 +48,7 @@ namespace GameSdk.UnityContainer
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.PropertyField(property);
 
-            if (DrawButton(new GUIContent("Apply", "Find all installers from path and add to array"), new Color(0, 0.5f, 0.8f, 1f), 80f))
+            if (DrawButton(new GUIContent("Apply", "Find all installers from path and add to array"), new Color(0, 0.5f, 0.8f, 1f), 66f))
             {
                 result = false;
                 _self.Update();
@@ -137,12 +137,12 @@ namespace GameSdk.UnityContainer
                 EditorGUILayout.PropertyField(property.GetArrayElementAtIndex(i), GUIContent.none);
                 EditorGUI.EndDisabledGroup();
 
-                if (DrawButton(new GUIContent("Reset", "Reset installer"), Color.yellow, 60))
+                if (DrawButton(new GUIContent("Reset", "Reset installer"), Color.yellow, 66))
                 {
                     _self.Reset(i);
                 }
 
-                if (DrawButton(new GUIContent("Delete", "Delete installer"), Color.red, 60))
+                if (DrawButton(new GUIContent("Delete", "Delete installer"), Color.red, 66))
                 {
                     breaking = true;
 

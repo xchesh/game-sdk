@@ -7,6 +7,7 @@ namespace GameSdk.UnityContainer
     {
         public abstract void InstallBindings(IUnityContainer container);
 
+        [ContextMenu("Reset")]
         public virtual void Reset()
         {
         }
