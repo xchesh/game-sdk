@@ -78,7 +78,7 @@ namespace GameSdk.UnityContainer
             return result;
         }
 
-        private void Reset()
+        public void Reset()
         {
             _path = "Assets/Scripts/Project.Installers";
         }
@@ -149,6 +149,18 @@ namespace GameSdk.UnityContainer
                     }
                 }
             }
+
+            if (save)
+            {
+                AssetDatabase.SaveAssets();
+            }
+        }
+
+        internal void Reset(int index, bool save = true)
+        {
+            var installer = _installers[index];
+
+            installer.Reset();
 
             if (save)
             {

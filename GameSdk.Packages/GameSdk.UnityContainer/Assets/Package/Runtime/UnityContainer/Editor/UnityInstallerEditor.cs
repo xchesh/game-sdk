@@ -137,7 +137,12 @@ namespace GameSdk.UnityContainer
                 EditorGUILayout.PropertyField(property.GetArrayElementAtIndex(i), GUIContent.none);
                 EditorGUI.EndDisabledGroup();
 
-                if (DrawButton(new GUIContent("Delete", "Delete installer"), Color.red, 80))
+                if (DrawButton(new GUIContent("Reset", "Reset installer"), Color.yellow, 60))
+                {
+                    _self.Reset(i);
+                }
+
+                if (DrawButton(new GUIContent("Delete", "Delete installer"), Color.red, 60))
                 {
                     breaking = true;
 

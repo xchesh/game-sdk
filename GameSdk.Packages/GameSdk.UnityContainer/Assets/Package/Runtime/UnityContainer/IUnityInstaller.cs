@@ -6,5 +6,9 @@ namespace GameSdk.UnityContainer
     public abstract class IUnityInstaller : ScriptableObject
     {
         public abstract void InstallBindings(IUnityContainer container);
+
+        public virtual void Reset()
+        {
+        }
     }
 }
