@@ -369,7 +369,7 @@
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "6ccbe613cbc43b3a14f5b416bbf1e7850d42a627"
+      "hash": "ef208f324355a241d7e947e32c00b80de5d0e54e"
     },
     "gamesdk.services": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Services/Assets/Package",
@@ -413,15 +413,16 @@
       "hash": "d72aadd9be0ddf3d1c2d00f4266b7cb0547c5198"
     },
     "gamesdk.unitycontainer": {
-      "version": "file:C:\\Users\\xchesh\\Documents\\GitHub\\game-sdk\\GameSdk.Packages\\GameSdk.UnityContainer\\Assets\\Package",
+      "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.UnityContainer/Assets/Package",
       "depth": 0,
-      "source": "local",
+      "source": "git",
       "dependencies": {
         "gamesdk.core": "1.0.0"
-      }
+      },
+      "hash": "b319ddb1273ef6a569c5507360033169927f46c9"
     },
     "jp.hadashikick.vcontainer": {
-      "version": "1.16.4",
+      "version": "1.16.8",
       "depth": 0,
       "source": "registry",
       "dependencies": {},

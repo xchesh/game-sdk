@@ -1,11 +1,11 @@
 ﻿using GameSdk.Core.Conditions;
+using GameSdk.Core.Toolbox;
 using GameSdk.Services.Authentication;
 using GameSdk.Services.GraphicQuality;
 using GameSdk.Services.InApp;
 using GameSdk.Services.NetworkConnectivity;
 using GameSdk.Services.PlayerState;
 using GameSdk.Services.RemoteConfig;
-using GameSdk.Services.Unity;
 using GameSdk.UnityContainer;
 using UnityEngine;
 
@@ -51,6 +51,13 @@ namespace Project.Installers
             container.Register<GraphicsDeviceNameCondition>().As<ICondition>();
             container.Register<GraphicsDeviceTypeCondition>().As<ICondition>();
             container.Register<MemorySizeCondition>().As<ICondition>();
+        }
+
+        public override void Reset()
+        {
+            _authenticationConfig = EditorExtensions.GetAsset<AuthenticationConfig>();
+            _networkConnectivityConfig = EditorExtensions.GetAsset<NetworkConnectivityConfig>();
+            _graphicQualityConfig = EditorExtensions.GetAsset<GraphicQualityConfig>();
         }
     }
 }
