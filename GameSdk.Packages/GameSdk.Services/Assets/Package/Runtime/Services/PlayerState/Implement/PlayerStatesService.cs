@@ -8,21 +8,21 @@ namespace GameSdk.Services.PlayerState
     public class PlayerStatesService : IPlayerStatesService
     {
         private readonly IEnumerable<IPlayerState> _playerStates;
-        private readonly IEnumerable<IPlayerStatesProvider> _playerStatesProviders;
+        private readonly IEnumerable<IPlayerStateProvider> _playerStateProviders;
 
         private readonly IList<IPlayerState> _dirtyPlayerStates = new List<IPlayerState>();
 
         private readonly IDictionary<string, IPlayerState> _playerStatesByKeys = new Dictionary<string, IPlayerState>();
-        private readonly IDictionary<PlayerStateProviderType, IPlayerStatesProvider> _playerStatesProvidersByType = new Dictionary<PlayerStateProviderType, IPlayerStatesProvider>();
+        private readonly IDictionary<PlayerStateProviderType, IPlayerStateProvider> _playerStateProvidersByType = new Dictionary<PlayerStateProviderType, IPlayerStateProvider>();
 
-        public PlayerStatesService(IEnumerable<IPlayerStatesProvider> playerStatesProviders, IEnumerable<IPlayerState> playerStates)
+        public PlayerStatesService(IEnumerable<IPlayerStateProvider> playerStateProviders, IEnumerable<IPlayerState> playerStates)
         {
-            _playerStatesProviders = playerStatesProviders.OrderBy(provider => provider.Type);
+            _playerStateProviders = playerStateProviders.OrderBy(provider => provider.Type);
             _playerStates = playerStates.OrderBy(state => state.Key);
 
-            foreach (var playerStatesProvider in _playerStatesProviders)
+            foreach (var playerStatesProvider in _playerStateProviders)
             {
-                _playerStatesProvidersByType.TryAdd(playerStatesProvider.Type, playerStatesProvider);
+                _playerStateProvidersByType.TryAdd(playerStatesProvider.Type, playerStatesProvider);
             }
 
             foreach (var playerState in _playerStates)
@@ -33,7 +33,7 @@ namespace GameSdk.Services.PlayerState
 
         public async UniTask Initialize()
         {
-            await UniTask.WhenAll(_playerStatesProviders.Select(static provider => provider.Initialize()));
+            await UniTask.WhenAll(_playerStateProviders.Select(static provider => provider.Initialize()));
 
             foreach (var playerState in _playerStates)
             {
@@ -58,7 +58,7 @@ namespace GameSdk.Services.PlayerState
 
         public void SetProviderEnable(PlayerStateProviderType type, bool isEnable)
         {
-            if (_playerStatesProvidersByType.TryGetValue(type, out var provider))
+            if (_playerStateProvidersByType.TryGetValue(type, out var provider))
             {
                 provider.SetEnable(isEnable);
             }
@@ -66,7 +66,7 @@ namespace GameSdk.Services.PlayerState
 
         private UniTask LoadProvider(PlayerStateProviderType type)
         {
-            if (_playerStatesProvidersByType.TryGetValue(type, out var provider))
+            if (_playerStateProvidersByType.TryGetValue(type, out var provider))
             {
                 return provider.Load(_playerStates);
             }
@@ -76,7 +76,7 @@ namespace GameSdk.Services.PlayerState
 
         private UniTask PreloadProvider(PlayerStateProviderType type)
         {
-            if (_playerStatesProvidersByType.TryGetValue(type, out var provider))
+            if (_playerStateProvidersByType.TryGetValue(type, out var provider))
             {
                 return provider.Preload(_playerStates);
             }
@@ -88,7 +88,7 @@ namespace GameSdk.Services.PlayerState
         {
             var tasks = new List<UniTask>();
 
-            foreach (var playerStatesProvider in _playerStatesProviders)
+            foreach (var playerStatesProvider in _playerStateProviders)
             {
                 if (playerStatesProvider.IsEnabled)
                 {

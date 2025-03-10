@@ -14,7 +14,7 @@ using DeleteOptions = Unity.Services.CloudSave.Models.Data.Player.DeleteOptions;
 
 namespace GameSdk.Services.Unity
 {
-    public class UnityCloudSavePlayerStateProvider : IPlayerStatesProvider
+    public class UnityCloudSavePlayerStateProvider : IPlayerStateProvider
     {
         public PlayerStateProviderType Type { get; }
         public bool IsEnabled { get; private set; }

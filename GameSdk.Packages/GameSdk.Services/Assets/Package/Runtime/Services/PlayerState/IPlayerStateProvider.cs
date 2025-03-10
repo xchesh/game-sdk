@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 
 namespace GameSdk.Services.PlayerState
 {
-    public interface IPlayerStatesProvider
+    public interface IPlayerStateProvider
     {
         PlayerStateProviderType Type { get; }
         bool IsEnabled { get; }

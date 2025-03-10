@@ -4,7 +4,7 @@ using UnityEngine.Scripting;
 
 namespace GameSdk.Services.PlayerState
 {
-    public class PlayerPrefsPlayerStateProvider : IPlayerStatesProvider
+    public class PlayerPrefsPlayerStateProvider : IPlayerStateProvider
     {
         private const string PREFIX = "PlayerState.";
 
