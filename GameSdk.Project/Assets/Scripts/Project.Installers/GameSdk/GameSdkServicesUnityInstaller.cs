@@ -13,7 +13,7 @@ namespace Project.Installers
         {
             container.Register<UnityAuthenticationProvider>().As<IAuthenticationProvider>();
             container.Register<UnityRemoteConfigProvider>().As<IRemoteConfigProvider>();
-            container.Register<UnityCloudSavePlayerStateProvider>().As<IPlayerStatesProvider>().WithParameter(PlayerStateProviderType.CLOUD).WithParameter(false);
+            container.Register<UnityCloudSavePlayerStateProvider>().As<IPlayerStateProvider>().WithParameter(PlayerStateProviderType.CLOUD).WithParameter(false);
         }
     }
 }

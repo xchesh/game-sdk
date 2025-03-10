@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "fbe0bf85155f42f8832205f7b3ac3df571ada33e"
+      "hash": "8042b29ff87dd5506d7aad72bd6d8d7405985f27"
     },
     "com.kyrylokuzyk.primetween": {
       "version": "file:../Assets/Plugins/PrimeTween/internal/com.kyrylokuzyk.primetween.tgz",
@@ -90,7 +90,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.localization": {
-      "version": "1.5.3",
+      "version": "1.5.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -284,7 +284,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.services.cloudsave": {
-      "version": "3.2.0",
+      "version": "3.2.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -305,17 +305,17 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.services.deployment": {
-      "version": "1.3.0",
+      "version": "1.4.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.services.core": "1.12.0",
-        "com.unity.services.deployment.api": "1.0.0"
+        "com.unity.services.deployment.api": "1.1.2"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.services.deployment.api": {
-      "version": "1.0.0",
+      "version": "1.1.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -369,7 +369,7 @@
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "ef208f324355a241d7e947e32c00b80de5d0e54e"
+      "hash": "6aae7beef56585ace3b5a9ec7cf783f6ebcda04c"
     },
     "gamesdk.services": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Services/Assets/Package",
@@ -381,7 +381,7 @@
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "8ee5b03736a9866f5f435ecc1a979d270f978570"
+      "hash": "4187f950b29cfe2f82c31ab831463d7a0dc2e74d"
     },
     "gamesdk.sources.feedbacks": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.Sources.Feedbacks/Assets/Package",
@@ -400,7 +400,7 @@
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "6ccbe613cbc43b3a14f5b416bbf1e7850d42a627"
+      "hash": "6aae7beef56585ace3b5a9ec7cf783f6ebcda04c"
     },
     "gamesdk.ui": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.UI/Assets/Package",
@@ -410,7 +410,7 @@
         "com.cysharp.unitask": "2.2.5",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "d72aadd9be0ddf3d1c2d00f4266b7cb0547c5198"
+      "hash": "6aae7beef56585ace3b5a9ec7cf783f6ebcda04c"
     },
     "gamesdk.unitycontainer": {
       "version": "https://github.com/xchesh/game-sdk.git?path=GameSdk.Packages/GameSdk.UnityContainer/Assets/Package",
@@ -419,7 +419,7 @@
       "dependencies": {
         "gamesdk.core": "1.0.0"
       },
-      "hash": "b319ddb1273ef6a569c5507360033169927f46c9"
+      "hash": "6aae7beef56585ace3b5a9ec7cf783f6ebcda04c"
     },
     "jp.hadashikick.vcontainer": {
       "version": "1.16.8",

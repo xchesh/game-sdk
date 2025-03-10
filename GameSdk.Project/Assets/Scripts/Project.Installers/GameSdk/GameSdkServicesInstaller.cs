@@ -6,6 +6,7 @@ using GameSdk.Services.InApp;
 using GameSdk.Services.NetworkConnectivity;
 using GameSdk.Services.PlayerState;
 using GameSdk.Services.RemoteConfig;
+using GameSdk.Services.Unity;
 using GameSdk.UnityContainer;
 using UnityEngine;
 
@@ -43,7 +44,7 @@ namespace Project.Installers
 
             // Player State
             container.Register<PlayerStatesService>().As<IPlayerStatesService>();
-            container.Register<PlayerPrefsPlayerStatesProvider>().As<IPlayerStatesProvider>().WithParameter(PlayerStateProviderType.LOCAL).WithParameter(true);
+            container.Register<PlayerPrefsPlayerStateProvider>().As<IPlayerStateProvider>().WithParameter(PlayerStateProviderType.LOCAL).WithParameter(true);
 
             // Graphic Quality Conditions
             container.Register<DeviceIdCondition>().As<ICondition>();
