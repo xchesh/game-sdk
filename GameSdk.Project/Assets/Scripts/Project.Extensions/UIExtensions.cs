@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
+// ReSharper disable once CheckNamespace
 public static class UIExtensions
 {
     private static  Vector2 _vector2Zero = new (0f, 0f);
