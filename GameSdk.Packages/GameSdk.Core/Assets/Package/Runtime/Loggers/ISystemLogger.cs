@@ -38,6 +38,14 @@ namespace GameSdk.Core.Loggers
         void Log(LogType logType, string tag, object message);
 
         /// <summary>
+        /// Log a message to the console with a specific log type.
+        /// </summary>
+        /// <param name="logType">Log type of the message.</param>
+        /// <param name="tag">Tag of the message.</param>
+        /// <param name="messageFn">Function that returns the message to log.</param>
+        void Log(LogType logType, string tag, Func<string> messageFn);
+
+        /// <summary>
         /// Log a message to the console with a format string.
         /// </summary>
         /// <param name="logType">Log type of the message.</param>
@@ -45,6 +53,15 @@ namespace GameSdk.Core.Loggers
         /// <param name="format">Format string of the message.</param>
         /// <param name="args">Arguments to format the message with.</param>
         void LogFormat(LogType logType, string tag, string format, params object[] args);
+
+        /// <summary>
+        /// Log a message to the console with a format string.
+        /// </summary>
+        /// <param name="logType">Log type of the message.</param>
+        /// <param name="tag">Tag of the message.</param>
+        /// <param name="formatFn">Function that returns the format string to log.</param>
+        /// <param name="args">Arguments to format the message with.</param>
+        void LogFormat(LogType logType, string tag, Func<string> formatFn, params object[] args);
 
         /// <summary>
         /// Log an exception to the console.
