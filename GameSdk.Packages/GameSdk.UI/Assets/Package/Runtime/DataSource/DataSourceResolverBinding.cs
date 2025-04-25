@@ -28,17 +28,17 @@ public partial class DataSourceResolverBinding : CustomBinding
 
     private IDataSourceResolver FindDataSourceResolver(BindingContext context)
     {
-        if (context.dataSource is IDataSourceResolver localResolver)
+        if (context.dataSource is IDataSourceResolver localResolver && localResolver.IsInitialized)
         {
             return localResolver;
         }
 
-        if (context.targetElement.panel.visualTree.childCount > 0 && context.targetElement.panel.visualTree[0].dataSource is IDataSourceResolver childResolver)
+        if (context.targetElement.panel.visualTree.childCount > 0 && context.targetElement.panel.visualTree[0].dataSource is IDataSourceResolver childResolver && childResolver.IsInitialized)
         {
             return childResolver;
         }
 
-        if (context.targetElement.panel.visualTree.dataSource is IDataSourceResolver rootResolver)
+        if (context.targetElement.panel.visualTree.dataSource is IDataSourceResolver rootResolver && rootResolver.IsInitialized)
         {
             return rootResolver;
         }

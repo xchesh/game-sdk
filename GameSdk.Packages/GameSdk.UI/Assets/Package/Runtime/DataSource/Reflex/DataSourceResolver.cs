@@ -10,6 +10,8 @@ public class DataSourceResolver : IDataSourceResolver
     private readonly Container _container;
     private readonly UIDocument _uiDocument;
 
+    public bool IsInitialized { get; private set; }
+
     [RequiredMember]
     public DataSourceResolver(Container container, UIDocument uiDocument)
     {
@@ -22,6 +24,8 @@ public class DataSourceResolver : IDataSourceResolver
         await UniTask.WaitUntil(() => _uiDocument.runtimePanel != null);
 
         _uiDocument.runtimePanel.visualTree.dataSource = this;
+
+        IsInitialized = true;
     }
 
     public T Resolve<T>()
