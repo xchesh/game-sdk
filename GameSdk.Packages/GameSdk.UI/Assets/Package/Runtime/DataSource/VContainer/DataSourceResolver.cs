@@ -32,13 +32,11 @@ public class DataSourceResolver : IDataSourceResolver
     public T Resolve<T>()
     {
         // Resolve the type from the container
-        return _scope.Container.Resolve<T>();
+        return _scope.Container == null ? default : _scope.Container.Resolve<T>();
     }
 
     public object Resolve(Type type)
     {
-        UnityEngine.Debug.Log("Resolve non generic");
-
-        return _scope.Container.ResolveNonGeneric(type);
+        return _scope.Container?.ResolveNonGeneric(type);
     }
 }
