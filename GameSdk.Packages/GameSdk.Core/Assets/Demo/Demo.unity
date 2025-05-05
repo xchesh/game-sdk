@@ -42,7 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -336,12 +337,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea2f0503c4d30944884de691b60d5c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _serializedType:
+  _serializedType1:
     _assemblyName: 
     _className: 
-  _serializedType2:
-    _assemblyName: 
-    _className: 
+  _serializedType2: 0
+  _serializedType3:
+    _assemblyName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    _className: PriceData1
+  _serializedType4: 0
+  _serializedType5: 0
+  _priceDataArray:
+  - rid: 4425125414781845693
+  - rid: 4425125414781845694
+  - rid: 4425125414781845695
+  _priceDataArray2:
+  - rid: 4425125414781845692
+  references:
+    version: 2
+    RefIds:
+    - rid: 4425125414781845692
+      type: {class: PriceData1, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 4425125414781845693
+      type: {class: PriceData1, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 4425125414781845694
+      type: {class: PriceData2, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 4425125414781845695
+      type: {class: PriceData3, ns: , asm: Assembly-CSharp}
+      data: 
 --- !u!4 &1002557417
 Transform:
   m_ObjectHideFlags: 0

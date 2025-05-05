@@ -6,8 +6,9 @@ namespace GameSdk.Core.Toolbox
     [AttributeUsage(AttributeTargets.Field)]
     public class SerializeReferenceDropdownAttribute : PropertyAttribute
     {
-        public Type[] Types { get; }
+        public string Label { get; }
         public bool GroupByNamespace { get; }
+        public Type[] Types { get; }
 
         public SerializeReferenceDropdownAttribute(params Type[] types)
         {
@@ -17,6 +18,13 @@ namespace GameSdk.Core.Toolbox
 
         public SerializeReferenceDropdownAttribute(bool groupByNamespace, params Type[] types)
         {
+            GroupByNamespace = groupByNamespace;
+            Types = types;
+        }
+
+        public SerializeReferenceDropdownAttribute(string label, bool groupByNamespace, params Type[] types)
+        {
+            Label = label;
             GroupByNamespace = groupByNamespace;
             Types = types;
         }

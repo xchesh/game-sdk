@@ -18,16 +18,6 @@ namespace GameSdk.Core.Toolbox
         {
             var container = new VisualElement();
 
-            container.style.borderBottomLeftRadius = 2;
-            container.style.borderBottomRightRadius = 2;
-            container.style.borderTopLeftRadius = 2;
-            container.style.borderTopRightRadius = 2;
-            container.style.backgroundColor = new Color(0.1f, 0.1f, 0.1f, 0.15f);
-            container.style.paddingBottom = 5;
-            container.style.paddingTop = 5;
-            container.style.paddingLeft = 5;
-            container.style.paddingRight = 10;
-
             var propertyCopy = property.Copy();
             var propertyPath = property.propertyPath + ".";
 
@@ -44,7 +34,22 @@ namespace GameSdk.Core.Toolbox
                 } while (propertyCopy.NextVisible(false));
             }
 
-            return container;
+            if (container.childCount > 0)
+            {
+                container.style.borderBottomLeftRadius = 2;
+                container.style.borderBottomRightRadius = 2;
+                container.style.borderTopLeftRadius = 2;
+                container.style.borderTopRightRadius = 2;
+                container.style.backgroundColor = new Color(0.1f, 0.1f, 0.1f, 0.15f);
+                container.style.paddingBottom = 5;
+                container.style.paddingTop = 5;
+                container.style.paddingLeft = 5;
+                container.style.paddingRight = 10;
+
+                return container;
+            }
+
+            return null;
         }
 
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
@@ -59,6 +64,7 @@ namespace GameSdk.Core.Toolbox
                 return new Label() { name = "unity-invalid-type-label" };
             }
 
+            var labelText = dropdownAttr.Label ?? property.displayName;
             var values = GetDropdownValues(dropdownAttr.GroupByNamespace, dropdownAttr.Types);
 
             var choices = values.Select(v => v.DisplayName).ToList();
@@ -66,7 +72,7 @@ namespace GameSdk.Core.Toolbox
             var index = values.FindIndex((data) => data.Type != null && data.Type.FullName == typeName);
 
             var root = new VisualElement();
-            var dropdownField = new DropdownField(property.displayName, choices, Mathf.Max(index, 0));
+            var dropdownField = new DropdownField(labelText, choices, Mathf.Max(index, 0));
 
             dropdownField.RegisterCallback<ChangeEvent<string>>((evt) =>
             {
@@ -88,7 +94,11 @@ namespace GameSdk.Core.Toolbox
             if (property.managedReferenceValue != null)
             {
                 var propertyField = CreateInspectorGUI(property);
-                root.Add(propertyField);
+
+                if (propertyField != null)
+                {
+                    root.Add(propertyField);
+                }
             }
 
             return root;
