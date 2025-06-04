@@ -11,7 +11,8 @@
         "GameSdk.Core",
         "GameSdk.Services.Authentication",
         "GameSdk.Services.RemoteConfig",
-        "GameSdk.Services.PlayerState"
+        "GameSdk.Services.PlayerState",
+        "GameSdk.Services.NetworkConnectivity"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

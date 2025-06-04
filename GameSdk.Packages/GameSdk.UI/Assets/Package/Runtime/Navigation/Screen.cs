@@ -9,6 +9,7 @@ namespace GameSdk.UI
     {
         public Screen Parent { get; protected set; }
         public Navigation Navigation { get; protected set; }
+        public VisualElement Element => parent is TemplateContainer ? parent : this;
 
         public event Action<AttachToPanelEvent, Screen> Attached;
 

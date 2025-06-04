@@ -107,11 +107,6 @@ namespace GameSdk.UI
             return chain;
         }
 
-        private VisualElement GetScreenElement(Screen screen)
-        {
-            return screen?.parent is TemplateContainer ? screen.parent : screen;
-        }
-
         private void BlurScreen(Screen screen)
         {
             if (screen == null)

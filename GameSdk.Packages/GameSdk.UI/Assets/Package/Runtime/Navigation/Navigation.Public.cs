@@ -100,6 +100,11 @@ namespace GameSdk.UI
             return GetScreenElement(GetScreen<T>());
         }
 
+        public VisualElement GetScreenElement(Screen screen)
+        {
+            return screen?.Element;
+        }
+
         private void BlurLastScreen()
         {
             if (_history.Count < 1)
