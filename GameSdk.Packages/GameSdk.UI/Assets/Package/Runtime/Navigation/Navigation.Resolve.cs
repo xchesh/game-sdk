@@ -4,7 +4,7 @@ namespace GameSdk.UI
     {
         private IDataSourceResolver _resolver;
 
-        protected T ResolveSafe<T>()
+        public T ResolveSafe<T>()
         {
             FindResolver();
 
