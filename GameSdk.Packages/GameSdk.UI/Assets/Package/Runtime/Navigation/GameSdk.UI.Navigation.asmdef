@@ -1,7 +1,9 @@
 {
     "name": "GameSdk.UI.Navigation",
     "rootNamespace": "GameSdk.UI",
-    "references": [],
+    "references": [
+        "DataSource"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
