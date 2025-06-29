@@ -8,7 +8,7 @@ namespace GameSdk.UI
         {
             FindResolver();
 
-            return _resolver.Resolve<T>();
+            return _resolver != null ? _resolver.Resolve<T>() : default(T);
         }
 
         private void FindResolver()
