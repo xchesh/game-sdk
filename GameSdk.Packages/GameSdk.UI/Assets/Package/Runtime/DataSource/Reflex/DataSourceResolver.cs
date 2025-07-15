@@ -25,7 +25,7 @@ public class DataSourceResolver : IDataSourceResolver
 
         _uiDocument.runtimePanel.visualTree.dataSource = this;
 
-        IsInitialized = true;
+        IsInitialized = _container != null;
     }
 
     public T Resolve<T>()
@@ -36,5 +36,12 @@ public class DataSourceResolver : IDataSourceResolver
     public object Resolve(Type type)
     {
         return _container.Resolve(type);
+    }
+
+    public void Dispose()
+    {
+        _uiDocument.runtimePanel.visualTree.dataSource = null;
+
+        IsInitialized = false;
     }
 }

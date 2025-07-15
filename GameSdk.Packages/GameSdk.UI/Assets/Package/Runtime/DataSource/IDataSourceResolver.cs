@@ -1,6 +1,7 @@
+using System;
 using Cysharp.Threading.Tasks;
 
-public interface IDataSourceResolver
+public interface IDataSourceResolver : IDisposable
 {
     bool IsInitialized { get; }
 

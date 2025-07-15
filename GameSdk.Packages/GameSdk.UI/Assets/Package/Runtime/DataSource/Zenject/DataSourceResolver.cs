@@ -17,4 +17,11 @@ public class DataSourceResolver : IDataSourceResolver
         // Resolve the type from the container
         return _diContainer.Resolve<T>();
     }
+
+    public void Dispose()
+    {
+        _uiDocument.runtimePanel.visualTree.dataSource = null;
+
+        IsInitialized = false;
+    }
 }
