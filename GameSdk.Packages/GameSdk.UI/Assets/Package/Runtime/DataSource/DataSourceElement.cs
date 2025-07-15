@@ -17,7 +17,7 @@ public abstract partial class DataSourceElement : VisualElement
     private void OnAttachToPanel(AttachToPanelEvent evt)
     {
         _schedule?.Pause();
-        _schedule = schedule.Execute(OnDataSourceResolved).Every(10).Until(HasResolver);
+        _schedule = schedule.Execute(WaitDataSource).Every(10);
     }
 
     private void OnDetachFromPanel(DetachFromPanelEvent evt)
@@ -26,13 +26,19 @@ public abstract partial class DataSourceElement : VisualElement
         _schedule = null;
     }
 
-    private bool HasResolver()
+    private void WaitDataSource()
     {
-        return this.FindResolver() != null;
+        if (this.FindResolver() != null)
+        {
+            _schedule?.Pause();
+            _schedule = null;
+
+            OnDataSourceResolved();
+        }
     }
 
     protected virtual void OnDataSourceResolved()
     {
-        
+
     }
 }
