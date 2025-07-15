@@ -7,6 +7,8 @@ namespace GameSdk.UI
     [Preserve, UxmlElement("Screen")]
     public abstract partial class Screen : VisualElement
     {
+        private IVisualElementScheduledItem _schedule;
+
         public Screen Parent { get; protected set; }
         public Navigation Navigation { get; protected set; }
         public VisualElement Element => parent is TemplateContainer ? parent : this;
@@ -26,17 +28,33 @@ namespace GameSdk.UI
             Parent = GetFirstAncestorOfType<Screen>();
 
             Attached?.Invoke(evt, this);
+
+            _schedule?.Pause();
+            _schedule = schedule.Execute(OnDataSourceResolved).Every(10).Until(HasResolver);
         }
 
         private void OnDetachFromPanel(DetachFromPanelEvent evt)
         {
             Parent = null;
             Navigation = null;
+
+            _schedule?.Pause();
+            _schedule = null;
+        }
+
+        private bool HasResolver()
+        {
+            return this.FindResolver() != null;
         }
 
         internal void SetData(object data)
         {
             OnDataChanged(data);
+        }
+
+        protected virtual void OnDataSourceResolved()
+        {
+
         }
 
         protected virtual void OnDataChanged(object data)

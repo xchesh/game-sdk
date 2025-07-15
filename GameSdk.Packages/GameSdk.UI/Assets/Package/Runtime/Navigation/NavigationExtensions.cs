@@ -1,3 +1,5 @@
+using UnityEngine.UIElements;
+
 namespace GameSdk.UI
 {
     public static class NavigationsExtensions
@@ -29,6 +31,33 @@ namespace GameSdk.UI
         public static TNew ReplaceTo<TOld, TNew>(this Navigation navigation, object data = null) where TNew : Screen where TOld : Screen
         {
             return navigation.ReplaceTo(navigation.GetScreen(typeof(TOld)), navigation.GetScreen(typeof(TNew)), data) as TNew;
+        }
+
+        public static T ResolveSafe<T>(this Screen screen)
+        {
+            var resolver = FindResolver(screen);
+
+            return resolver != null ? resolver.Resolve<T>() : default(T);
+        }
+
+        internal static IDataSourceResolver FindResolver(this Screen screen)
+        {
+            if (screen.dataSource is IDataSourceResolver localResolver && localResolver.IsInitialized)
+            {
+                return localResolver;
+            }
+
+            if (screen.panel.visualTree.childCount > 0 && screen.panel.visualTree[0].dataSource is IDataSourceResolver childResolver && childResolver.IsInitialized)
+            {
+                return childResolver;
+            }
+
+            if (screen.panel.visualTree.dataSource is IDataSourceResolver rootResolver && rootResolver.IsInitialized)
+            {
+                return rootResolver;
+            }
+
+            return null;
         }
     }
 }
