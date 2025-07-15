@@ -2,7 +2,8 @@
     "name": "GameSdk.UI.Components",
     "rootNamespace": "GameSdk.UI",
     "references": [
-        "GameSdk.UI.Navigation"
+        "GameSdk.UI.Navigation",
+        "DataSource"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
