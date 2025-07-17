@@ -27,6 +27,11 @@ public class DataSourceResolver : IDataSourceResolver
         _uiDocument.runtimePanel.visualTree.dataSource = this;
 
         IsInitialized = _scope?.Container != null;
+
+        if (IsInitialized is false)
+        {
+            UnityEngine.Debug.LogError("DataSourceResolver could not be initialized: VContainer 'Container' is null.");
+        }
     }
 
     public T Resolve<T>()
@@ -42,7 +47,10 @@ public class DataSourceResolver : IDataSourceResolver
 
     public void Dispose()
     {
-        _uiDocument.runtimePanel.visualTree.dataSource = null;
+        if (_uiDocument.runtimePanel?.visualTree?.dataSource != null)
+        {
+            _uiDocument.runtimePanel.visualTree.dataSource = null;
+        }
 
         IsInitialized = false;
     }
