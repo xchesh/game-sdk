@@ -11,7 +11,7 @@ namespace GameSdk.Core.Loggers
         /// <summary>
         /// Singleton instance of SystemLogger
         /// </summary>
-        public static ISystemLogger Logger => _systemLogger ?? new SystemLogger(Debug.unityLogger);
+        public static ISystemLogger Logger => _systemLogger ??= new SystemLogger(Debug.unityLogger);
 
         /// <summary>
         /// Log a message to the console.
