@@ -1,0 +1,53 @@
+GameSdk.Packages/GameSdk.UI/Assets/Package/Runtime/DataSource/Reflex/DataSourceResolver.cs
+  441589cb07da6c29 3,22,24-27
+GameSdk.Packages/GameSdk.UI/.gitignore
+  441589cb07da6c29 40-41
+GameSdk.Packages/GameSdk.UI/Packages/manifest.json
+  441589cb07da6c29 4-6,15-16,26,36
+GameSdk.Packages/GameSdk.UI/ProjectSettings/ProjectVersion.txt
+  441589cb07da6c29 1-2
+GameSdk.Packages/GameSdk.UI/Assets/Package/Runtime/DataSource/VContainer/DataSource.VContainer.asmdef
+  441589cb07da6c29 25
+GameSdk.Packages/GameSdk.UI/ProjectSettings/PhysicsCoreProjectSettings2D.asset
+  441589cb07da6c29 1-6
+GameSdk.Packages/GameSdk.UI/Assets/Package/Runtime/DataSource/Reflex/DataSource.Reflex.asmdef
+  441589cb07da6c29 25
+GameSdk.Packages/GameSdk.UI/Assets/Package/CHANGELOG.md.meta
+  441589cb07da6c29 1-7
+GameSdk.Packages/GameSdk.UI/Assets/Package/CHANGELOG.md
+  441589cb07da6c29 1-6
+GameSdk.Packages/GameSdk.UI/Assets/Package/Runtime/DataSource/IDataSourceResolver.cs
+  441589cb07da6c29 2,8
+GameSdk.Packages/GameSdk.UI/ProjectSettings/ProjectAuditorSettings.asset
+  441589cb07da6c29 1-36
+GameSdk.Packages/GameSdk.UI/Assets/Package/Runtime/DataSource/VContainer/DataSourceResolver.cs
+  441589cb07da6c29 2,23,25,27
+GameSdk.Packages/GameSdk.UI/ProjectSettings/PackageManagerSettings.asset
+  441589cb07da6c29 21-23,28,31-34,43,46-48,54-57
+GameSdk.Packages/GameSdk.UI/Packages/packages-lock.json
+  441589cb07da6c29 4,11,21-26,30,39,43,48,57,64,71,75,81,85-86,91,96-99,102-103,105-108,114-116,172,175-182,185-200,217-218,282-289
+GameSdk.Packages/GameSdk.UI/Assets/Package/Runtime/DataSource/DataSource.asmdef
+  441589cb07da6c29 4,14
+GameSdk.Packages/GameSdk.UI/Assets/Package/package.json
+  441589cb07da6c29 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "59464fc66a71278183f5939bc707af4375d4c6c3",
+  "prompts": {
+    "441589cb07da6c29": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019d6ddc-53dd-7341-a229-90ebfe1e4231",
+        "model": "gpt-5.3-codex"
+      },
+      "human_author": "Eugene Cheshenkov <e.cheshenkov@gmail.com>",
+      "messages": [],
+      "total_additions": 382,
+      "total_deletions": 292,
+      "accepted_lines": 382,
+      "overriden_lines": 0
+    }
+  }
+}
