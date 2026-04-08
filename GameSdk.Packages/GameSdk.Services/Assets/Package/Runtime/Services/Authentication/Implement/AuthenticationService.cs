@@ -1,5 +1,5 @@
 using System;
-using Cysharp.Threading.Tasks;
+using System.Threading.Tasks;
 using GameSdk.Core.Loggers;
 using GameSdk.Services.NetworkConnectivity;
 using UnityEngine;
@@ -14,7 +14,7 @@ namespace GameSdk.Services.Authentication
         private readonly IAuthenticationProvider _authenticationProvider;
         private readonly INetworkConnectivityService _internetReachabilityService;
 
-        private UniTask _singInTask;
+        private Task _signInTask;
 
         public event Action SignedIn
         {
@@ -54,7 +54,7 @@ namespace GameSdk.Services.Authentication
             _internetReachabilityService = internetReachabilityService;
         }
 
-        public async UniTask Initialize()
+        public async Awaitable Initialize()
         {
             await _authenticationProvider.Initialize();
 
@@ -64,14 +64,14 @@ namespace GameSdk.Services.Authentication
             }
         }
 
-        public UniTask SignIn()
+        public async Awaitable SignIn()
         {
-            if (_singInTask is not { Status: UniTaskStatus.Pending })
+            if (_signInTask == null || _signInTask.IsCompleted)
             {
-                _singInTask = SignInProcess().ToAsyncLazy().Task;
+                _signInTask = SignInProcess();
             }
 
-            return _singInTask;
+            await _signInTask;
         }
 
         public void SignOut()
@@ -79,7 +79,7 @@ namespace GameSdk.Services.Authentication
             _authenticationProvider.SignOut();
         }
 
-        private async UniTask SignInProcess()
+        private async Task SignInProcess()
         {
             if (_internetReachabilityService.HasNetworkConnection is false)
             {

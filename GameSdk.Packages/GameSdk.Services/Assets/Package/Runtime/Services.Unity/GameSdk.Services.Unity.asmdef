@@ -2,7 +2,6 @@
     "name": "GameSdk.Services.Unity",
     "rootNamespace": "",
     "references": [
-        "UniTask",
         "Unity.RemoteConfig.Editor.Core",
         "Unity.Services.RemoteConfig",
         "Unity.Services.Core",

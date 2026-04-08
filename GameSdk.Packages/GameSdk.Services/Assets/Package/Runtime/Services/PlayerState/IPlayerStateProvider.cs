@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace GameSdk.Services.PlayerState
 {
@@ -8,12 +8,12 @@ namespace GameSdk.Services.PlayerState
         PlayerStateProviderType Type { get; }
         bool IsEnabled { get; }
 
-        UniTask Initialize();
+        Awaitable Initialize();
 
-        UniTask Save(IEnumerable<IPlayerState> states);
-        UniTask Load(IEnumerable<IPlayerState> states);
-        UniTask Preload(IEnumerable<IPlayerState> states);
-        UniTask Delete(params string[] keys);
+        Awaitable Save(IEnumerable<IPlayerState> states);
+        Awaitable Load(IEnumerable<IPlayerState> states);
+        Awaitable Preload(IEnumerable<IPlayerState> states);
+        Awaitable Delete(params string[] keys);
 
         void SetEnable(bool isEnable);
     }

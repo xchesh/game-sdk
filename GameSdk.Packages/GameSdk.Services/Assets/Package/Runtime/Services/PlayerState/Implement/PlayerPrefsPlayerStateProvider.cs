@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Scripting;
 
 namespace GameSdk.Services.PlayerState
@@ -18,56 +18,55 @@ namespace GameSdk.Services.PlayerState
             IsEnabled = isEnabled;
         }
 
-        public UniTask Initialize()
+        public async Awaitable Initialize()
         {
-            return UniTask.CompletedTask;
+            await Awaitable.MainThreadAsync();
         }
 
-        public UniTask Save(IEnumerable<IPlayerState> states)
+        public async Awaitable Save(IEnumerable<IPlayerState> states)
         {
+            await Awaitable.MainThreadAsync();
+
             foreach (var state in states)
             {
                 var prefKey = GetKey(state.Key);
-
-                UnityEngine.PlayerPrefs.SetString(prefKey, state.ToJson());
+                PlayerPrefs.SetString(prefKey, state.ToJson());
             }
-
-            return UniTask.CompletedTask;
         }
 
-        public UniTask Load(IEnumerable<IPlayerState> states)
+        public async Awaitable Load(IEnumerable<IPlayerState> states)
         {
+            await Awaitable.MainThreadAsync();
+
             foreach (var state in states)
             {
                 var prefKey = GetKey(state.Key);
 
-                if (UnityEngine.PlayerPrefs.HasKey(prefKey))
+                if (PlayerPrefs.HasKey(prefKey))
                 {
-                    state.FromJson(UnityEngine.PlayerPrefs.GetString(prefKey));
+                    state.FromJson(PlayerPrefs.GetString(prefKey));
                 }
             }
-
-            return UniTask.CompletedTask;
         }
 
-        public UniTask Preload(IEnumerable<IPlayerState> states)
+        public async Awaitable Preload(IEnumerable<IPlayerState> states)
         {
-            return UniTask.CompletedTask;
+            await Awaitable.MainThreadAsync();
         }
 
-        public UniTask Delete(params string[] keys)
+        public async Awaitable Delete(params string[] keys)
         {
+            await Awaitable.MainThreadAsync();
+
             foreach (var key in keys)
             {
                 var prefKey = GetKey(key);
 
-                if (UnityEngine.PlayerPrefs.HasKey(prefKey))
+                if (PlayerPrefs.HasKey(prefKey))
                 {
-                    UnityEngine.PlayerPrefs.DeleteKey(prefKey);
+                    PlayerPrefs.DeleteKey(prefKey);
                 }
             }
-
-            return UniTask.CompletedTask;
         }
 
         public void SetEnable(bool isEnable)

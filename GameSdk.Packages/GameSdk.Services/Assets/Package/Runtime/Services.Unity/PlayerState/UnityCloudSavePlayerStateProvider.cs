@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Cysharp.Threading.Tasks;
 using GameSdk.Core.Loggers;
 using GameSdk.Services.PlayerState;
 using Unity.Services.CloudSave;
 using Unity.Services.CloudSave.Models;
 using Unity.Services.Core;
+using UnityEngine;
 using UnityEngine.Scripting;
 using DeleteOptions = Unity.Services.CloudSave.Models.Data.Player.DeleteOptions;
 
@@ -28,12 +28,15 @@ namespace GameSdk.Services.Unity
             IsEnabled = isEnabled;
         }
 
-        public UniTask Initialize()
+        public async Awaitable Initialize()
         {
-            return UniTask.WaitUntil(() => UnityServices.State == ServicesInitializationState.Initialized);
+            while (UnityServices.State != ServicesInitializationState.Initialized)
+            {
+                await Awaitable.NextFrameAsync();
+            }
         }
 
-        public async UniTask Save(IEnumerable<IPlayerState> states)
+        public async Awaitable Save(IEnumerable<IPlayerState> states)
         {
             ClearCache();
 
@@ -54,7 +57,7 @@ namespace GameSdk.Services.Unity
             }
         }
 
-        public async UniTask Load(IEnumerable<IPlayerState> states)
+        public async Awaitable Load(IEnumerable<IPlayerState> states)
         {
             var playerStates = states as IPlayerState[] ?? states.ToArray();
 
@@ -72,7 +75,7 @@ namespace GameSdk.Services.Unity
             }
         }
 
-        public async UniTask Preload(IEnumerable<IPlayerState> states)
+        public async Awaitable Preload(IEnumerable<IPlayerState> states)
         {
             try
             {
@@ -86,7 +89,7 @@ namespace GameSdk.Services.Unity
             }
         }
 
-        public async UniTask Delete(params string[] keys)
+        public async Awaitable Delete(params string[] keys)
         {
             ClearCache();
 

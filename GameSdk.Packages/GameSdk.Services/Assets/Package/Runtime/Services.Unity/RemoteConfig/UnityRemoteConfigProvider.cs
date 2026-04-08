@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
 using GameSdk.Services.RemoteConfig;
 using Unity.Services.Core;
 using Unity.Services.RemoteConfig;
+using UnityEngine;
 using RemoteConfigService = Unity.Services.RemoteConfig.RemoteConfigService;
 
 namespace GameSdk.Services.Unity
@@ -21,11 +21,10 @@ namespace GameSdk.Services.Unity
         public string AppConfigVersion { get; private set; }
         public IRemoteConfig AppConfig { get; private set; }
 
-        public UniTask Initialize()
+        public async Awaitable Initialize()
         {
             UnityRemoteConfig.FetchCompleted += ApplyRemoteConfig;
-
-            return UnityServicesUtility.Initialize();
+            await UnityServicesUtility.Initialize();
         }
 
         public IRemoteConfig GetConfig(string configType)
@@ -41,7 +40,7 @@ namespace GameSdk.Services.Unity
             return _configs[configType];
         }
 
-        public async UniTask FetchConfig<T1, T2, T3>(string configType, T1 userAttributes, T2 appAttributes, T3 filterAttributes)
+        public async Awaitable FetchConfig<T1, T2, T3>(string configType, T1 userAttributes, T2 appAttributes, T3 filterAttributes)
             where T1 : IUserAttributes
             where T2 : IAppAttributes
             where T3 : IFilterAttributes
@@ -68,7 +67,7 @@ namespace GameSdk.Services.Unity
             }
         }
 
-        public UniTask FetchConfig<T1, T2, T3>(T1 userAttributes, T2 appAttributes, T3 filterAttributes)
+        public Awaitable FetchConfig<T1, T2, T3>(T1 userAttributes, T2 appAttributes, T3 filterAttributes)
             where T1 : IUserAttributes
             where T2 : IAppAttributes
             where T3 : IFilterAttributes

@@ -1,5 +1,5 @@
 using System;
-using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace GameSdk.Services.Authentication
 {
@@ -12,8 +12,8 @@ namespace GameSdk.Services.Authentication
 
         bool IsSignedIn { get; }
 
-        UniTask Initialize();
-        UniTask SignIn();
+        Awaitable Initialize();
+        Awaitable SignIn();
         void SignOut();
     }
 }

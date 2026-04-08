@@ -1,5 +1,5 @@
 ﻿using System;
-using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace GameSdk.Services.RemoteConfig
 {
@@ -13,16 +13,16 @@ namespace GameSdk.Services.RemoteConfig
 
         IRemoteConfig AppConfig { get; }
 
-        UniTask Initialize();
+        Awaitable Initialize();
 
         IRemoteConfig GetConfig(string configType);
 
-        UniTask FetchConfig<T1, T2, T3>(string configType, T1 userAttributes, T2 appAttributes, T3 filterAttributes)
+        Awaitable FetchConfig<T1, T2, T3>(string configType, T1 userAttributes, T2 appAttributes, T3 filterAttributes)
             where T1 : IUserAttributes
             where T2 : IAppAttributes
             where T3 : IFilterAttributes;
 
-        UniTask FetchConfig<T1, T2, T3>(T1 userAttributes, T2 appAttributes, T3 filterAttributes)
+        Awaitable FetchConfig<T1, T2, T3>(T1 userAttributes, T2 appAttributes, T3 filterAttributes)
             where T1 : IUserAttributes
             where T2 : IAppAttributes
             where T3 : IFilterAttributes;

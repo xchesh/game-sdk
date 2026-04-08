@@ -1,10 +1,10 @@
-﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace GameSdk.Services.RemoteConfig
 {
     public interface IRemoteConfigService : IRemoteConfigProvider
     {
-        UniTask Initialize(params string[] configs);
+        Awaitable Initialize(params string[] configs);
 
         internal void RegisterListener(IRemoteConfigListener listener);
         internal void UnregisterListener(IRemoteConfigListener listener);

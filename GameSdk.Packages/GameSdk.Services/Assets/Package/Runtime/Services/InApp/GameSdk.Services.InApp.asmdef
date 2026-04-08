@@ -5,7 +5,6 @@
         "UnityEngine.Purchasing",
         "UnityEngine.Purchasing.Stores",
         "UnityEngine.Purchasing.Codeless",
-        "UniTask",
         "GameSdk.Core"
     ],
     "includePlatforms": [],

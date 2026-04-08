@@ -1,5 +1,4 @@
 ﻿using System;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace GameSdk.Services.NetworkConnectivity
@@ -15,6 +14,6 @@ namespace GameSdk.Services.NetworkConnectivity
 
         void Initialize();
 
-        UniTask<bool> CheckNetworkConnectivity();
+        Awaitable<bool> CheckNetworkConnectivity();
     }
 }

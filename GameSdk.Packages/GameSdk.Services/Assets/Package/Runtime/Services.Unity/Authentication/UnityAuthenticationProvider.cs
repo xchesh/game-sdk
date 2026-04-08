@@ -1,7 +1,6 @@
 #if UNITY_SERVICES_CORE && UNITY_SERVICES_AUTHENTICATION
 
 using System;
-using Cysharp.Threading.Tasks;
 using GameSdk.Core.Loggers;
 using GameSdk.Services.Authentication;
 using Unity.Services.Authentication;
@@ -50,12 +49,12 @@ namespace GameSdk.Services.Unity
             _systemLogger = systemLogger;
         }
 
-        public UniTask Initialize()
+        public async Awaitable Initialize()
         {
-            return UnityServicesUtility.Initialize();
+            await UnityServicesUtility.Initialize();
         }
 
-        public async UniTask SignIn()
+        public async Awaitable SignIn()
         {
             try
             {

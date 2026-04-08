@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using Cysharp.Threading.Tasks;
+using System.Threading.Tasks;
+using UnityEngine;
 
 namespace GameSdk.Services.PlayerState
 {
@@ -31,9 +32,13 @@ namespace GameSdk.Services.PlayerState
             }
         }
 
-        public async UniTask Initialize()
+        public async Awaitable Initialize()
         {
-            await UniTask.WhenAll(_playerStateProviders.Select(static provider => provider.Initialize()));
+            var initializeTasks = _playerStateProviders
+                .Select(static provider => AsTask(provider.Initialize()))
+                .ToArray();
+
+            await Task.WhenAll(initializeTasks);
 
             foreach (var playerState in _playerStates)
             {
@@ -41,17 +46,17 @@ namespace GameSdk.Services.PlayerState
             }
         }
 
-        public UniTask Load(PlayerStateProviderType type)
+        public Awaitable Load(PlayerStateProviderType type)
         {
             return LoadProvider(type);
         }
 
-        public UniTask Preload(PlayerStateProviderType type)
+        public Awaitable Preload(PlayerStateProviderType type)
         {
             return PreloadProvider(type);
         }
 
-        public UniTask Save()
+        public Awaitable Save()
         {
             return SaveDirty();
         }
@@ -64,39 +69,38 @@ namespace GameSdk.Services.PlayerState
             }
         }
 
-        private UniTask LoadProvider(PlayerStateProviderType type)
+        private async Awaitable LoadProvider(PlayerStateProviderType type)
         {
             if (_playerStateProvidersByType.TryGetValue(type, out var provider))
             {
-                return provider.Load(_playerStates);
+                await provider.Load(_playerStates);
             }
-
-            return UniTask.CompletedTask;
         }
 
-        private UniTask PreloadProvider(PlayerStateProviderType type)
+        private async Awaitable PreloadProvider(PlayerStateProviderType type)
         {
             if (_playerStateProvidersByType.TryGetValue(type, out var provider))
             {
-                return provider.Preload(_playerStates);
+                await provider.Preload(_playerStates);
             }
-
-            return UniTask.CompletedTask;
         }
 
-        private async UniTask SaveDirty()
+        private async Awaitable SaveDirty()
         {
-            var tasks = new List<UniTask>();
+            var tasks = new List<Task>();
 
             foreach (var playerStatesProvider in _playerStateProviders)
             {
                 if (playerStatesProvider.IsEnabled)
                 {
-                    tasks.Add(playerStatesProvider.Save(_dirtyPlayerStates));
+                    tasks.Add(AsTask(playerStatesProvider.Save(_dirtyPlayerStates)));
                 }
             }
 
-            await UniTask.WhenAll(tasks);
+            if (tasks.Count > 0)
+            {
+                await Task.WhenAll(tasks);
+            }
 
             _dirtyPlayerStates.Clear();
         }
@@ -107,6 +111,11 @@ namespace GameSdk.Services.PlayerState
             {
                 _dirtyPlayerStates.Add(state);
             }
+        }
+
+        private static async Task AsTask(Awaitable awaitable)
+        {
+            await awaitable;
         }
     }
 }

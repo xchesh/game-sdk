@@ -1,10 +1,11 @@
 #if UNITY_SERVICES_CORE
 
 using System;
-using Cysharp.Threading.Tasks;
+using System.Threading.Tasks;
 using GameSdk.Core.Loggers;
 using Unity.Services.Core;
 using Unity.Services.RemoteConfig;
+using UnityEngine;
 
 namespace GameSdk.Services.Unity
 {
@@ -12,29 +13,29 @@ namespace GameSdk.Services.Unity
     {
         public const string TAG = "UnityServices";
 
-        private static UniTask<ServicesInitializationState> _initializeTask;
+        private static Task<ServicesInitializationState> _initializeTask;
 
-        public static UniTask<ServicesInitializationState> Initialize()
+        public static async Awaitable<ServicesInitializationState> Initialize()
         {
             if (UnityServices.State == ServicesInitializationState.Initialized)
             {
-                return UniTask.FromResult(UnityServices.State);
+                return UnityServices.State;
             }
 
             if (Utilities.CheckForInternetConnection() is false)
             {
-                return UniTask.FromResult(ServicesInitializationState.Uninitialized);
+                return ServicesInitializationState.Uninitialized;
             }
 
-            if (_initializeTask is not { Status: UniTaskStatus.Pending })
+            if (_initializeTask == null || _initializeTask.IsCompleted)
             {
-                _initializeTask = InitializeInternal().ToAsyncLazy().Task;
+                _initializeTask = InitializeInternal();
             }
 
-            return _initializeTask;
+            return await _initializeTask;
         }
 
-        private static async UniTask<ServicesInitializationState> InitializeInternal()
+        private static async Task<ServicesInitializationState> InitializeInternal()
         {
             SystemLog.Log(TAG, "Initializing Unity services...");
 

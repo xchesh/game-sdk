@@ -1,5 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
 using GameSdk.Core.Loggers;
+using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.Purchasing.Extension;
 
@@ -23,50 +23,69 @@ namespace GameSdk.Services.InApp
             }
         }
 
-        public static UniTask<bool> InitializeAsync(this IInAppService inAppService)
+        public static async Awaitable<bool> InitializeAsync(this IInAppService inAppService)
         {
-            var tcs = new UniTaskCompletionSource<bool>();
+            var isCompleted = false;
+            var isSuccess = false;
 
             inAppService.PurchasesInitialized += OnPurchasesInitialized;
-
             inAppService.Initialize();
 
-            return tcs.Task;
+            try
+            {
+                while (isCompleted is false)
+                {
+                    await Awaitable.NextFrameAsync();
+                }
+
+                return isSuccess;
+            }
+            finally
+            {
+                inAppService.PurchasesInitialized -= OnPurchasesInitialized;
+            }
 
             void OnPurchasesInitialized(bool success, string error)
             {
-                inAppService.PurchasesInitialized -= OnPurchasesInitialized;
-
-                tcs.TrySetResult(success);
+                isSuccess = success;
+                isCompleted = true;
             }
         }
 
-        public static UniTask<IInAppPurchaseResult> PurchaseProductAsync(this IInAppService inAppService,
-            string productId)
+        public static async Awaitable<IInAppPurchaseResult> PurchaseProductAsync(this IInAppService inAppService, string productId)
         {
-            var tcs = new UniTaskCompletionSource<IInAppPurchaseResult>();
+            var isCompleted = false;
+            IInAppPurchaseResult result = null;
 
             inAppService.PurchaseSucceeded += OnPurchaseSucceeded;
             inAppService.PurchaseFailed += OnPurchaseFailed;
-
             inAppService.PurchaseProduct(productId);
 
-            return tcs.Task;
+            try
+            {
+                while (isCompleted is false)
+                {
+                    await Awaitable.NextFrameAsync();
+                }
+
+                return result;
+            }
+            finally
+            {
+                inAppService.PurchaseSucceeded -= OnPurchaseSucceeded;
+                inAppService.PurchaseFailed -= OnPurchaseFailed;
+            }
 
             void OnPurchaseSucceeded(PurchaseEventArgs e)
             {
                 if (e.purchasedProduct.definition.id != productId)
                 {
-                    SystemLog.LogError(IInAppService.TAG,
-                        "Purchase succeeded for wrong product: " + e.purchasedProduct.definition.id);
-
+                    SystemLog.LogError(IInAppService.TAG, "Purchase succeeded for wrong product: " + e.purchasedProduct.definition.id);
                     return;
                 }
 
-                inAppService.PurchaseSucceeded -= OnPurchaseSucceeded;
-                inAppService.PurchaseFailed -= OnPurchaseFailed;
-
-                tcs.TrySetResult(new InAppPurchaseSuccess(e));
+                result = new InAppPurchaseSuccess(e);
+                isCompleted = true;
             }
 
             void OnPurchaseFailed(PurchaseFailureDescription error)
@@ -74,14 +93,11 @@ namespace GameSdk.Services.InApp
                 if (error.productId != productId)
                 {
                     SystemLog.LogError(IInAppService.TAG, "Purchase failed for wrong product: " + error.productId);
-
                     return;
                 }
 
-                inAppService.PurchaseSucceeded -= OnPurchaseSucceeded;
-                inAppService.PurchaseFailed -= OnPurchaseFailed;
-
-                tcs.TrySetResult(new InAppPurchaseFailure(error));
+                result = new InAppPurchaseFailure(error);
+                isCompleted = true;
             }
         }
     }

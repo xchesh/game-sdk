@@ -1,6 +1,4 @@
-﻿using System;
-using System.Net;
-using Cysharp.Threading.Tasks;
+using System;
 using GameSdk.Core.Datetime;
 using GameSdk.Core.Loggers;
 using UnityEngine;
@@ -23,7 +21,7 @@ namespace GameSdk.Services.NetworkConnectivity
         private bool _isCheckActive;
         private long _lastCheckTimeMs;
 
-        public NetworkConnectivityService(ISystemTime systemTime, ISystemLogger systemLogger, NetworkConnectivityConfig  config)
+        public NetworkConnectivityService(ISystemTime systemTime, ISystemLogger systemLogger, NetworkConnectivityConfig config)
         {
             _systemTime = systemTime;
             _systemLogger = systemLogger;
@@ -44,26 +42,23 @@ namespace GameSdk.Services.NetworkConnectivity
             if (_config.CheckOnAppStart)
             {
                 _systemLogger.Log(LogType.Log, INetworkConnectivityService.TAG, "Initialize - check on app start");
-
-                CheckNetworkConnectivity().Forget();
+                _ = CheckNetworkConnectivity();
             }
 
             if (_config.CheckPeriodic)
             {
                 _systemLogger.Log(LogType.Log, INetworkConnectivityService.TAG, "Initialize - start periodic check");
-
-                RunFixedUpdate().Forget();
+                _ = RunFixedUpdate();
             }
         }
 
-        public async UniTask<bool> CheckNetworkConnectivity()
+        public async Awaitable<bool> CheckNetworkConnectivity()
         {
             bool hasInternetConnection;
 
             try
             {
                 using var webRequest = UnityWebRequest.Get(_config.CheckURL);
-
                 webRequest.timeout = _config.CheckTimeoutSec;
 
                 await webRequest.SendWebRequest();
@@ -98,18 +93,18 @@ namespace GameSdk.Services.NetworkConnectivity
 
             if (_isCheckActive && _config.CheckOnAppFocus)
             {
-                CheckNetworkConnectivity().Forget();
+                _ = CheckNetworkConnectivity();
             }
         }
 
-        private async UniTaskVoid RunFixedUpdate()
+        private async Awaitable RunFixedUpdate()
         {
             while (_isCheckActive)
             {
                 UpdateCheckUnity();
                 UpdateCheckAuto();
 
-                await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
+                await Awaitable.FixedUpdateAsync();
             }
         }
 
@@ -119,8 +114,7 @@ namespace GameSdk.Services.NetworkConnectivity
             {
                 _systemLogger.Log(LogType.Log, INetworkConnectivityService.TAG, "Network reachability changed.");
                 NetworkReachability = Application.internetReachability;
-                // Recheck connection if network reachability changed
-                CheckNetworkConnectivity().Forget();
+                _ = CheckNetworkConnectivity();
             }
         }
 
@@ -131,7 +125,7 @@ namespace GameSdk.Services.NetworkConnectivity
 
             if (passedMs >= checkTimeMs)
             {
-                CheckNetworkConnectivity().Forget();
+                _ = CheckNetworkConnectivity();
             }
         }
     }

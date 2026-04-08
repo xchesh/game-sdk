@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
+using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace GameSdk.Services.RemoteConfig
@@ -30,12 +31,12 @@ namespace GameSdk.Services.RemoteConfig
             _remoteConfigProvider.ConfigFetchFailed += OnConfigFetchFailed;
         }
 
-        public UniTask Initialize()
+        public Awaitable Initialize()
         {
             return Initialize(AppConfigType);
         }
 
-        public async UniTask Initialize(params string[] configs)
+        public async Awaitable Initialize(params string[] configs)
         {
             Assert.IsNotNull(_remoteConfigProvider, "RemoteConfig Provider is null");
             Assert.IsNotNull(_attribution, "RemoteConfig Attribution is null");
@@ -51,14 +52,14 @@ namespace GameSdk.Services.RemoteConfig
                 return;
             }
 
-            var tasks = new UniTask[configs.Length];
+            var tasks = new Task[configs.Length];
 
             for (var i = 0; i < configs.Length; i++)
             {
-                tasks[i] = _remoteConfigProvider.FetchConfig(configs[i], user, app, filter);
+                tasks[i] = FetchConfigAsTask(configs[i], user, app, filter);
             }
 
-            await UniTask.WhenAll(tasks);
+            await Task.WhenAll(tasks);
         }
 
         public IRemoteConfig GetConfig(string configType)
@@ -66,7 +67,7 @@ namespace GameSdk.Services.RemoteConfig
             return _remoteConfigProvider.GetConfig(configType);
         }
 
-        public UniTask FetchConfig<T1, T2, T3>(string configType, T1 userAttributes, T2 appAttributes, T3 filterAttributes)
+        public Awaitable FetchConfig<T1, T2, T3>(string configType, T1 userAttributes, T2 appAttributes, T3 filterAttributes)
             where T1 : IUserAttributes
             where T2 : IAppAttributes
             where T3 : IFilterAttributes
@@ -74,7 +75,7 @@ namespace GameSdk.Services.RemoteConfig
             return _remoteConfigProvider.FetchConfig(configType, userAttributes, appAttributes, filterAttributes);
         }
 
-        public UniTask FetchConfig<T1, T2, T3>(T1 userAttributes, T2 appAttributes, T3 filterAttributes)
+        public Awaitable FetchConfig<T1, T2, T3>(T1 userAttributes, T2 appAttributes, T3 filterAttributes)
             where T1 : IUserAttributes
             where T2 : IAppAttributes
             where T3 : IFilterAttributes
@@ -82,6 +83,13 @@ namespace GameSdk.Services.RemoteConfig
             return _remoteConfigProvider.FetchConfig(userAttributes, appAttributes, filterAttributes);
         }
 
+        private async Task FetchConfigAsTask<T1, T2, T3>(string configType, T1 userAttributes, T2 appAttributes, T3 filterAttributes)
+            where T1 : IUserAttributes
+            where T2 : IAppAttributes
+            where T3 : IFilterAttributes
+        {
+            await _remoteConfigProvider.FetchConfig(configType, userAttributes, appAttributes, filterAttributes);
+        }
 
         private void OnConfigFetched(IRemoteConfig remoteConfig)
         {

@@ -1,13 +1,13 @@
-﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace GameSdk.Services.PlayerState
 {
     public interface IPlayerStatesService
     {
-        UniTask Initialize();
-        UniTask Load(PlayerStateProviderType type);
-        UniTask Preload(PlayerStateProviderType type);
-        UniTask Save();
+        Awaitable Initialize();
+        Awaitable Load(PlayerStateProviderType type);
+        Awaitable Preload(PlayerStateProviderType type);
+        Awaitable Save();
 
         void SetProviderEnable(PlayerStateProviderType type, bool isEnable);
     }
