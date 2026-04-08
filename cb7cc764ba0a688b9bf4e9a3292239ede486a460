@@ -1,0 +1,83 @@
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/RemoteConfig/Implement/RemoteConfigService.cs
+  9725f21a45f10517 3-4,34,39,55,59,62,70,78,86-92
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/NetworkConnectivity/GameSdk.Services.InternetReachability.asmdef
+  9725f21a45f10517 16
+GameSdk.Packages/GameSdk.Services/ProjectSettings/PackageManagerSettings.asset
+  9725f21a45f10517 19,21-23,28,30-34,40-43
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services.Unity/PlayerState/UnityCloudSavePlayerStateProvider.cs
+  9725f21a45f10517 11,31,33-36,39,60,78,92
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services.Unity/Authentication/UnityAuthenticationProvider.cs
+  9725f21a45f10517 52,54,57
+GameSdk.Packages/GameSdk.Services/ProjectSettings/ProjectAuditorSettings.asset
+  9725f21a45f10517 1-36
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/Authentication/GameSdk.Services.Authentication.asmdef
+  9725f21a45f10517 17
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services.Unity/Utils/UnityServicesUtility.cs
+  9725f21a45f10517 4,8,16,18,22,27,30,32,35,38
+GameSdk.Packages/GameSdk.Services/Packages/manifest.json
+  9725f21a45f10517 3,5-12,16,30,35,45
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/Authentication/Implement/AuthenticationService.cs
+  9725f21a45f10517 2,17,57,67,69,71,74,82
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/NetworkConnectivity/Implement/NetworkConnectivityService.cs
+  9725f21a45f10517 1,24,45,51,55,96,100,107,117,128
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/RemoteConfig/IRemoteConfigService.cs
+  9725f21a45f10517 1,7
+GameSdk.Packages/GameSdk.Services/Assets/Package/package.json
+  9725f21a45f10517 3
+GameSdk.Packages/GameSdk.Services/ProjectSettings/ProjectSettings.asset
+  9725f21a45f10517 51,68-70,75-77,91,95,122,143,182,185,200,204,207,284-286,458-460,481,498,506,652-653,761,769,876,890-892
+GameSdk.Packages/GameSdk.Services/ProjectSettings/ProjectVersion.txt
+  9725f21a45f10517 1-2
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/PlayerState/Implement/PlayerStatesService.cs
+  9725f21a45f10517 4-5,35,37-39,41,49,54,59,72,76,80,84,88,90,96,100-103,115-118
+GameSdk.Packages/GameSdk.Services/Assets/Package/CHANGELOG.md
+  9725f21a45f10517 1-6
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/NetworkConnectivity/INetworkConnectivityService.cs
+  9725f21a45f10517 17
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/Authentication/IAuthenticationProvider.cs
+  9725f21a45f10517 2,15-16
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/RemoteConfig/GameSdk.Services.RemoteConfig.asmdef
+  9725f21a45f10517 15
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/RemoteConfig/IRemoteConfigProvider.cs
+  9725f21a45f10517 2,16,20,25
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/PlayerState/IPlayerStatesService.cs
+  9725f21a45f10517 1,7-10
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/InApp/GameSdk.Services.InApp.asmdef
+  9725f21a45f10517 27
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/PlayerState/Implement/PlayerPrefsPlayerStateProvider.cs
+  9725f21a45f10517 2,21,23,26,28-29,33,37,39-40,45,47,52,54,57,59-60,65,67
+GameSdk.Packages/GameSdk.Services/.gitignore
+  9725f21a45f10517 40-41
+GameSdk.Packages/GameSdk.Services/Assets/Package/CHANGELOG.md.meta
+  9725f21a45f10517 1-7
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/InApp/Extensions/InAppServiceExtensions.cs
+  9725f21a45f10517 2,26,28-29,34-39,41-43,46,48-51,55,57-58,64-69,71-77,83,87-88,99-100
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services/PlayerState/IPlayerStateProvider.cs
+  9725f21a45f10517 2,11,13-16
+GameSdk.Packages/GameSdk.Services/Assets/Package/Runtime/Services.Unity/RemoteConfig/UnityRemoteConfigProvider.cs
+  9725f21a45f10517 6,24,27,43,70
+GameSdk.Packages/GameSdk.Services/ProjectSettings/PhysicsCoreProjectSettings2D.asset
+  9725f21a45f10517 1-6
+GameSdk.Packages/GameSdk.Services/Packages/packages-lock.json
+  9725f21a45f10517 4,11,18,20-21,28-33,37,46,50,55,64,71,78,91,96,102,115,120,127,137,148,155,157,159,162,165,169-170,175,187,192-195,206,215,223-229,241-243,317-324,369-376,391-393,457,462-464,467,472,475,480-482
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "cb7cc764ba0a688b9bf4e9a3292239ede486a460",
+  "prompts": {
+    "9725f21a45f10517": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019d6dbe-03d7-7170-830e-68a12c819673",
+        "model": "gpt-5.3-codex"
+      },
+      "human_author": "Eugene Cheshenkov <e.cheshenkov@gmail.com>",
+      "messages": [],
+      "total_additions": 1117,
+      "total_deletions": 924,
+      "accepted_lines": 1111,
+      "overriden_lines": 0
+    }
+  }
+}
