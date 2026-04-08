@@ -1,9 +1,7 @@
 {
     "name": "DataSource",
     "rootNamespace": "",
-    "references": [
-        "UniTask"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

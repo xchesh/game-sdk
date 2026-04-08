@@ -1,6 +1,6 @@
 using System;
-using Cysharp.Threading.Tasks;
 using Reflex.Core;
+using UnityEngine;
 using UnityEngine.Scripting;
 using UnityEngine.UIElements;
 
@@ -19,9 +19,12 @@ public class DataSourceResolver : IDataSourceResolver
         _uiDocument = uiDocument;
     }
 
-    public async UniTask Initialize()
+    public async Awaitable Initialize()
     {
-        await UniTask.WaitUntil(() => _uiDocument.runtimePanel != null);
+        while (_uiDocument.runtimePanel == null)
+        {
+            await Awaitable.NextFrameAsync();
+        }
 
         _uiDocument.runtimePanel.visualTree.dataSource = this;
 

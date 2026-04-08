@@ -1,11 +1,11 @@
 using System;
-using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 public interface IDataSourceResolver : IDisposable
 {
     bool IsInitialized { get; }
 
-    UniTask Initialize();
+    Awaitable Initialize();
     T Resolve<T>();
     object Resolve(System.Type type);
 }

@@ -2,7 +2,6 @@
     "name": "DataSource.VContainer",
     "rootNamespace": "",
     "references": [
-        "UniTask",
         "VContainer",
         "DataSource"
     ],
