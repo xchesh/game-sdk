@@ -1,0 +1,51 @@
+GameSdk.Packages/GameSdk.Core/ProjectSettings/ProjectSettings.asset
+  14d9ec9202eb6f05 51,68-70,75-77,91,95,122,143,182,185,200,204,207,284-286,458-460,481,498,506,652-653,761,769,876,890-892
+GameSdk.Packages/GameSdk.Core/ProjectSettings/PhysicsCoreProjectSettings2D.asset
+  14d9ec9202eb6f05 1-6
+GameSdk.Packages/GameSdk.Core/ProjectSettings/ProjectAuditorSettings.asset
+  14d9ec9202eb6f05 1-36
+GameSdk.Packages/GameSdk.Core/Assets/Package/Runtime/Prices/Implement/PricesSystem.cs
+  14d9ec9202eb6f05 3,19
+GameSdk.Packages/GameSdk.Core/Assets/Package/Runtime/Toolbox/Extensions/AnimationExtensions.cs
+  14d9ec9202eb6f05 1,20,42
+GameSdk.Packages/GameSdk.Core/ProjectSettings/PackageManagerSettings.asset
+  14d9ec9202eb6f05 19,21-23,28,30-34,40-43
+GameSdk.Packages/GameSdk.Core/Assets/Package/CHANGELOG.md
+  14d9ec9202eb6f05 1-12
+GameSdk.Packages/GameSdk.Core/Packages/manifest.json
+  14d9ec9202eb6f05 4-5,7,19,21,30-31
+GameSdk.Packages/GameSdk.Core/Assets/Package/Runtime/Prices/IPricesSystem.cs
+  14d9ec9202eb6f05 3,13
+GameSdk.Packages/GameSdk.Core/Assets/Package/package.json
+  14d9ec9202eb6f05 3
+GameSdk.Packages/GameSdk.Core/Packages/packages-lock.json
+  14d9ec9202eb6f05 4,11,21-26,30,39,43,48,57,64,71,78,82,88,92-93,98,103-106,118-124,136-138,195-202,216-229,246-248,311-319
+GameSdk.Packages/GameSdk.Core/Assets/Package/Runtime/Prices/IPrice.cs
+  14d9ec9202eb6f05 1,3,13
+GameSdk.Packages/GameSdk.Core/ProjectSettings/ProjectVersion.txt
+  14d9ec9202eb6f05 1-2
+GameSdk.Packages/GameSdk.Core/.gitignore
+  14d9ec9202eb6f05 40-41
+GameSdk.Packages/GameSdk.Core/Assets/Package/CHANGELOG.md.meta
+  14d9ec9202eb6f05 1-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "5e73892f9618cde45e5b12c601fe66467d55b125",
+  "prompts": {
+    "14d9ec9202eb6f05": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019d6d6f-b487-7a61-9031-5aad02241b12",
+        "model": "gpt-5.4"
+      },
+      "human_author": "Eugene Cheshenkov <e.cheshenkov@gmail.com>",
+      "messages": [],
+      "total_additions": 303,
+      "total_deletions": 148,
+      "accepted_lines": 280,
+      "overriden_lines": 0
+    }
+  }
+}
