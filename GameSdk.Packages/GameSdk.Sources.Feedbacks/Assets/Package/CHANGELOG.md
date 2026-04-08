@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1] - 2026-04-08
+
+### Changed
+
+- Aligned Awaitable parallel aggregation with Unity documentation by bridging to `.NET Task.WhenAll`.
+- Replaced local `WhenAll` helper usage with `WaitAll` extension for `IEnumerable<Awaitable>`.
+
 ## [1.1.0] - 2026-04-08
 
 ### Changed

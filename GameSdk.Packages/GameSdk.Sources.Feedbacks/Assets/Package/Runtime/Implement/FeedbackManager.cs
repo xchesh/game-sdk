@@ -54,7 +54,7 @@ namespace GameSdk.Sources.Feedbacks
                 tasks.Add(PlayFeedback(feedback, cancellationToken, parameters));
             }
 
-            await AwaitableFeedbackUtility.WhenAll(tasks);
+            await tasks.WaitAll();
         }
 
         private static async Awaitable PlayFeedbackSequentially(IEnumerable<IFeedbackData> feedbacks, CancellationToken cancellationToken, params object[] parameters)
