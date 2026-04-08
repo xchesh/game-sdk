@@ -1,6 +1,6 @@
-﻿using System.Linq;
+using System;
+using System.Linq;
 using System.Threading;
-using Cysharp.Threading.Tasks;
 using GameSdk.Core.Loggers;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ namespace GameSdk.Sources.Feedbacks
 {
     public class CameraShakeStrategy : IFeedbackStrategy<CameraShakeData>
     {
-        public async UniTask Execute(CameraShakeData data, CancellationToken cancellationToken, params object[] parameters)
+        public async Awaitable Execute(CameraShakeData data, CancellationToken cancellationToken, params object[] parameters)
         {
             var camera = parameters.OfType<Camera>().FirstOrDefault() ?? Camera.main;
 
@@ -26,13 +26,21 @@ namespace GameSdk.Sources.Feedbacks
             {
                 while (elapsedTime < data.Duration && !cancellationToken.IsCancellationRequested)
                 {
-                    var x = Random.Range(-1f, 1f) * data.Intensity;
-                    var y = Random.Range(-1f, 1f) * data.Intensity;
+                    var x = UnityEngine.Random.Range(-1f, 1f) * data.Intensity;
+                    var y = UnityEngine.Random.Range(-1f, 1f) * data.Intensity;
 
                     camera.transform.localPosition = new Vector3(x, y, originalPos.z);
 
                     elapsedTime += Time.deltaTime;
-                    await UniTask.Yield(cancellationToken);
+
+                    try
+                    {
+                        await Awaitable.NextFrameAsync(cancellationToken);
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        break;
+                    }
                 }
             }
             finally

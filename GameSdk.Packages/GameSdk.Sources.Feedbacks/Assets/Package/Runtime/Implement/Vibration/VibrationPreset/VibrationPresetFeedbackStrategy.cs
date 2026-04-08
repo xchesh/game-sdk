@@ -1,17 +1,17 @@
-﻿using System;
+using System;
 using System.Threading;
-using Cysharp.Threading.Tasks;
 using Lofelt.NiceVibrations;
+using UnityEngine;
 
 namespace GameSdk.Sources.Feedbacks
 {
     public class VibrationPresetFeedbackStrategy : IFeedbackStrategy<VibrationPresetFeedbackData>
     {
-        public async UniTask Execute(VibrationPresetFeedbackData data, CancellationToken cancellationToken, params object[] parameters)
+        public async Awaitable Execute(VibrationPresetFeedbackData data, CancellationToken cancellationToken, params object[] parameters)
         {
             HapticPatterns.PlayPreset(data.VibrationType);
             var duration = HapticPatterns.GetPresetDuration(data.VibrationType);
-            await UniTask.Delay(TimeSpan.FromSeconds(duration), cancellationToken: cancellationToken).SuppressCancellationThrow();
+            await Awaitable.WaitForSecondsAsync(duration, cancellationToken).SuppressCancellationThrow();
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading;
-using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace GameSdk.Sources.Feedbacks
 {
@@ -11,7 +11,7 @@ namespace GameSdk.Sources.Feedbacks
 
         private static readonly IDictionary<Type, IFeedbackStrategy> strategies = new Dictionary<Type, IFeedbackStrategy>();
 
-        public static async UniTask PlayFeedback<T>(T data, FeedbackPlaybackType playbackType = FeedbackPlaybackType.PARALLEL, CancellationToken cancellationToken = default, params object[] parameters) where T : IFeedbackData
+        public static async Awaitable PlayFeedback<T>(T data, FeedbackPlaybackType playbackType = FeedbackPlaybackType.PARALLEL, CancellationToken cancellationToken = default, params object[] parameters) where T : IFeedbackData
         {
             if (playbackType == FeedbackPlaybackType.PARALLEL)
             {
@@ -23,7 +23,7 @@ namespace GameSdk.Sources.Feedbacks
             }
         }
 
-        public static async UniTask PlayFeedback(IEnumerable<IFeedbackData> feedbacks, FeedbackPlaybackType playbackType = FeedbackPlaybackType.PARALLEL, CancellationToken cancellationToken = default, params object[] parameters)
+        public static async Awaitable PlayFeedback(IEnumerable<IFeedbackData> feedbacks, FeedbackPlaybackType playbackType = FeedbackPlaybackType.PARALLEL, CancellationToken cancellationToken = default, params object[] parameters)
         {
             if (playbackType == FeedbackPlaybackType.PARALLEL)
             {
@@ -45,21 +45,19 @@ namespace GameSdk.Sources.Feedbacks
             strategies.Remove(strategy.DataType);
         }
 
-        private static async UniTask PlayFeedbackInParallel(IEnumerable<IFeedbackData> feedbacks, CancellationToken cancellationToken, params object[] parameters)
+        private static async Awaitable PlayFeedbackInParallel(IEnumerable<IFeedbackData> feedbacks, CancellationToken cancellationToken, params object[] parameters)
         {
-            var tasks = new List<UniTask>();
+            var tasks = new List<Awaitable>();
 
             foreach (var feedback in feedbacks)
             {
                 tasks.Add(PlayFeedback(feedback, cancellationToken, parameters));
             }
 
-            await UniTask.WhenAll(tasks);
-
-            tasks.Clear();
+            await AwaitableFeedbackUtility.WhenAll(tasks);
         }
 
-        private static async UniTask PlayFeedbackSequentially(IEnumerable<IFeedbackData> feedbacks, CancellationToken cancellationToken, params object[] parameters)
+        private static async Awaitable PlayFeedbackSequentially(IEnumerable<IFeedbackData> feedbacks, CancellationToken cancellationToken, params object[] parameters)
         {
             foreach (var feedback in feedbacks)
             {
@@ -67,7 +65,7 @@ namespace GameSdk.Sources.Feedbacks
             }
         }
 
-        private static async UniTask PlayFeedback<T>(T data, CancellationToken cancellationToken, params object[] parameters) where T : IFeedbackData
+        private static async Awaitable PlayFeedback<T>(T data, CancellationToken cancellationToken, params object[] parameters) where T : IFeedbackData
         {
             var dataType = data.GetType();
 

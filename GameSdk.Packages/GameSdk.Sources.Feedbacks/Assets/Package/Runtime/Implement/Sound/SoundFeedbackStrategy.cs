@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using Cysharp.Threading.Tasks;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -40,7 +39,7 @@ namespace GameSdk.Sources.Feedbacks
             Object.Destroy(audioSource.gameObject);
         }
 
-        public async UniTask Execute(SoundFeedbackData data, CancellationToken cancellationToken, params object[] parameters)
+        public async Awaitable Execute(SoundFeedbackData data, CancellationToken cancellationToken, params object[] parameters)
         {
             var audioSource = audioSourcePool.Get();
 
@@ -62,15 +61,13 @@ namespace GameSdk.Sources.Feedbacks
             {
                 try
                 {
-                    await UniTask.WaitUntil(() => !audioSource.isPlaying || cancellationToken.IsCancellationRequested, cancellationToken: cancellationToken);
+                    await AwaitableFeedbackUtility.WaitUntil(() => !audioSource.isPlaying, cancellationToken);
                 }
                 finally
                 {
                     audioSourcePool.Release(audioSource);
                 }
             }
-
-            await UniTask.CompletedTask;
         }
     }
 }

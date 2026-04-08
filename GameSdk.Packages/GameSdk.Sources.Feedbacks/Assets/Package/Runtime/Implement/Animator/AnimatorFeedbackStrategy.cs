@@ -1,16 +1,16 @@
-﻿using System;
+using System;
 using System.Threading;
-using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace GameSdk.Sources.Feedbacks
 {
     public class AnimatorFeedbackStrategy : IFeedbackStrategy<AnimatorFeedbackData>
     {
-        public async UniTask Execute(AnimatorFeedbackData data, CancellationToken cancellationToken, params object[] parameters)
+        public async Awaitable Execute(AnimatorFeedbackData data, CancellationToken cancellationToken, params object[] parameters)
         {
             data.Animator.SetTrigger(data.TriggerName);
 
-            await UniTask.Delay(TimeSpan.FromSeconds(data.Duration), cancellationToken: cancellationToken).SuppressCancellationThrow();
+            await Awaitable.WaitForSecondsAsync(data.Duration, cancellationToken).SuppressCancellationThrow();
         }
     }
 }

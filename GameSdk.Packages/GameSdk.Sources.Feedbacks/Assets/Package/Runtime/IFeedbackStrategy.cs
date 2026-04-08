@@ -1,5 +1,5 @@
-﻿using System.Threading;
-using Cysharp.Threading.Tasks;
+using System.Threading;
+using UnityEngine;
 
 namespace GameSdk.Sources.Feedbacks
 {
@@ -12,6 +12,6 @@ namespace GameSdk.Sources.Feedbacks
     {
         System.Type IFeedbackStrategy.DataType => typeof(T);
 
-        UniTask Execute(T data, CancellationToken cancellationToken, params object[] parameters);
+        Awaitable Execute(T data, CancellationToken cancellationToken, params object[] parameters);
     }
 }

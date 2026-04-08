@@ -1,6 +1,6 @@
-﻿using System;
+using System;
+using System.Linq;
 using System.Threading;
-using Cysharp.Threading.Tasks;
 using GameSdk.Core.Loggers;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -9,7 +9,7 @@ namespace GameSdk.Sources.Feedbacks
 {
     public class TransitionClassFeedbackStrategy : IFeedbackStrategy<TransitionClassFeedbackData>
     {
-        public async UniTask Execute(TransitionClassFeedbackData data, CancellationToken cancellationToken, params object[] parameters)
+        public async Awaitable Execute(TransitionClassFeedbackData data, CancellationToken cancellationToken, params object[] parameters)
         {
             if (parameters.Length == 0 || parameters[0] is not VisualElement visualElement)
             {
@@ -18,19 +18,24 @@ namespace GameSdk.Sources.Feedbacks
                 return;
             }
 
-            var taskCompletionSource = AutoResetUniTaskCompletionSource.Create();
+            var completionSource = new AwaitableCompletionSource();
 
             visualElement.RemoveFromClassList(data.TransitionClass);
             visualElement.RegisterCallback<TransitionEndEvent>(OnTransitionEndEvent);
             visualElement.schedule.Execute(() => { visualElement.AddToClassList(data.TransitionClass); }).ExecuteLater(0);
+            using var cancellationRegistration = cancellationToken.Register(() => completionSource.TrySetCanceled());
 
             try
             {
-                await taskCompletionSource.Task.AttachExternalCancellation(cancellationToken);
+                await completionSource.Awaitable;
             }
             catch (OperationCanceledException)
             {
                 visualElement.RemoveFromClassList(data.TransitionClass);
+            }
+            finally
+            {
+                visualElement.UnregisterCallback<TransitionEndEvent>(OnTransitionEndEvent);
             }
 
             return;
@@ -42,8 +47,7 @@ namespace GameSdk.Sources.Feedbacks
                     return;
                 }
 
-                visualElement.UnregisterCallback<TransitionEndEvent>(OnTransitionEndEvent);
-                taskCompletionSource.TrySetResult();
+                completionSource.TrySetResult();
             }
         }
     }
