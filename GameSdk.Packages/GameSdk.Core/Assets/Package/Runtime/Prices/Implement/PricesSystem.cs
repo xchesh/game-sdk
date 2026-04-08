@@ -1,6 +1,6 @@
-﻿using Cysharp.Threading.Tasks;
 using GameSdk.Core.Common;
 using GameSdk.Core.Essentials;
+using UnityEngine;
 
 namespace GameSdk.Core.Prices
 {
@@ -16,7 +16,7 @@ namespace GameSdk.Core.Prices
             return priceData != null && _manager.Get(priceData.GetType()).CanPurchase(priceData, parameters);
         }
 
-        public UniTask<IPriceResult> Purchase(IPriceData priceData, params IParameter[] parameters)
+        public Awaitable<IPriceResult> Purchase(IPriceData priceData, params IParameter[] parameters)
         {
             return _manager.Get(priceData.GetType()).Purchase(priceData, parameters);
         }

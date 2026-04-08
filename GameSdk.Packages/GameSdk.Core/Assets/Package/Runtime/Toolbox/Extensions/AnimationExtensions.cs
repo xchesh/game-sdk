@@ -1,5 +1,4 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
+using System;
 using UnityEngine;
 
 namespace GameSdk.Core.Toolbox
@@ -18,7 +17,7 @@ namespace GameSdk.Core.Toolbox
         /// <param name="duration">The duration of the animation.</param>
         /// <param name="normalizedEventMoment">The normalized time of the animation to invoke the callback at.</param>
         /// <param name="onEventCallback">The callback to invoke at the specified moment.</param>
-        public static async UniTask DoMotionTime(
+        public static async Awaitable DoMotionTime(
             this Animator animator,
             float duration,
             float normalizedEventMoment = 0.5f,
@@ -40,7 +39,7 @@ namespace GameSdk.Core.Toolbox
                     onEventCallback?.Invoke();
                 }
 
-                await UniTask.Yield();
+                await Awaitable.NextFrameAsync();
             }
         }
     }

@@ -1,6 +1,6 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
+using System;
 using GameSdk.Core.Common;
+using UnityEngine;
 
 namespace GameSdk.Core.Prices
 {
@@ -10,6 +10,6 @@ namespace GameSdk.Core.Prices
 
         bool CanPurchase(IPriceData data, params IParameter[] parameters);
 
-        UniTask<IPriceResult> Purchase(IPriceData data, params IParameter[] parameters);
+        Awaitable<IPriceResult> Purchase(IPriceData data, params IParameter[] parameters);
     }
 }
