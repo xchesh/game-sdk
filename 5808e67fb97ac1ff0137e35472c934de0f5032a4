@@ -1,0 +1,37 @@
+GameSdk.Packages/GameSdk.Sources.Json/ProjectSettings/ProjectVersion.txt
+  327a1f34840e66b7 1-2
+GameSdk.Packages/GameSdk.Sources.Json/ProjectSettings/ProjectSettings.asset
+  327a1f34840e66b7 51,68-70,75-77,91,95,122,143,182,185,200,204,207,284-286,458-460,481,498,506,652-653,761,769,876,890-892
+GameSdk.Packages/GameSdk.Sources.Json/ProjectSettings/PhysicsCoreProjectSettings2D.asset
+  327a1f34840e66b7 1-6
+GameSdk.Packages/GameSdk.Sources.Json/ProjectSettings/ProjectAuditorSettings.asset
+  327a1f34840e66b7 1-36
+GameSdk.Packages/GameSdk.Sources.Json/Packages/packages-lock.json
+  327a1f34840e66b7 4,6-7,10,14,19,26,28,30,33,35-47,49-55,61,63-67,72-87,90-154
+GameSdk.Packages/GameSdk.Sources.Json/Packages/manifest.json
+  327a1f34840e66b7 3-9
+GameSdk.Packages/GameSdk.Sources.Json/ProjectSettings/Packages/com.unity.dedicated-server/ContentSelectionSettings.asset
+  327a1f34840e66b7 1-22
+GameSdk.Packages/GameSdk.Sources.Json/ProjectSettings/PackageManagerSettings.asset
+  327a1f34840e66b7 19,21-23,28,30-34,40-43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "5808e67fb97ac1ff0137e35472c934de0f5032a4",
+  "prompts": {
+    "327a1f34840e66b7": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019d6d89-013a-7c81-9c30-2271cc03b663",
+        "model": "gpt-5.4"
+      },
+      "human_author": "Eugene Cheshenkov <e.cheshenkov@gmail.com>",
+      "messages": [],
+      "total_additions": 769,
+      "total_deletions": 269,
+      "accepted_lines": 241,
+      "overriden_lines": 0
+    }
+  }
+}
